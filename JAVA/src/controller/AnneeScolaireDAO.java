@@ -19,31 +19,37 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
     
     public AnneeScolaireDAO(Connection conn) 
     {
+        //appelle le constructeur surchargé de DAO<T>
         super(conn);
     }
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean create(AnneeScolaire obj)
     {
+        //ajouter une AnneeScolaire via requete SQL
         return false;
     }
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean delete(AnneeScolaire obj)
     {
+        //supprimer une AnneeScolaire via requete SQL
         return false;
     }
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean update(AnneeScolaire obj)
     {
+        //Comme recherche mais sans créer un nouvel objet, on utilise l'objet en paramètre et on lui fait prendre des nouvelles 
+        //valeurs en lisant la bdd ?
+        //(Probablement ...)
         return false;
     }
     
     //méthode de recherche de l'annee scolaire via BDD
     public AnneeScolaire find(int id)
     {
-        //On instancie une nouvelle année scolaire (vide, par défaut, elle va se remplir après)
+        //On instancie une nouvelle année scolaire (vide, par défaut, elle va se remplir après tqt)
         AnneeScolaire anneeScolaire = new AnneeScolaire();
         
         
