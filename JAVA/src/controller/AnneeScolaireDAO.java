@@ -15,7 +15,7 @@ import modele.AnneeScolaire;
  * @author ghias
  * https://openclassrooms.com/fr/courses/26832-apprenez-a-programmer-en-java/26830-liez-vos-tables-avec-des-objets-java-le-pattern-dao
  */
-public abstract class AnneeScolaireDAO extends DAO<AnneeScolaire>{
+public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
     
     public AnneeScolaireDAO(Connection conn) 
     {
