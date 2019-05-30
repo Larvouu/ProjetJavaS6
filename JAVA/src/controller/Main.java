@@ -8,16 +8,57 @@ package controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import vue.JframePrincipal;
+import vue.JpanelPageAccueil;
+import vue.JpanelPageEnseignant;
 
 /**
  *
  * @author ghias
  */
-public class Main {
+public class Main 
+{
 
+    private static JframePrincipal jframe1;
+    private static JpanelPageAccueil pageAccueil;
+    private static JpanelPageEnseignant pageEnseignant;
+    
     //La méthode main
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
 
+        /**
+         * MAIN DE SARAH (partie graphique)
+         */
+        jframe1 = new JframePrincipal();
+        pageAccueil = new JpanelPageAccueil();
+        pageEnseignant = new JpanelPageEnseignant();
+
+
+        jframe1.setContentPane(pageAccueil);
+        jframe1.setVisible(true);
+
+        pageAccueil.getButtonConnexion().addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("Vous avez appuyé sur Connexion");
+                System.out.println("Le nom de bdd que vous avez entré : " +  pageAccueil.getTextNomBDD().getText());
+                jframe1.remove(pageAccueil);
+                jframe1.setContentPane(pageEnseignant);
+                jframe1.setVisible(true);
+            }
+         });
+        
+        
+        
+        
+        /**
+         * MAIN DE INNA (modifier infos d'un élève)
+         */
         boolean quit = false;
         do {
             try {
@@ -159,7 +200,5 @@ public class Main {
                 System.out.println(e + "Class Not Found !");
             }
         } while (!quit);
-
-    }//fin main
-
+    }    
 }
