@@ -12,22 +12,30 @@ package modele;
 public class Ecole {
     
     //attributs
+    private int id;
     private String nom;
    
     //constructeur par défaut
     public Ecole(){};
            
     //constructeur surchargé
-    public Ecole(String nom)
+    public Ecole(int id, String nom)
     {
+        this.id = id;
         this.nom = nom;
     }
     
     
     //getters
+    public int getId(){return id;}
     public String getNom(){return nom;}
     
     //setters
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    
     public void setNom(String nom)
     {
         this.nom = nom;

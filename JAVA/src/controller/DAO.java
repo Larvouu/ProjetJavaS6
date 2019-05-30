@@ -10,7 +10,7 @@ import java.sql.Connection;
 /**
  *
  * @author ghias
- * inspiré du patter DAO de openclassroom : 
+ * inspiré du pattern DAO de openclassroom : 
  * https://openclassrooms.com/fr/courses/26832-apprenez-a-programmer-en-java/26830-liez-vos-tables-avec-des-objets-java-le-pattern-dao
  */
 public abstract class DAO<T> {
@@ -18,7 +18,8 @@ public abstract class DAO<T> {
     protected Connection connect = null;
  
     public DAO(Connection conn){
-      this.connect = conn;
+        //se connecte à la bdd (visiblement)
+        this.connect = conn;
     }
 
     //méthode de création

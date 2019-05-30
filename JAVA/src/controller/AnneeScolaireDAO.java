@@ -15,7 +15,10 @@ import modele.AnneeScolaire;
  * @author ghias
  * https://openclassrooms.com/fr/courses/26832-apprenez-a-programmer-en-java/26830-liez-vos-tables-avec-des-objets-java-le-pattern-dao
  */
-public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
+public class AnneeScolaireDAO extends DAO<AnneeScolaire>{ 
+    
+    //Il faut que cette classe contienne toutes les méthodes de DAO<T>, sinon Netbeans
+    //veut la mettre en abstract (alors que c'est pas une classe abstraite)
     
     public AnneeScolaireDAO(Connection conn) 
     {
@@ -26,14 +29,14 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean create(AnneeScolaire obj)
     {
-        //ajouter une AnneeScolaire via requete SQL
+        //ajouter une AnneeScolaire via requete SQL ?
         return false;
     }
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean delete(AnneeScolaire obj)
     {
-        //supprimer une AnneeScolaire via requete SQL
+        //supprimer une AnneeScolaire via requete SQL ?
         return false;
     }
     

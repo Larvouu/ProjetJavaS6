@@ -8,51 +8,51 @@ package controller;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Trimestre;
+import modele.Discipline;
 
 /**
  *
  * @author ghias
  */
-public class TrimestreDAO extends DAO<Trimestre> {
+public class DisciplineDAO extends DAO<Discipline>{
     
-    public TrimestreDAO(Connection conn) 
+    public DisciplineDAO(Connection conn) 
     {
         super(conn);
     }
     
      //Pas encore implémentée
-    public boolean create(Trimestre obj)
+    public boolean create(Discipline obj)
     {
         return false;
     }
     
     //Pas encore implémentée 
-    public boolean delete(Trimestre obj)
+    public boolean delete(Discipline obj)
     {
         return false;
     }
     
     //Pas encore implémentée 
-    public boolean update(Trimestre obj)
+    public boolean update(Discipline obj)
     {
         return false;
     }
     
     
-    public Trimestre find(int id)
+    public Discipline find(int id)
     {
-        Trimestre trimestre = new Trimestre();
+        Discipline discipline = new Discipline();
         
         
         try{
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM trimestre WHERE id = " + id);
+                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM discipline WHERE id = " + id);
             
             if(result.first())
             {
-                trimestre = new Trimestre(id, result.getInt("numero"), result.getString("debut"), result.getString("fin"));
+                discipline = new Discipline(id, result.getString("nom"));
             }
         }
         catch (SQLException exception)
@@ -60,7 +60,8 @@ public class TrimestreDAO extends DAO<Trimestre> {
             exception.printStackTrace();
         }
         
-        return trimestre;
+        return discipline;
     }
+    
     
 }
