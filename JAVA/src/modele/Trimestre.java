@@ -16,6 +16,8 @@ public class Trimestre {
     private int numero;
     private String debut;
     private String fin;
+    
+    private AnneeScolaire anneeScolaire;
    
     //constructeur par défaut
     public Trimestre(){};
@@ -44,6 +46,7 @@ public class Trimestre {
     public int getNumero(){return numero;}
     public String getDebut(){return debut;}
     public String getFin(){return fin;}
+    public AnneeScolaire getAnneeScolaire(){return anneeScolaire;}
     
     //setters
     public void setId(int id)
@@ -66,4 +69,8 @@ public class Trimestre {
         this.fin = fin;
     }
     
+    public void setAnneeScolaire(AnneeScolaire anneeScolaire)
+    {
+        this.anneeScolaire = anneeScolaire;
+    }
 }

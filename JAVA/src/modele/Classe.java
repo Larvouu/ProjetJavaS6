@@ -16,6 +16,10 @@ public class Classe {
     //attributs
     private int id;
     private String nom;
+    
+    private AnneeScolaire anneeScolaire;
+    private Niveau niveau;
+    private Ecole ecole;
    
     //constructeur par défaut
     public Classe(){};
@@ -40,6 +44,9 @@ public class Classe {
     //getters
     public int getId(){return id;}
     public String getNom(){return nom;}
+    public AnneeScolaire getAnneeScolaire(){return anneeScolaire;}
+    public Ecole getEcole(){return ecole;}
+    public Niveau getNiveau(){return niveau;}
     
     //setters
     public void setId(int id)
@@ -51,6 +58,20 @@ public class Classe {
     {
         this.nom = nom;
     }
+    
+    public void setAnneeScolaire(AnneeScolaire anneeScolaire)
+    {
+        this.anneeScolaire = anneeScolaire;
+    }
+    
+    public void setNiveau(Niveau niveau)
+    {
+        this.niveau = niveau;
+    }
  
+    public void setEcole(Ecole ecole)
+    {
+        this.ecole = ecole;
+    }
     
 }
