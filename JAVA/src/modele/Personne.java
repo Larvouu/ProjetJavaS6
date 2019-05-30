@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ghias
@@ -35,6 +37,16 @@ public class Personne {
 //        else 
 //            exception
     }
+        
+    //////////////////////////////////
+    // --------- METHODES --------- //
+    //////////////////////////////////
+    
+
+        
+    //////////////////////////////////
+    // ------- METHODES FIN ------- //
+    //////////////////////////////////
     
     
     //getters
@@ -63,5 +75,6 @@ public class Personne {
     {
         this.type = type;
     }
+
     
 }

@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ghias
@@ -22,6 +24,15 @@ public class Inscription {
     {
         this.id = id;
     }
+        
+    //////////////////////////////////
+    // --------- METHODES --------- //
+    //////////////////////////////////
+
+        
+    //////////////////////////////////
+    // ------- METHODES FIN ------- //
+    //////////////////////////////////
     
     
     //getters
@@ -32,5 +43,6 @@ public class Inscription {
     {
         this.id = id;
     }
+
     
 }

@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ghias
@@ -24,6 +26,15 @@ public class Discipline {
         this.id = id;
         this.nom = nom;
     }
+        
+    //////////////////////////////////
+    // --------- METHODES --------- //
+    //////////////////////////////////
+
+        
+    //////////////////////////////////
+    // ------- METHODES FIN ------- //
+    //////////////////////////////////
     
     
     //getters
@@ -40,5 +51,6 @@ public class Discipline {
     {
         this.nom = nom;
     }
+
        
 }

@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ghias
@@ -24,7 +26,15 @@ public class Ecole {
         this.id = id;
         this.nom = nom;
     }
-    
+        
+    //////////////////////////////////
+    // --------- METHODES --------- //
+    //////////////////////////////////
+        
+
+    //////////////////////////////////
+    // ------- METHODES FIN ------- //
+    //////////////////////////////////
     
     //getters
     public int getId(){return id;}
@@ -40,5 +50,7 @@ public class Ecole {
     {
         this.nom = nom;
     }
+    
+
     
 }
