@@ -7,6 +7,7 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,16 +19,14 @@ import vue.JpanelPageEnseignant;
  *
  * @author ghias
  */
-public class Main 
-{
+public class Main {
 
     private static JframePrincipal jframe1;
     private static JpanelPageAccueil pageAccueil;
     private static JpanelPageEnseignant pageEnseignant;
-    
+
     //La méthode main
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
 
         /**
          * MAIN DE SARAH (partie graphique)
@@ -40,165 +39,232 @@ public class Main
         jframe1.setContentPane(pageAccueil);
         jframe1.setVisible(true);
 
-        pageAccueil.getButtonConnexion().addActionListener(new ActionListener(){
+        pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
 
             @Override
-            public void actionPerformed(ActionEvent e) 
-            {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Vous avez appuyé sur Connexion");
-                System.out.println("Le nom de bdd que vous avez entré : " +  pageAccueil.getTextNomBDD().getText());
+                System.out.println("Le nom de bdd que vous avez entré : " + pageAccueil.getTextNomBDD().getText());
                 jframe1.remove(pageAccueil);
                 jframe1.setContentPane(pageEnseignant);
                 jframe1.setVisible(true);
             }
-         });
-        
-        
-        
-        
+        });
+
+
         /**
          * MAIN DE INNA (modifier infos d'un élève)
          */
+
+        Scanner sc = new Scanner(System.in);
         boolean quit = false;
-        do {
+        String login_bdd =null;
+        String pw_bdd=null;
+        String name_bdd=null;
+        String name=null;
+        String firstname=null;
+        String statut=null;
+
+        String requete = null;
+
+
+        //Connexion à la base de données
+
+
+
+        System.out.println("Nom BBD ?");
+        name_bdd = sc.next();
+
+        System.out.println("login BBD ?");
+        login_bdd = sc.next();
+
+        System.out.println("pw BBD ?");
+        pw_bdd = sc.next();
+        //char pw = pw_bdd.charAt(0);
+
+
+
+
+
+            do {
             try {
-                //Connexion à la base de données
-                Connexion maConnexion = new Connexion("ecole", "root", ""); // Ici il faut enlever le « root » pour le mdp
-                System.out.println("Connexion à la base de données successfull");
-                System.out.println("Que souhaitez vous faire ?");
-                System.out.println("1. Afficher les tables");
-                System.out.println("2. Insérer des données");
-                System.out.println("3. Modifier les données");
-                Scanner sc = new Scanner(System.in);
-                int choix_menu = 0;
-                choix_menu = sc.nextInt();
-                switch (choix_menu) {
-                    case 1:
-                        //REQUETE SELECT
-                        ResultSet résultats = null;
-                        String requete = null;
-                        System.out.println("Quel table voulez vous afficher ?");
-                        System.out.println("1. Personne");
-                        System.out.println("2. Eleve");
-                        System.out.println("3. blabla");
-                        int choix_table = sc.nextInt();
-                        try {
-                            switch (choix_table) {
-                                case 1:
-                                    requete = "SELECT * FROM personne";
-                                    break;
-                                case 2:
-                                    requete = "SELECT * FROM personne";
-                                    break;
-                                case 3:
-                                    requete = "SELECT * FROM personne";
-                                    break;
-                            }
-                            ResultSet rs = maConnexion.getStmt().executeQuery(requete);
-                            while (rs.next()) {
-                                String type = rs.getString("type");
-                                System.out.println("type = " + type);
-                                String prenom = rs.getString("prenom");
-                                System.out.println("prenom = " + prenom);
-                                String nom = rs.getString("nom");
-                                System.out.println("nom = " + nom);
-                            }
-                        } catch (SQLException e) {
-                            //traitement de l'exception
-                            System.out.println("exectepeiton SQL" + e);
-                        }
-                        break;
-                    ///FIN AFFICHER TABLE
-                    case 2:
-                        //DEBUT INSERER DONNEES
-                        System.out.println("Dans quelle table voulezvous inserer des données ?");
-                        System.out.println("1. Personne");
-                        System.out.println("2. Eleve");
-                        System.out.println("3. blabla");
-                        String table_insert = null;
-                        String nom_personne = null;
-                        String prenom_personne = null;
-                        String type_personne = null;
-                        int choix_table_donnees = sc.nextInt();
-                        switch (choix_table_donnees) {
-                            case 1:
-                                table_insert = "personne";
-                                System.out.println("Veuillez rentrer le nouveau nom");
-                                nom_personne = sc.next();
-                                System.out.println("Veuillez rentrer le nouveau prenom");
-                                prenom_personne = sc.next();
-                                System.out.println("Veuillez rentrer le nouveau type");
-                                type_personne = sc.next();
-                                maConnexion.getStmt().executeUpdate("INSERT into personne (nom, prenom, type) VALUES (' " + nom_personne + " ',' " + prenom_personne + " ',' " + type_personne + " ')");
-                                break;
-                            case 2:
-                                table_insert = "eleve";
-                                break;
-                            case 3:
-                                table_insert = "blabla";
-                                break;
-                        }
-                        break;
-                    //FIN INSERER DONNEES
-                    case 3:
-                        //DEBUT MODIF DONNEES
-                        System.out.println("Quelle table souhaitez vous update");
-                        System.out.println("1. Personne");
-                        System.out.println("2. Eleve");
-                        System.out.println("3. blabla");
-                        String table_update = null;
-                        String nom_personne_update = null;
-                        String prenom_personne_update = null;
-                        String type_personne_update = null;
-                        String amodifier = null;
-                        int champ_choix = 0;
+                if ( (name_bdd.equals("ecole") ) && (login_bdd.equals("root")) && (pw_bdd.equals("root")) )
+                {
+                    Connexion maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
+                    System.out.println("Connexion à la base de données successfull");
+                    /// Connexion en tant qu'élève ou professeur
+                    ///Si ses nom prenoms appartiennent à la table en tant qu'élève connexion en tant qu'élève
+                    System.out.println("Nom ?");
+                    name = sc.next();
 
-                        switch (champ_choix) {
-                            case 1:
-                                System.out.println("Quelle champ souhaitez vous modifier ?");
-                                System.out.println("1. nom");
-                                System.out.println("2. prenom");
-                                System.out.println("3. type");
-                                int choix_col_update = 0;
-                                choix_col_update = sc.nextInt();
-                                switch (choix_col_update) {
+                    System.out.println("prenom ?");
+                    firstname = sc.next();
+
+                    System.out.println("statut ?");
+                    statut = sc.next();
+
+                    ///Recuperer le statut ou prenom et nom correspondent
+
+                requete= "SELECT type FROM personne where nom = '" + name + "' AND prenom = '" + firstname + "' ";
+                ResultSet rs = maConnexion.getStmt().executeQuery(requete);
+                while (rs.next()) {
+                    statut = rs.getString("type");
+                }
+            if (statut.equals("eleve"))
+                {
+                    System.out.println("Connecté en tant qu'élève");
+                }
+
+            if(statut.equals("enseignant"))
+                {
+                    System.out.println("Connecte en tant qu'enseignant");
+                }
+
+                    System.out.println("Que souhaitez vous faire ?");
+                    System.out.println("1. Afficher les tables");
+                    System.out.println("2. Insérer des données");
+                    System.out.println("3. Modifier les données");
+
+                    int choix_menu = 0;
+                    choix_menu = sc.nextInt();
+                    switch (choix_menu) {
+                        case 1:
+                            //REQUETE SELECT
+                            ResultSet résultats = null;
+
+                            System.out.println("Quel table voulez vous afficher ?");
+                            System.out.println("1. Personne");
+                            System.out.println("2. Eleve");
+                            System.out.println("3. blabla");
+                            int choix_table = sc.nextInt();
+                            try {
+                                switch (choix_table) {
                                     case 1:
-                                        System.out.println("Rentre le prenom de la personne a modifier");
-                                        amodifier = sc.next();
-                                        System.out.println("Veuillez rentrer le nouveau nom");
-                                        nom_personne_update = sc.next();
-
-                                        maConnexion.getStmt().executeUpdate(" UPDATE personne set nom='" + nom_personne_update + "' where prenom = '" + amodifier + "' ");
+                                        requete = "SELECT * FROM personne";
                                         break;
                                     case 2:
-                                        System.out.println("Rentre le nom de la personne a modifier");
-                                        amodifier = sc.next();
-                                        System.out.println("Veuillez rentrer le nouveau prenom");
-                                        prenom_personne_update = sc.next();
-
-                                        maConnexion.getStmt().executeUpdate(" UPDATE personne set prenom='" + prenom_personne_update + "' where nom = '" + amodifier + "' ");
+                                        requete = "SELECT * FROM personne";
                                         break;
                                     case 3:
-                                        System.out.println("Rentre le nom de la personne a modifier");
-                                        amodifier = sc.next();
-                                        System.out.println("Veuillezrentrer le nouveau type");
-                                        type_personne_update = sc.next();
-
-                                        maConnexion.getStmt().executeUpdate(" UPDATE personne set  type='" + type_personne_update + "' where nom = '" + amodifier + "' ");
+                                        requete = "SELECT * FROM personne";
                                         break;
                                 }
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                        }
-                        break;
+                               rs = maConnexion.getStmt().executeQuery(requete);
+                                while (rs.next()) {
+                                    String type = rs.getString("type");
+                                    System.out.println("type = " + type);
+                                    String prenom = rs.getString("prenom");
+                                    System.out.println("prenom = " + prenom);
+                                    String nom = rs.getString("nom");
+                                    System.out.println("nom = " + nom);
+                                }
+                            } catch (SQLException e) {
+                                //traitement de l'exception
+                                System.out.println("exectepeiton SQL" + e);
+                            }
+                            break;
+                        ///FIN AFFICHER TABLE
+                        case 2:
+                            //DEBUT INSERER DONNEES
+                            System.out.println("Dans quelle table voulezvous inserer des données ?");
+                            System.out.println("1. Personne");
+                            System.out.println("2. Eleve");
+                            System.out.println("3. blabla");
+                            String table_insert = null;
+                            String nom_personne = null;
+                            String prenom_personne = null;
+                            String type_personne = null;
+                            int choix_table_donnees = sc.nextInt();
+                            switch (choix_table_donnees) {
+                                case 1:
+                                    table_insert = "personne";
+                                    System.out.println("Veuillez rentrer le nouveau nom");
+                                    nom_personne = sc.next();
+                                    System.out.println("Veuillez rentrer le nouveau prenom");
+                                    prenom_personne = sc.next();
+                                    System.out.println("Veuillez rentrer le nouveau type");
+                                    type_personne = sc.next();
+                                    maConnexion.getStmt().executeUpdate("INSERT into personne (nom, prenom, type) VALUES (' " + nom_personne + " ',' " + prenom_personne + " ',' " + type_personne + " ')");
+                                    break;
+                                case 2:
+                                    table_insert = "eleve";
+                                    break;
+                                case 3:
+                                    table_insert = "blabla";
+                                    break;
+                            }
+                            break;
+                        //FIN INSERER DONNEES
+                        case 3:
+                            //DEBUT MODIF DONNEES
+                            System.out.println("Quelle table souhaitez vous update");
+                            System.out.println("1. Personne");
+                            System.out.println("2. Eleve");
+                            System.out.println("3. blabla");
+                            String table_update = null;
+                            String nom_personne_update = null;
+                            String prenom_personne_update = null;
+                            String type_personne_update = null;
+                            String amodifier = null;
+                            int champ_choix = 0;
+
+                            switch (champ_choix) {
+                                case 1:
+                                    System.out.println("Quelle champ souhaitez vous modifier ?");
+                                    System.out.println("1. nom");
+                                    System.out.println("2. prenom");
+                                    System.out.println("3. type");
+                                    int choix_col_update = 0;
+                                    choix_col_update = sc.nextInt();
+                                    switch (choix_col_update) {
+                                        case 1:
+                                            System.out.println("Rentre le prenom de la personne a modifier");
+                                            amodifier = sc.next();
+                                            System.out.println("Veuillez rentrer le nouveau nom");
+                                            nom_personne_update = sc.next();
+
+                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set nom='" + nom_personne_update + "' where prenom = '" + amodifier + "' ");
+                                            break;
+                                        case 2:
+                                            System.out.println("Rentre le nom de la personne a modifier");
+                                            amodifier = sc.next();
+                                            System.out.println("Veuillez rentrer le nouveau prenom");
+                                            prenom_personne_update = sc.next();
+
+                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set prenom='" + prenom_personne_update + "' where nom = '" + amodifier + "' ");
+                                            break;
+                                        case 3:
+                                            System.out.println("Rentre le nom de la personne a modifier");
+                                            amodifier = sc.next();
+                                            System.out.println("Veuillezrentrer le nouveau type");
+                                            type_personne_update = sc.next();
+
+                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set  type='" + type_personne_update + "' where nom = '" + amodifier + "' ");
+                                            break;
+                                    }
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    System.out.println("Erreur ");
+                    System.out.println(name_bdd);
+                    System.out.println(login_bdd);
+                    System.out.println(pw_bdd);
+                    quit = true;
                 }
             } catch (SQLException s) {
                 System.out.println(s + " SQL excep");
             } catch (ClassNotFoundException e) {
                 System.out.println(e + "Class Not Found !");
+
             }
-        } while (!quit);
-    }    
+
+        } while (!quit) ;
+    }
 }
