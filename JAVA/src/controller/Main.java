@@ -89,7 +89,7 @@ public class Main {
 
             try {
                 if ( (name_bdd.equals("ecole") ) && (login_bdd.equals("root")) && (pw_bdd.equals("root")) ) {
-                    Connexion maConnexion = new Connexion("ecole", "root", "root"); // Inna il faut enlever le « root » pour le mdp
+                    Connexion maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
                     System.out.println("Connexion à la base de données successfull");
                     /// Connexion en tant qu'élève ou professeur
                     ///Si ses nom prenoms appartiennent à la table en tant qu'élève connexion en tant qu'élève
@@ -217,6 +217,7 @@ public class Main {
                                 String type_personne_update = null;
                                 String amodifier = null;
                                 int champ_choix = 0;
+                                champ_choix = sc.nextInt();
 
                                 switch (champ_choix) {
                                     case 1:
