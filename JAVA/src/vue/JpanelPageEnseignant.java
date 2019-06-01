@@ -45,7 +45,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 

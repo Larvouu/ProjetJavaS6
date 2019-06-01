@@ -221,7 +221,7 @@ public class Main {
                     }
                     else if (nomPrenomExist)
                     {
-                        JOptionPane.showMessageDialog(null, "Vous n'êtes pas un "+statutUser+" ! OU BIEN Vous n'avez pas selcetionné votre statut ");
+                        JOptionPane.showMessageDialog(null, "Vous n'êtes pas un "+statutUser+" ! ");
 
                     }
                     else
