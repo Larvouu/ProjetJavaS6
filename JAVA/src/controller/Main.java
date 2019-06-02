@@ -37,7 +37,7 @@ public class Main {
     private static Connexion maConnexion;
     private static String name_bdd;
     private static String login_bdd;
-    private static String pw_bdd;
+    private static String pw_bdd ="";
     private static boolean connexionBDDOk;
     
     private static String nomUser;
@@ -105,14 +105,14 @@ public class Main {
 
                 
                 //Si le user a saisi les bonnes infos pour se connecter à la bdd
-                if ((name_bdd.equals("ecole")) && (login_bdd.equals("root")) && (pw_bdd.equals("root"))) 
+                if ((name_bdd.equals("ecole")) && (login_bdd.equals("root")) && ((pw_bdd.equals("root")||pw_bdd.equals("")))) 
                 {
                     System.out.println("Connexion à la base de données successfull");
                     try 
                     {
                         //Connexion à la bdd
                         maConnexion = new Connexion("ecole", "root", "");
-                        JOptionPane.showMessageDialog(pageAccueil, "SUCCES : Connexion à la bdd");
+                        JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
                     {
@@ -129,7 +129,7 @@ public class Main {
                 } 
                 else 
                 {
-                    System.out.println("Vous n'avez pas saisi de bonnes donnees");
+                    JOptionPane.showMessageDialog(pageAccueil,"Vous n'avez pas saisi de bonnes donnees");
                 }
 
                 
@@ -207,21 +207,18 @@ public class Main {
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
-                            JOptionPane.showMessageDialog(pageConnexion, "Nom et prenom et statut ont matché ! "+nomComparateur +" "+prenomComparateur+" "+statutUser);
+                            JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEnseignant);
                             jframe1.setVisible(true);
                         }
                         else 
-                            System.out.println("Vous n'avez pas selcetionné votre statut OU BIEN vous n'êtes pas un "+statutUser+" !");
-
-
+                            JOptionPane.showMessageDialog(pageConnexion, "Vos saisies sont incorrectes.");
 
                     } 
                     else if(nomPrenomExist==false)
                     {
-                        JOptionPane.showMessageDialog(null, "Votre nom et prénom n'existe pas dans la bdd.");
-
+                        JOptionPane.showMessageDialog(pageConnexion, "Vos saisies sont incorrectes. Ré-essayez.");
                     
                     }
                     else if (nomPrenomExist)
@@ -252,6 +249,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                JOptionPane.showMessageDialog(pageEleve, "Vous êtes déconnecté.");
                 jframe1.remove(pageEleve);
                 jframe1.setContentPane(pageConnexion);
                 jframe1.setVisible(true);
@@ -262,7 +260,7 @@ public class Main {
                 prenomComparateur="";
                 statutComparateur="";
                 nomPrenomExist=false;
-                JOptionPane.showMessageDialog(null, "Vous êtes déconnecté.");
+                
             }
         });
         
@@ -271,6 +269,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                JOptionPane.showMessageDialog(pageEnseignant, "Vous êtes déconnecté.");
                 jframe1.remove(pageEnseignant);
                 jframe1.setContentPane(pageConnexion);
                 jframe1.setVisible(true);
@@ -281,7 +280,7 @@ public class Main {
                 prenomComparateur="";
                 statutComparateur="";
                 nomPrenomExist=false;
-                JOptionPane.showMessageDialog(null, "Vous êtes déconnecté.");
+                
             }
         });
         
