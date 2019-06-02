@@ -17,6 +17,7 @@ public class Inscription {
     private int id;
     
     private Classe classe;
+    private Personne personne;
    
     //constructeur par défaut
     public Inscription(){};
@@ -40,6 +41,7 @@ public class Inscription {
     //getters
     public int getId(){return id;}
     public Classe getClasse(){return classe;}
+    public Personne getPersonne(){return personne;}
     
     //setters
     public void setId(int id)
@@ -50,6 +52,11 @@ public class Inscription {
     public void setClasse(Classe classe)
     {
         this.classe = classe;
+    }
+    
+    public void setPersonne(Personne personne)
+    {
+        this.personne = personne;
     }
 
     

@@ -16,6 +16,7 @@ public class Enseignement {
     
     private Classe classe;
     private Discipline discipline;
+    private Personne personne;
    
     //constructeur par défaut
     public Enseignement(){};
@@ -39,6 +40,7 @@ public class Enseignement {
     public int getId(){return id;}
     public Classe getClasse(){return classe;}
     public Discipline getDiscipline(){return discipline;}
+    public Personne getPersonne(){return personne;}
     
     //setters
     public void setId(int id)
@@ -54,5 +56,10 @@ public class Enseignement {
     public void setDiscipline(Discipline discipline)
     {
         this.discipline = discipline;
+    }
+    
+    public void setPersonne(Personne personne)
+    {
+        this.personne = personne;
     }
 }
