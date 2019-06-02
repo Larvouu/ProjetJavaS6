@@ -16,6 +16,8 @@ public class Evaluation {
     private float note;
     private String appreciation;
    
+    private DetailBulletin detailBulletin;
+    
     //constructeur par défaut
     public Evaluation(){};
            
@@ -39,7 +41,8 @@ public class Evaluation {
     //getters
     public int getId(){return id;}
     public float getNote(){return note;}
-    public String getAppreciation(){return appreciation;}    
+    public String getAppreciation(){return appreciation;}   
+    public DetailBulletin getDetailBulletin(){return detailBulletin;}
     
     //setters
     public void setId(int id)
@@ -55,6 +58,11 @@ public class Evaluation {
     public void setId(String appreciation)
     {
         this.appreciation = appreciation;
+    }
+    
+    public void setDetailBulletin(DetailBulletin detailBulletin)
+    {
+        this.detailBulletin = detailBulletin;
     }
     
 }

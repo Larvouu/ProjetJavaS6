@@ -13,6 +13,9 @@ public class Enseignement {
     
     //attributs
     private int id;
+    
+    private Classe classe;
+    private Discipline discipline;
    
     //constructeur par défaut
     public Enseignement(){};
@@ -34,6 +37,8 @@ public class Enseignement {
     
     //getters
     public int getId(){return id;}
+    public Classe getClasse(){return classe;}
+    public Discipline getDiscipline(){return discipline;}
     
     //setters
     public void setId(int id)
@@ -41,4 +46,13 @@ public class Enseignement {
         this.id = id;
     }
     
+    public void setClasse(Classe classe)
+    {
+        this.classe = classe;
+    }
+    
+    public void setDiscipline(Discipline discipline)
+    {
+        this.discipline = discipline;
+    }
 }

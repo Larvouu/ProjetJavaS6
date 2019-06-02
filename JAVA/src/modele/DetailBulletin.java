@@ -14,6 +14,9 @@ public class DetailBulletin {
     //attributs
     private int id;
     private String appreciation;
+    
+    private Bulletin bulletin;
+    private Enseignement enseignement;
    
     //constructeur par défaut
     public DetailBulletin(){};
@@ -37,6 +40,8 @@ public class DetailBulletin {
     //getters
     public int getId(){return id;}
     public String getAppreciation(){return appreciation;}
+    public Bulletin getBulletin(){return bulletin;}
+    public Enseignement getEnseignement(){return enseignement;}
     
     //setters
     public void setId(int id)
@@ -48,5 +53,15 @@ public class DetailBulletin {
     {
         this.appreciation = appreciation;
     } 
+     
+    public void setBulletin(Bulletin bulletin)
+    {
+        this.bulletin = bulletin;
+    }
+    
+    public void setEnseignement(Enseignement enseignement)
+    {
+        this.enseignement = enseignement;
+    }
     
 }

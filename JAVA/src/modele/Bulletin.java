@@ -18,6 +18,7 @@ public class Bulletin {
     private String appreciation;
     
     private Trimestre trimestre;
+    private Inscription inscription;
    
     //constructeur par défaut
     public Bulletin(){};
@@ -42,6 +43,7 @@ public class Bulletin {
     public int getId(){return id;}
     public String getAppreciation(){return appreciation;}
     public Trimestre getTrimestre(){return trimestre;}
+    public Inscription getInscription(){return inscription;}
     
     //setters
     public void setId(int id)
@@ -57,6 +59,10 @@ public class Bulletin {
     public void setTrimestre(Trimestre trimestre)
     {
         this.trimestre = trimestre;
+    }
+    public void setInscription(Inscription inscription)
+    {
+        this.inscription = inscription;
     }
      
    
