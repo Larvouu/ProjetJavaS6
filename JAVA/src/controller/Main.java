@@ -20,6 +20,7 @@ import vue.JpanelPageAccueil;
 import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -54,8 +55,8 @@ public class Main {
 
         /**
          * FUSION MAIN DE Inna & Sarah
-         */
-        Scanner sc = new Scanner(System.in);
+         
+        /*Scanner sc = new Scanner(System.in);
         boolean quit = false;
         String statut = null;
 
@@ -63,6 +64,7 @@ public class Main {
         /**
          * MAIN DE SARAH (partie graphique)
          */
+        
         
         //Le seul JFrame
         jframe1 = new JframePrincipal();
@@ -110,13 +112,19 @@ public class Main {
                     {
                         //Connexion à la bdd
                         maConnexion = new Connexion("ecole", "root", "");
-                        JOptionPane.showMessageDialog(null, "SUCCES : Connexion à la bdd");
+                        JOptionPane.showMessageDialog(pageAccueil, "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
                     {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                   
                     connexionBDDOk = true;
+                    
+                    //On change de page : pageAccueil -> pageConnexion
+                    jframe1.remove(pageAccueil);
+                    jframe1.setContentPane(pageConnexion);
+                    jframe1.setVisible(true);
 
                 } 
                 else 
@@ -124,10 +132,7 @@ public class Main {
                     System.out.println("Vous n'avez pas saisi de bonnes donnees");
                 }
 
-                //On change de page : pageAccueil -> pageConnexion
-                jframe1.remove(pageAccueil);
-                jframe1.setContentPane(pageConnexion);
-                jframe1.setVisible(true);
+                
             }
         });
 
@@ -195,14 +200,14 @@ public class Main {
                         //Selon si le user a selcetionné "eleve" ou "prof", le rediriger sur  la bonne page
                         if("eleve".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
-                            JOptionPane.showMessageDialog(null, "Nom et prenom et statut ont matché ! "+nomComparateur +" "+prenomComparateur+" "+statutUser);
+                            JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEleve);
                             jframe1.setVisible(true);
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
-                            JOptionPane.showMessageDialog(null, "Nom et prenom et statut ont matché ! "+nomComparateur +" "+prenomComparateur+" "+statutUser);
+                            JOptionPane.showMessageDialog(pageConnexion, "Nom et prenom et statut ont matché ! "+nomComparateur +" "+prenomComparateur+" "+statutUser);
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEnseignant);
                             jframe1.setVisible(true);
@@ -221,15 +226,19 @@ public class Main {
                     }
                     else if (nomPrenomExist)
                     {
-                        JOptionPane.showMessageDialog(null, "Vous n'êtes pas un "+statutUser+" ! ");
+                        JOptionPane.showMessageDialog(pageConnexion, "Vous n'êtes pas un "+statutUser+" ! ");
 
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Vos saisies sont inexactes.");
+                        JOptionPane.showMessageDialog(pageConnexion, "Vos saisies sont inexactes.");
 
                     }
 
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Vous n'êtes pas connecté au serveur/à la bdd.");
                 }
                
                 
@@ -294,10 +303,10 @@ public class Main {
          String statut=null;
 
          String requete = null;
-         */
+         
         //Connexion à la base de données
 
-        /*
+        
 
          System.out.println("Nom BBD ?");
          name_bdd = sc.next();
@@ -307,12 +316,12 @@ public class Main {
 
          System.out.println("pw BBD ?");
          pw_bdd = sc.next();
-         */
+         
         //char pw = pw_bdd.charAt(0);
         
         
-        /*try {
-            if (connexionBDDOk) {
+        try {
+            if (name_bdd.equals("ecole") && login_bdd.equals("root") && pw_bdd.equals("root")) {
                 maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
                 //Connexion maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
                 System.out.println("Connexion à la base de données successfull");
@@ -418,7 +427,19 @@ public class Main {
                                     prenom_personne = sc.next();
                                     System.out.println("Veuillez rentrer le nouveau type");
                                     type_personne = sc.next();
-                                    maConnexion.getStmt().executeUpdate("INSERT into personne (nom, prenom, type) VALUES (' " + nom_personne + " ',' " + prenom_personne + " ',' " + type_personne + " ')");
+                                    ///////////////////////
+                                   
+                                     String sql = "INSERT into personne (nom, prenom, type) VALUES (?,?,?)";
+                                 
+                                     PreparedStatement pstmt = maConnexion.getConnection().prepareStatement(sql);
+                                     
+                                        pstmt.setString(1, nom_personne );
+                                        pstmt.setString(2, prenom_personne);
+                                        pstmt.setString(3, type_personne);
+                                        pstmt.executeUpdate();
+                                    
+                                    ///////////////////////////
+                                   // maConnexion.getStmt().executeUpdate("INSERT into personne (nom, prenom, type) VALUES (' " + nom_personne + " ',' " + prenom_personne + " ',' " + type_personne + " ')");
                                     break;
                                 case 2:
                                     table_insert = "eleve";
@@ -500,7 +521,7 @@ public class Main {
 
         }
                 
-                */
+         */       
 
     }
 }

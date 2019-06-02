@@ -212,4 +212,9 @@ public class Connexion {
     public void setRsetMeta(ResultSetMetaData rsetmeta) {
         this.rsetMeta = rsetmeta;
     }
+    
+    public Connection getConnection()
+    {
+        return conn;
+    }
 }
