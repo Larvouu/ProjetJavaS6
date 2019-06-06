@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 28 mai 2019 à 15:53
+-- Généré le :  mar. 28 mai 2019 à 16:03
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `anneescolaire`
 --
 
-DROP TABLE IF EXISTS `anneescolaire`;
-CREATE TABLE IF NOT EXISTS `anneescolaire` (
+DROP TABLE IF EXISTS `anneeScolaire`;
+CREATE TABLE IF NOT EXISTS `anneeScolaire` (
   `id` int(250) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -62,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `classe` (
   `id` int(250) NOT NULL AUTO_INCREMENT,
   `nom` varchar(250) DEFAULT NULL,
   `ecole_id` varchar(250) DEFAULT NULL,
-  `discipline_id` int(100) DEFAULT NULL,
-  `personne_id` int(250) DEFAULT NULL,
+  `niveau_id` int(100) DEFAULT NULL,
+  `anneeScolaire_id` int(250) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ecole_id` (`ecole_id`),
-  KEY `discipline_id` (`discipline_id`),
-  KEY `personne_id` (`personne_id`)
+  KEY `niveau_id` (`niveau_id`),
+  KEY `anneeScolaire_id` (`anneeScolaire_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `detailbulletin` (
 DROP TABLE IF EXISTS `discipline`;
 CREATE TABLE IF NOT EXISTS `discipline` (
   `id` int(200) NOT NULL AUTO_INCREMENT,
-  `nom` int(200) DEFAULT NULL,
+  `nom` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
