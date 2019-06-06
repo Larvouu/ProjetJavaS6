@@ -117,7 +117,7 @@ public class Main {
                     try 
                     {
                         //Connexion à la bdd
-                        maConnexion = new Connexion("ecole", "root", "");
+                        maConnexion = new Connexion("ecole", "root", "root"); //inna
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -277,8 +277,8 @@ public class Main {
                 
             }
         });
-        
-        pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
+    //ici il faudrait faire la meme chose pour le modifier des profs enifn que ce soit le mem bouton quoi
+   pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
@@ -286,7 +286,40 @@ public class Main {
                 
             }
        });
-        
+
+
+     /*   pageEnseignant.getJButtonSuppEleve().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformes(ActionEvent e)
+            {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Rentrer le nom de la personne a supprimer");
+                personne.setNom(sc.next());
+                System.out.println("Rentrer le prenom de la personne a supprimer");
+                personne.setprenom(sc.next());
+                personne.setType("eleve");
+                personneDAO.delete(personne);
+            }
+
+        });
+        */
+
+       /* pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformes(ActionEvent e)
+            {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Rentrer le nom de la personne a ajouter");
+                personne.setNom(sc.next());
+                System.out.println("Rentrer le prenom de la personne a ajouter");
+                personne.setprenom(sc.next());
+                personne.setType("eleve");
+                personneDAO.create(personne);
+            }
+
+        });*/
 
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION
@@ -329,6 +362,9 @@ public class Main {
                 
             }
         });
+
+
+
         
         
         

@@ -32,29 +32,28 @@ public class PersonneDAO extends DAO<Personne>{
      */
     public boolean create(Personne obj)
     {
+        /*
         String nom = obj.getNom();
         String prenom = obj.getPrenom();
         String type= obj.getType();
-      //  String classe=obj.getClasse();
         boolean b=true;
 
         try{
-            ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("INSERT INTO personne (nom,prenom,type,classe) VALUES ('"+nom+"','"+prenom+"','"+type+"')");
-                    // ResultSet.CONCUR_READ_ONLY).executeQuery("INSERT INTO personne (nom,prenom,type,classe) VALUES ('"+nom+"','"+prenom+"','"+type+"','"+classe+"')");
+            String sql = "INSERT INTO personne (nom,prenom,type) VALUES (?,?,?)";
+            PreparedStatement pst = connect.preparedStatement(sql);
+            pst.setString(1, nom);
+            pst.setString(2, prenom);
+            pst.setString(3,type);
+            pst.executeUpdate();
 
-            if(result.first())
-            {
-                b= true;
-            }
         }
         catch (SQLException exception)
         {
             exception.printStackTrace();
             b= false;
         }
-        return b;
+        return b; */
+        return false; //a enlever
     }
 
     /**
@@ -62,33 +61,29 @@ public class PersonneDAO extends DAO<Personne>{
      * @param obj
      * @return boolean
      */
-    public boolean delete(Personne obj)
+   public boolean delete(Personne obj)
     {
 
-        String nom = obj.getNom();
+       /*  String nom = obj.getNom();
         String prenom = obj.getPrenom();
         String type= obj.getType();
         boolean b=true;
 
         try{
-            ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("DELETE FROM personne WHERE nom = '"+nom+"' AND prenom = '"+prenom+"' AND type ='"+type+"'");
-
-
-            if(result.first())
-            {
-               b=true;
-
-            }
+            String sql = "DELETE FROM personne WHERE nom = ? AND prenom = ? AND type =?";
+            PreparedStatement pst = connect.preparedStatement(sql);
+            pst.setString(1, nom);
+            pst.setString(2, prenom);
+            pst.setString(3,type);
+            pst.executeUpdate();
         }
         catch (SQLException exception)
         {
             exception.printStackTrace();
             b= false;
         }
-        return b;
-
+        return b;*/
+return false; // a enlever
     }
 
     /**
@@ -115,9 +110,6 @@ public class PersonneDAO extends DAO<Personne>{
                 try{
                     System.out.println("Quel le nouveau nom  ?");
                     new_nom=sc.next();
-//                    ResultSet result = this.connect.createStatement(
-//                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-//                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set nom ='"+new_nom+"'");
                     String sql = "UPDATE personne set nom =? WHERE prenom=? AND type=?";
                     PreparedStatement pst = connect.prepareStatement(sql);
                     pst.setString(1, new_nom);
@@ -135,19 +127,18 @@ public class PersonneDAO extends DAO<Personne>{
                 break;
 
             case "prenom":
-                String new_prenom=null;
+                String new_prenom;
                 try{
-                    System.out.println("Quel le nouveau prenom  ?");
+                    System.out.println("Quel est le nouveau prenom  ?");
                     new_prenom=sc.next();
-                    ResultSet result = this.connect.createStatement(
-                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set prenom ='"+new_prenom+"'");
+                    String sql = "UPDATE personne set prenom =? WHERE nom=? AND type=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_prenom);
+                    pst.setString(2, nom);
+                    pst.setString(3, type);
+                    pst.executeUpdate();
 
-                    if(result.first())
-                    {
-                        b=true;
 
-                    }
                 }
                 catch (SQLException exception)
                 {
@@ -156,20 +147,19 @@ public class PersonneDAO extends DAO<Personne>{
                 }
                 break;
 
-            case "type":
+            case "type": //marche pas
                 String new_type;
                 try{
-                    System.out.println("Quel le nouveau type  ?");
+                    System.out.println("Quel est le nouveau type  ?");
                     new_type=sc.next();
-                    ResultSet result = this.connect.createStatement(
-                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set type ='"+new_type+"'");
+                    String sql = "UPDATE personne set type =? WHERE prenom=? AND nom=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_type);
+                    pst.setString(2, prenom);
+                    pst.setString(3, nom);
+                    pst.executeUpdate();
 
-                    if(result.first())
-                    {
-                        b=true;
 
-                    }
                 }
                 catch (SQLException exception)
                 {
@@ -178,49 +168,6 @@ public class PersonneDAO extends DAO<Personne>{
                 }
                 break;
 
-            case "classe":
-                String new_classe;
-                try{
-                    System.out.println("Quel la nouvelle classe  ?");
-                    new_classe=sc.next();
-                    ResultSet result = this.connect.createStatement(
-                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set classe ='"+new_classe+"'");
-
-                    if(result.first())
-                    {
-                        b=true;
-
-                    }
-                }
-                catch (SQLException exception)
-                {
-                    exception.printStackTrace();
-                    b= false;
-                }
-                break;
-
-            case "ecole":
-                String new_ecole;
-                try{
-                    System.out.println("Quel le nouveau ecole  ?");
-                    new_ecole=sc.next();
-                    ResultSet result = this.connect.createStatement(
-                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set ecole ='"+new_ecole+"'");
-
-                    if(result.first())
-                    {
-                        b=true;
-
-                    }
-                }
-                catch (SQLException exception)
-                {
-                    exception.printStackTrace();
-                    b= false;
-                }
-                break;
         }
 
 
