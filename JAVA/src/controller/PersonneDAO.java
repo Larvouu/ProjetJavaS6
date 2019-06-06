@@ -18,7 +18,7 @@ import modele.Personne;
  */
 public class PersonneDAO extends DAO<Personne>{
     
-    public PersonneDAO(Connexion conn)
+    public PersonneDAO(Connection conn)
     {
         super(conn);
     }
@@ -34,13 +34,14 @@ public class PersonneDAO extends DAO<Personne>{
         String nom = obj.getNom();
         String prenom = obj.getPrenom();
         String type= obj.getType();
-        String classe=obj.getClasse();
+      //  String classe=obj.getClasse();
         boolean b=true;
 
         try{
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("INSERT INTO personne (nom,prenom,type,classe) VALUES ('"+nom+"','"+prenom+"','"+type+"','"+classe+"')");
+                    ResultSet.CONCUR_READ_ONLY).executeQuery("INSERT INTO personne (nom,prenom,type,classe) VALUES ('"+nom+"','"+prenom+"','"+type+"')");
+                    // ResultSet.CONCUR_READ_ONLY).executeQuery("INSERT INTO personne (nom,prenom,type,classe) VALUES ('"+nom+"','"+prenom+"','"+type+"','"+classe+"')");
 
             if(result.first())
             {
@@ -238,7 +239,7 @@ public class PersonneDAO extends DAO<Personne>{
             
             if(result.first())
             {
-                personne = new Personne(id, result.getString("nom") , result.getString("prenom"), result.getString("type"), result.getString("classe"), result.getString("ecole"));
+                personne = new Personne(id, result.getString("nom") , result.getString("prenom"), result.getString("type"));
             }
         }
         catch (SQLException exception)

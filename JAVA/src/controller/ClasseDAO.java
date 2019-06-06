@@ -52,19 +52,7 @@ public class ClasseDAO extends DAO<Classe>{
             
             if(result.first())
             {
-                //La classe prend ses attributs via constructeur surchargé
                 classe = new Classe(id, result.getString("nom"));
-                //On déclare les attributs manquants
-                AnneeScolaireDAO anneeScolaireDAO = new AnneeScolaireDAO(this.connect);
-                EcoleDAO ecoleDAO = new EcoleDAO(this.connect);
-                NiveauDAO niveauDAO = new NiveauDAO(this.connect);
-                //On affilie à la classe la bonne année scolaire
-                //En appelant la methode find de AnneeScolaireDAO
-                classe.setAnneeScolaire(anneeScolaireDAO.find(result.getInt("anneeScolaire_id")));
-                //puis on fait pareil pour école...
-                classe.setEcole(ecoleDAO.find(result.getInt("ecole_id")));
-                //... et niveau
-                classe.setNiveau(niveauDAO.find(result.getInt("niveau_id")));
             }
         }
         catch (SQLException exception)

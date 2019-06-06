@@ -43,6 +43,7 @@ public class Main {
     private static String nomUser;
     private static String prenomUser;
     private static String statutUser;
+    
     private static String nomComparateur;
     private static String prenomComparateur;
     private static String statutComparateur;
@@ -202,6 +203,31 @@ public class Main {
                         {
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
+                            
+                            
+                            //On set les infos de l'élève qui vient de se connecter AVANT D'AFFICHER LA PAGE ELEVE
+                            pageEleve.getJLabelNom().setText(nomUser);
+                            pageEleve.getJLabelPrenom().setText(prenomUser);
+                            String requete2 = "SELECT classe_id FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
+                                
+                            try 
+                            {
+                                rs = maConnexion.getStmt().executeQuery(requete2);
+                                while (rs.next()) {
+                                    String classeEleve = rs.getString("classe_id");
+                                    pageEleve.getJLabelClasse().setText(classeEleve);
+                                }
+                            } 
+                            catch (SQLException ex) 
+                            {
+                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                                
+                            
+                          
+                                    
+                                    
+                            //On affiche la page élève
                             jframe1.setContentPane(pageEleve);
                             jframe1.setVisible(true);
                         }

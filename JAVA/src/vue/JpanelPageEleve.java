@@ -34,9 +34,11 @@ public class JpanelPageEleve extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabelNom = new javax.swing.JLabel();
         jLabelPrenom = new javax.swing.JLabel();
-        jLabelMail = new javax.swing.JLabel();
         jLabelClasse = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -57,40 +59,55 @@ public class JpanelPageEleve extends javax.swing.JPanel {
 
         jLabelPrenom.setText("Prénom");
 
-        jLabelMail.setText("Mail");
-
         jLabelClasse.setText("Classe");
 
         jButton4.setText("Modifier mes infos");
+
+        jLabel2.setText("Nom :");
+
+        jLabel3.setText("Prénom :");
+
+        jLabel4.setText("Classe :");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jLabelClasse)
-                    .addComponent(jLabelNom)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPrenom)
-                    .addComponent(jLabelMail))
+                    .addComponent(jLabelClasse)
+                    .addComponent(jLabelNom))
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(33, 33, 33))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabelNom)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNom)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jLabelPrenom)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPrenom)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(jLabelMail)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelClasse)
-                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelClasse)
+                    .addComponent(jLabel4))
+                .addGap(42, 42, 42)
                 .addComponent(jButton4)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jLabelNom.getAccessibleContext().setAccessibleName("");
@@ -148,7 +165,7 @@ public class JpanelPageEleve extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -195,8 +212,10 @@ public class JpanelPageEleve extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelClasse;
-    private javax.swing.JLabel jLabelMail;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JPanel jPanel1;
@@ -209,6 +228,7 @@ public class JpanelPageEleve extends javax.swing.JPanel {
         return jButton5;
     }
     
+    //GETTERS INFOS ELEVE
     public javax.swing.JLabel getJLabelNom()
     {
         return jLabelNom;
@@ -219,13 +239,13 @@ public class JpanelPageEleve extends javax.swing.JPanel {
         return jLabelPrenom;
     }
     
-    public javax.swing.JLabel getJLabelMail()
-    {
-        return jLabelMail;
-    }
     
     public javax.swing.JLabel getJLabelClasse()
     {
         return jLabelClasse;
     }
+    
+    
+    
+    
 }
