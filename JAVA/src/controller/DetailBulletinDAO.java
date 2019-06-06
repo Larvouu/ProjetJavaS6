@@ -53,6 +53,11 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
             if(result.first())
             {
                 detailBulletin = new DetailBulletin(id, result.getString("appreciation"));
+                
+                EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
+                BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
+                detailBulletin.setBulletin(bulletinDAO.find(result.getInt("bulletin_id")));
+                detailBulletin.setEnseignement(enseignementDAO.find(result.getInt("enseignement_id")));
             }
         }
         catch (SQLException exception)

@@ -53,6 +53,14 @@ public class EnseignementDAO extends DAO<Enseignement> {
             if(result.first())
             {
                 enseignement = new Enseignement(id);
+                
+                PersonneDAO personneDAO = new PersonneDAO(this.connect);
+                ClasseDAO classeDAO = new ClasseDAO(this.connect);
+                DisciplineDAO disciplineDAO = new DisciplineDAO(this.connect);
+                
+                enseignement.setPersonne(personneDAO.find(result.getInt("personne_id")));
+                enseignement.setClasse(classeDAO.find(result.getInt("classe_id")));
+                enseignement.setDiscipline(disciplineDAO.find(result.getInt("discipline_id")));
             }
         }
         catch (SQLException exception)

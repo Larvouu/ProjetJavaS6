@@ -53,6 +53,12 @@ public class BulletinDAO extends DAO<Bulletin> {
             if(result.first())
             {
                 bulletin = new Bulletin(id, result.getString("appreciation"));
+                
+                TrimestreDAO trimestreDAO = new TrimestreDAO(this.connect);
+                InscriptionDAO inscriptionDAO = new InscriptionDAO(this.connect);
+                
+                bulletin.setInscription(inscriptionDAO.find(result.getInt("inscription_id")));
+                bulletin.setTrimestre(trimestreDAO.find(result.getInt("trimestre_id")));
             }
         }
         catch (SQLException exception)

@@ -56,7 +56,7 @@ public class TrimestreDAO extends DAO<Trimestre> {
                 //Mais trimestre a aussi une année scolaire, donc... On déclare une AnneeScolaireDAO
                 AnneeScolaireDAO annScoDAO = new AnneeScolaireDAO(this.connect);
                 //Et on lui donne la bonne année scolaire
-                trimestre.setAnneeScolaire(annScoDAO.find(result.getInt("id")));
+                trimestre.setAnneeScolaire(annScoDAO.find(result.getInt("anneeScolaire_id")));
             }
         }
         catch (SQLException exception)

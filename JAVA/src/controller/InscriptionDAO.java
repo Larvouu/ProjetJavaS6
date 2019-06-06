@@ -53,6 +53,12 @@ public class InscriptionDAO extends DAO<Inscription>{
             if(result.first())
             {
                 inscription = new Inscription(id);
+                
+                PersonneDAO personneDAO = new PersonneDAO(this.connect);
+                ClasseDAO classeDAO = new ClasseDAO(this.connect);
+                
+                inscription.setPersonne(personneDAO.find(result.getInt("personne_id")));
+                inscription.setClasse(classeDAO.find(result.getInt("classe_id")));
             }
         }
         catch (SQLException exception)

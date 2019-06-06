@@ -53,6 +53,8 @@ public class EvaluationDAO extends DAO<Evaluation> {
             if(result.first())
             {
                 evaluation = new Evaluation(id, result.getFloat("note"), result.getString("appreciation"));
+                DetailBulletinDAO detailBulletinDAO = new DetailBulletinDAO(this.connect);
+                evaluation.setDetailBulletin(detailBulletinDAO.find(result.getInt("detailBulletin_id")));
             }
         }
         catch (SQLException exception)
