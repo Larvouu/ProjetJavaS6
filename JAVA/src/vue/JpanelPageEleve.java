@@ -16,6 +16,7 @@ public class JpanelPageEleve extends javax.swing.JPanel {
      */
     public JpanelPageEleve() {
         initComponents();
+        
     }
 
     /**
@@ -31,10 +32,10 @@ public class JpanelPageEleve extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelNom = new javax.swing.JLabel();
+        jLabelPrenom = new javax.swing.JLabel();
+        jLabelMail = new javax.swing.JLabel();
+        jLabelClasse = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -52,13 +53,13 @@ public class JpanelPageEleve extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Mes informations ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Calibri", 1, 14), new java.awt.Color(255, 153, 153))); // NOI18N
 
-        jLabel2.setText("Nom");
+        jLabelNom.setText("Nom");
 
-        jLabel3.setText("Prénom");
+        jLabelPrenom.setText("Prénom");
 
-        jLabel4.setText("Mail");
+        jLabelMail.setText("Mail");
 
-        jLabel5.setText("Classe");
+        jLabelClasse.setText("Classe");
 
         jButton4.setText("Modifier mes infos");
 
@@ -70,27 +71,29 @@ public class JpanelPageEleve extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelClasse)
+                    .addComponent(jLabelNom)
+                    .addComponent(jLabelPrenom)
+                    .addComponent(jLabelMail))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jLabel2)
+                .addComponent(jLabelNom)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(jLabelPrenom)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(jLabelMail)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(jLabelClasse)
                 .addGap(30, 30, 30)
                 .addComponent(jButton4)
                 .addContainerGap(61, Short.MAX_VALUE))
         );
+
+        jLabelNom.getAccessibleContext().setAccessibleName("");
 
         jButton1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jButton1.setText("Mes notes");
@@ -192,10 +195,10 @@ public class JpanelPageEleve extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelClasse;
+    private javax.swing.JLabel jLabelMail;
+    private javax.swing.JLabel jLabelNom;
+    private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -204,5 +207,25 @@ public class JpanelPageEleve extends javax.swing.JPanel {
     public javax.swing.JButton getButtonDeconnexion()
     {
         return jButton5;
+    }
+    
+    public javax.swing.JLabel getJLabelNom()
+    {
+        return jLabelNom;
+    }
+    
+    public javax.swing.JLabel getJLabelPrenom()
+    {
+        return jLabelPrenom;
+    }
+    
+    public javax.swing.JLabel getJLabelMail()
+    {
+        return jLabelMail;
+    }
+    
+    public javax.swing.JLabel getJLabelClasse()
+    {
+        return jLabelClasse;
     }
 }
