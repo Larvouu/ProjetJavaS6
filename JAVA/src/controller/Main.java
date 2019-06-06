@@ -11,6 +11,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,7 @@ import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
+import modele.Personne;
 
 /**
  *
@@ -48,6 +50,9 @@ public class Main {
     private static String prenomComparateur;
     private static String statutComparateur;
     private static boolean nomPrenomExist = false;
+    
+    private static PersonneDAO personneDAO;
+    private static Personne personne;
    
     
 
@@ -201,6 +206,9 @@ public class Main {
                         //Selon si le user a selcetionné "eleve" ou "prof", le rediriger sur  la bonne page
                         if("eleve".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
+                            
+                          personneDAO = new PersonneDAO(maConnexion.getConnection());
+                            
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
                             
@@ -223,8 +231,10 @@ public class Main {
                                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                             }
                                 
-                            
-                          
+                          personne = new Personne();
+                          personne.setNom(nomUser);
+                          personne.setPrenom(prenomUser);
+                          personne.setType(statutUser);
                                     
                                     
                             //On affiche la page élève
@@ -267,6 +277,16 @@ public class Main {
                 
             }
         });
+        
+        pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               personneDAO.update(personne);
+                
+            }
+       });
+        
 
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION

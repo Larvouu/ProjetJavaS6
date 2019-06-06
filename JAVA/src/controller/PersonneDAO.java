@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -106,6 +107,7 @@ public class PersonneDAO extends DAO<Personne>{
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Quel champ souhaitez-vous modifier ? ");
+        modif=sc.next();
         switch(modif)
         {
             case "nom":
@@ -113,15 +115,17 @@ public class PersonneDAO extends DAO<Personne>{
                 try{
                     System.out.println("Quel le nouveau nom  ?");
                     new_nom=sc.next();
-                    ResultSet result = this.connect.createStatement(
-                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set nom ='"+new_nom+"'");
+//                    ResultSet result = this.connect.createStatement(
+//                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+//                            ResultSet.CONCUR_READ_ONLY).executeQuery("UPDATE personne set nom ='"+new_nom+"'");
+                    String sql = "UPDATE personne set nom =? WHERE prenom=? AND type=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_nom);
+                    pst.setString(2, prenom);
+                    pst.setString(3, type);
+                    pst.executeUpdate();
 
-                    if(result.first())
-                    {
-                        b=true;
-
-                    }
+               
                 }
                 catch (SQLException exception)
                 {

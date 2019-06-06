@@ -227,6 +227,11 @@ public class JpanelPageEleve extends javax.swing.JPanel {
     {
         return jButton5;
     }
+    //Getter bouton modifier infos
+    public javax.swing.JButton getJButtonModifInfos()
+    {
+        return jButton4;
+    }
     
     //GETTERS INFOS ELEVE
     public javax.swing.JLabel getJLabelNom()
