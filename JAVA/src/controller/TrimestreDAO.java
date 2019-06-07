@@ -9,13 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Trimestre;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class TrimestreDAO extends DAO<Trimestre> {
+    
+       public boolean create_eval(Trimestre obj, DetailBulletin detailBulletin){return false;}
     
     public TrimestreDAO(Connection conn) 
     {

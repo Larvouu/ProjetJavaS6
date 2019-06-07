@@ -10,13 +10,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-import modele.DetailBulletin;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class DetailBulletinDAO extends DAO<DetailBulletin> {
+    
+       public boolean create_eval(DetailBulletin obj, DetailBulletin detailBulletin){return false;}
     
     public DetailBulletinDAO(Connection conn) 
     {

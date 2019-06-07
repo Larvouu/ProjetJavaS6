@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.AnneeScolaire;
+import modele.*;
 
 /**
  *
@@ -17,6 +17,9 @@ import modele.AnneeScolaire;
  * https://openclassrooms.com/fr/courses/26832-apprenez-a-programmer-en-java/26830-liez-vos-tables-avec-des-objets-java-le-pattern-dao
  */
 public class AnneeScolaireDAO extends DAO<AnneeScolaire>{ 
+    
+    
+    public boolean create_eval(AnneeScolaire obj, DetailBulletin detailBulletin){return false;}
     
     //Il faut que cette classe contienne toutes les méthodes de DAO<T>, sinon Netbeans
     //veut la mettre en abstract (alors que c'est pas une classe abstraite)

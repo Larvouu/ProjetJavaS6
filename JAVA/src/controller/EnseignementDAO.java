@@ -9,13 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Enseignement;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class EnseignementDAO extends DAO<Enseignement> {
+    
+       public boolean create_eval(Enseignement obj, DetailBulletin detailBulletin){return false;}
     
     public EnseignementDAO(Connection conn) 
     {
