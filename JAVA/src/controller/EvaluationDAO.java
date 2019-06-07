@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 import modele.Evaluation;
 
 /**
@@ -36,8 +37,52 @@ public class EvaluationDAO extends DAO<Evaluation> {
     
     //Pas encore implémentée 
     public boolean update(Evaluation obj)
-    {
-        return false;
+    {        
+        boolean b = true;
+        String modif = null;
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Voulez-vous modifier note ou appreciation ?");
+        modif=sc.next();
+        switch(modif)
+        {
+            case "note":
+                Float new_note;
+                try{
+                    System.out.println("Quelle est la nouvelle note  ? (. au lieu de , pour une virgule)");
+                    new_note=sc.nextFloat();
+                    String sql = "UPDATE evaluation set note =? WHERE id=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setFloat(1, new_note);
+                    pst.setInt(2, obj.getId());
+                    pst.executeUpdate();
+                }
+                catch (SQLException exception)
+                {
+                    exception.printStackTrace();
+                    b= false;
+                }
+                break;
+                
+            case "appreciation":
+                String new_app;
+                try{
+                    System.out.println("Quelle est la nouvelle appreciation ?");
+                    new_app=sc.next();
+                    String sql = "UPDATE evaluation set appreciation =? WHERE id=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_app);
+                    pst.setInt(2, obj.getId());
+                    pst.executeUpdate();
+                }
+                catch (SQLException exception)
+                {
+                    exception.printStackTrace();
+                    b= false;
+                }
+                break;
+        }
+        return b;
     }
     
     

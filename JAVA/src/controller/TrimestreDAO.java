@@ -55,6 +55,8 @@ public class TrimestreDAO extends DAO<Trimestre> {
             if(pst.executeQuery().first())
             {
                   trimestre = new Trimestre(id, pst.executeQuery().getInt("numero"), pst.executeQuery().getString("debut"), pst.executeQuery().getString("fin"));
+                   AnneeScolaireDAO annScoDAO = new AnneeScolaireDAO(this.connect);
+                trimestre.setAnneeScolaire(annScoDAO.find(pst.executeQuery().getInt("anneeScolaire_id")));
             }
 
             /*

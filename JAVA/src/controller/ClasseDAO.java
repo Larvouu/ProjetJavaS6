@@ -55,6 +55,14 @@ public class ClasseDAO extends DAO<Classe>{
             if(pst.executeQuery().first())
             {
                  classe = new Classe(id, pst.executeQuery().getString("nom"));
+                 
+                 EcoleDAO ecoleDAO = new EcoleDAO(this.connect);
+                 NiveauDAO niveauDAO = new  NiveauDAO(this.connect);
+                 AnneeScolaireDAO anneeScolaireDAO = new AnneeScolaireDAO(this.connect);
+                 
+                 classe.setEcole(ecoleDAO.find(pst.executeQuery().getInt("ecole_id")));
+                 classe.setNiveau(niveauDAO.find(pst.executeQuery().getInt("niveau_id")));
+                 classe.setAnneeScolaire(anneeScolaireDAO.find(pst.executeQuery().getInt("anneescolaire_id")));
             }
             /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
