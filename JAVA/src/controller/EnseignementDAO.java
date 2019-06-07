@@ -29,6 +29,7 @@ public class EnseignementDAO extends DAO<Enseignement> {
     {
         return false;
     }
+
     
     //Pas encore implémentée 
     public boolean delete(Enseignement obj)
