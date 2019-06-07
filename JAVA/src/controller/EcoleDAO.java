@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Ecole;
@@ -46,6 +47,16 @@ public class EcoleDAO extends DAO<Ecole> {
         
         
         try{
+            String sql = "SELECT * FROM ecole WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   ecole = new Ecole(id, pst.executeQuery().getString("nom"));
+            }
+            /*
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM ecole WHERE id = " + id);
@@ -53,7 +64,7 @@ public class EcoleDAO extends DAO<Ecole> {
             if(result.first())
             {
                 ecole = new Ecole(id, result.getString("nom"));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

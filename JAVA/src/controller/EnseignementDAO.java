@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Enseignement;
@@ -46,6 +47,24 @@ public class EnseignementDAO extends DAO<Enseignement> {
         
         
         try{
+            String sql = "SELECT * FROM enseignement WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   enseignement = new Enseignement(id);
+                   
+                   PersonneDAO personneDAO = new PersonneDAO(this.connect);
+                   ClasseDAO classeDAO = new ClasseDAO(this.connect);
+                   DisciplineDAO disciplineDAO = new DisciplineDAO(this.connect);
+                   
+                   enseignement.setPersonne(personneDAO.find(pst.executeQuery().getInt("personne_id")));
+                   enseignement.setClasse(classeDAO.find(pst.executeQuery().getInt("classe_id")));
+                   enseignement.setDiscipline(disciplineDAO.find(pst.executeQuery().getInt("discipline_id")));
+            }
+            /*
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM enseignement WHERE id = " + id);
@@ -61,7 +80,7 @@ public class EnseignementDAO extends DAO<Enseignement> {
                 enseignement.setPersonne(personneDAO.find(result.getInt("personne_id")));
                 enseignement.setClasse(classeDAO.find(result.getInt("classe_id")));
                 enseignement.setDiscipline(disciplineDAO.find(result.getInt("discipline_id")));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

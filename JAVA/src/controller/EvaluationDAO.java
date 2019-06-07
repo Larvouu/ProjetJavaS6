@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Evaluation;
@@ -46,6 +47,20 @@ public class EvaluationDAO extends DAO<Evaluation> {
         
         
         try{
+            String sql = "SELECT * FROM evaluation WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   evaluation = new Evaluation(id, pst.executeQuery().getFloat("note"), pst.executeQuery().getString("appreciation"));
+                   
+                   DetailBulletinDAO detailBulletinDAO = new DetailBulletinDAO(this.connect);
+                   
+                   evaluation.setDetailBulletin(detailBulletinDAO.find(pst.executeQuery().getInt("detailBulletin_id")));
+            }
+            /*
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM evaluation WHERE id = " + id);
@@ -55,7 +70,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
                 evaluation = new Evaluation(id, result.getFloat("note"), result.getString("appreciation"));
                 DetailBulletinDAO detailBulletinDAO = new DetailBulletinDAO(this.connect);
                 evaluation.setDetailBulletin(detailBulletinDAO.find(result.getInt("detailBulletin_id")));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

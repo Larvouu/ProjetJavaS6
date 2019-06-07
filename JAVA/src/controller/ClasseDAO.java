@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Classe;
@@ -46,14 +47,23 @@ public class ClasseDAO extends DAO<Classe>{
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM classe WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                 classe = new Classe(id, pst.executeQuery().getString("nom"));
+            }
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM classe WHERE id = " + id);
             
             if(result.first())
             {
                 classe = new Classe(id, result.getString("nom"));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

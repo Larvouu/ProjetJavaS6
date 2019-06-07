@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.AnneeScolaire;
@@ -57,7 +58,16 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
         
         
         try{
-            //Commande pour rechercher dans la BDD via une requete SQL, ici select tout dans anneescolaire où l'id correspond à l'id rentré en paramètre
+            String sql = "SELECT * FROM anneescolaire WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   anneeScolaire = new AnneeScolaire(id);
+            }
+            /*//Commande pour rechercher dans la BDD via une requete SQL, ici select tout dans anneescolaire où l'id correspond à l'id rentré en paramètre
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM anneescolaire WHERE id = " + id);
@@ -67,8 +77,8 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
             {
                 //Cette fois l'année scolaire prend la valeur de l'anneeScolaire recherchée
                 //avec l'appel du constructeur surchargé
-                anneeScolaire = new AnneeScolaire(id/*, result.getString("autre_attribut_de_la_table"), ... etc.*/);
-            }
+                anneeScolaire = new AnneeScolaire(id);
+            }*/
         }
         catch (SQLException exception)
         {

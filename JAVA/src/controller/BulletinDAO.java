@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Bulletin;
@@ -46,7 +47,22 @@ public class BulletinDAO extends DAO<Bulletin> {
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM bulletin WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                bulletin = new Bulletin(id, pst.executeQuery().getString("appreciation"));
+                
+                TrimestreDAO trimestreDAO = new TrimestreDAO(this.connect);
+                InscriptionDAO inscriptionDAO = new InscriptionDAO(this.connect);
+                
+                bulletin.setInscription(inscriptionDAO.find(pst.executeQuery().getInt("inscription_id")));
+                bulletin.setTrimestre(trimestreDAO.find(pst.executeQuery().getInt("trimestre_id")));
+            }
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM bulletin WHERE id = " + id);
             
@@ -59,7 +75,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                 
                 bulletin.setInscription(inscriptionDAO.find(result.getInt("inscription_id")));
                 bulletin.setTrimestre(trimestreDAO.find(result.getInt("trimestre_id")));
-            }
+            }*/
         }
         catch (SQLException exception)
         {
