@@ -341,6 +341,7 @@ public class Main {
                 prenomString=sc.next();
                 personne.setPrenom(prenomString);
                 personne.setType("eleve");
+                
                 personneDAO.create(personne);
             }
 
