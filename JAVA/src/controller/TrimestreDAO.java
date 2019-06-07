@@ -29,9 +29,7 @@ public class TrimestreDAO extends DAO<Trimestre> {
     {
         return false;
     }
-
-
-
+    
     //Pas encore implémentée 
     public boolean delete(Trimestre obj)
     {

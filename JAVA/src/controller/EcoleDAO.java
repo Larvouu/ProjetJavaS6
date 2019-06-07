@@ -29,8 +29,7 @@ public class EcoleDAO extends DAO<Ecole> {
     {
         return false;
     }
-
-
+    
     //Pas encore implémentée 
     public boolean delete(Ecole obj)
     {

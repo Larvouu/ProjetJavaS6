@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Classe {
     
     //attributs
-
+    private int id;
     private String nom;
     
     private AnneeScolaire anneeScolaire;
@@ -25,9 +25,9 @@ public class Classe {
     public Classe(){};
            
     //constructeur surchargé
-    public Classe( String nom)
+    public Classe(int id, String nom)
     {
-
+        this.id = id;
         this.nom = nom;
     }
         
@@ -42,14 +42,17 @@ public class Classe {
     
     
     //getters
-
+    public int getId(){return id;}
     public String getNom(){return nom;}
     public AnneeScolaire getAnneeScolaire(){return anneeScolaire;}
     public Ecole getEcole(){return ecole;}
     public Niveau getNiveau(){return niveau;}
     
     //setters
-
+    public void setId(int id)
+    {
+        this.id = id;
+    }
     
     public void setNom(String nom)
     {

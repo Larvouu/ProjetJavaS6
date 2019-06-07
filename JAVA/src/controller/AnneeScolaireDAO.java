@@ -36,7 +36,6 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
         //ajouter une AnneeScolaire via requete SQL ?
         return false;
     }
-    public boolean create_inscription (AnneeScolaire obj, Personne personne) {return false;}
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean delete(AnneeScolaire obj)

@@ -15,6 +15,7 @@ public class Inscription {
     
     //attributs
     private int id;
+    
     private Classe classe;
     private Personne personne;
    
