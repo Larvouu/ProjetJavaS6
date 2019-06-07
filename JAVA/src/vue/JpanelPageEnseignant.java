@@ -43,7 +43,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButtonSupprEleve = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonCreerEleve = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
 
@@ -123,7 +123,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButtonSupprEleve.setText("Suppr un élève");
 
-        jButton7.setText("Ajouter un élève");
+        jButtonCreerEleve.setText("Ajouter un élève");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -146,7 +146,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSupprEleve)
-                            .addComponent(jButton7))))
+                            .addComponent(jButtonCreerEleve))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -157,7 +157,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButtonSupprEleve)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7))
+                        .addComponent(jButtonCreerEleve))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,8 +212,8 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButtonCreerEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -236,4 +236,9 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         return jButtonSupprEleve;
     }
     
+     public javax.swing.JButton getJButtonAddEleve()
+    {
+        return jButtonCreerEleve;
+    }
+     
 }

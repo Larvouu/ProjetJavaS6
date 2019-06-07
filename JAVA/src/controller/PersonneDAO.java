@@ -32,7 +32,7 @@ public class PersonneDAO extends DAO<Personne>{
      */
     public boolean create(Personne obj)
     {
-        /*
+        
         String nom = obj.getNom();
         String prenom = obj.getPrenom();
         String type= obj.getType();
@@ -40,7 +40,7 @@ public class PersonneDAO extends DAO<Personne>{
 
         try{
             String sql = "INSERT INTO personne (nom,prenom,type) VALUES (?,?,?)";
-            PreparedStatement pst = connect.preparedStatement(sql);
+            PreparedStatement pst = connect.prepareStatement(sql);
             pst.setString(1, nom);
             pst.setString(2, prenom);
             pst.setString(3,type);
@@ -52,8 +52,7 @@ public class PersonneDAO extends DAO<Personne>{
             exception.printStackTrace();
             b= false;
         }
-        return b; */
-        return false; //a enlever
+        return b;
     }
 
     /**

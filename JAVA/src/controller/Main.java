@@ -297,11 +297,16 @@ public class Main {
            });
 
 
+        /**
+         * Methode AddActionListener du bouton "Supprimer un élève"
+         * 
+         */
         pageEnseignant.getJButtonSuppEleve().addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+               
                 String nomString;
                 String prenomString;
                 
@@ -319,21 +324,27 @@ public class Main {
         });
         
 
-       /* pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
+       pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
         {
-            @Override
-            public void actionPerformes(ActionEvent e)
+            public void actionPerformed(ActionEvent e)
             {
+                String nomString;
+                String prenomString;
+                
                 Scanner sc = new Scanner(System.in);
-                System.out.println("Rentrer le nom de la personne a ajouter");
-                personne.setNom(sc.next());
+               
+                
+                System.out.println("Rentrer le nom de la personne a ajouter"); 
+                nomString=sc.next();
+                personne.setNom(nomString);
                 System.out.println("Rentrer le prenom de la personne a ajouter");
-                personne.setprenom(sc.next());
+                prenomString=sc.next();
+                personne.setPrenom(prenomString);
                 personne.setType("eleve");
                 personneDAO.create(personne);
             }
 
-        });*/
+        });
 
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION

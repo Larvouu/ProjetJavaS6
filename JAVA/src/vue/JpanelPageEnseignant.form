@@ -198,7 +198,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonSupprEleve" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonCreerEleve" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -214,7 +214,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jButtonSupprEleve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonCreerEleve" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" min="-2" pref="103" max="-2" attributes="0"/>
                       </Group>
@@ -278,7 +278,7 @@
                 <Property name="text" type="java.lang.String" value="Suppr un &#xe9;l&#xe8;ve"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="jButtonCreerEleve">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajouter un &#xe9;l&#xe8;ve"/>
               </Properties>
