@@ -117,7 +117,7 @@ public class Main {
                     try 
                     {
                         //Connexion à la bdd
-                        maConnexion = new Connexion("ecole", "root", "root"); //inna
+                        maConnexion = new Connexion("ecole", "root", ""); //inna
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -231,10 +231,10 @@ public class Main {
                                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                             }
                                 
-                          personne = new Personne();
-                          personne.setNom(nomUser);
-                          personne.setPrenom(prenomUser);
-                          personne.setType(statutUser);
+                            personne = new Personne();
+                            personne.setNom(nomUser);
+                            personne.setPrenom(prenomUser);
+                            personne.setType(statutUser);
                                     
                                     
                             //On affiche la page élève
@@ -243,6 +243,12 @@ public class Main {
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
+                                
+                            personne = new Personne();
+                            personne.setNom(nomUser);
+                            personne.setPrenom(prenomUser);
+                            personne.setType(statutUser);
+                            
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEnseignant);
@@ -277,33 +283,39 @@ public class Main {
                 
             }
         });
-    //ici il faudrait faire la meme chose pour le modifier des profs enifn que ce soit le mem bouton quoi
-   pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) 
-            {
-               personneDAO.update(personne);
-                
-            }
-       });
+        
+        //ici il faudrait faire la meme chose pour le modifier des profs enifn que ce soit le mem bouton quoi
+        pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                   personneDAO.update(personne);
+
+                }
+           });
 
 
-     /*   pageEnseignant.getJButtonSuppEleve().addActionListener(new ActionListener()
+        pageEnseignant.getJButtonSuppEleve().addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformes(ActionEvent e)
+            public void actionPerformed(ActionEvent e)
             {
+                String nomString;
+                String prenomString;
+                
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Rentrer le nom de la personne a supprimer");
-                personne.setNom(sc.next());
+                nomString=sc.next();
+                personne.setNom(nomString);
                 System.out.println("Rentrer le prenom de la personne a supprimer");
-                personne.setprenom(sc.next());
-                personne.setType("eleve");
+                prenomString=sc.next();
+                personne.setPrenom(prenomString);
+       
                 personneDAO.delete(personne);
             }
 
         });
-        */
+        
 
        /* pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
         {

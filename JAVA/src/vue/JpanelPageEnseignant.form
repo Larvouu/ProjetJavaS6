@@ -197,7 +197,7 @@
                               <Component id="jScrollPane1" min="-2" pref="591" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonSupprEleve" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -212,7 +212,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonSupprEleve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -273,7 +273,7 @@
                 <Property name="text" type="java.lang.String" value="Afficher toutes les classes dont je suis prof"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="jButtonSupprEleve">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Suppr un &#xe9;l&#xe8;ve"/>
               </Properties>
