@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 import modele.DetailBulletin;
 
 /**
@@ -37,7 +38,26 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
     //Pas encore implémentée 
     public boolean update(DetailBulletin obj)
     {
-        return false;
+        boolean b = true;
+        Scanner sc = new Scanner(System.in);
+        
+        String new_app;
+        try{
+            System.out.println("Quelle est la nouvelle appreciation ?");
+            new_app = sc.next();   
+            String sql = "UPDATE datailbulletin set appreciation =? WHERE id=?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, new_app);
+            pst.setInt(2, obj.getId());
+            pst.executeUpdate();
+        }
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+            b= false;
+        }
+        
+        return b;
     }
     
     
