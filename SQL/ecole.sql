@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 06 juin 2019 à 17:29
+-- Généré le :  ven. 07 juin 2019 à 09:22
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -81,6 +81,22 @@ CREATE TABLE IF NOT EXISTS `classe` (
   KEY `anneescolaire_id` (`anneescolaire_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `classe`
+--
+
+INSERT INTO `classe` (`nom`, `ecole_id`, `niveau_id`, `anneescolaire_id`) VALUES
+('CP_A', 'Zola', 'CP', 2012),
+('CP_B', 'Zola', 'CP', 2012),
+('CE1_A', 'Zola', 'CE1', 2012),
+('CE1_B', 'Zola', 'CE1', 2012),
+('CE2_A', 'Zola', 'CE2', 2012),
+('CE2_B', 'Zola', 'CE2', 2012),
+('CM1_A', 'Zola', 'CM1', 2012),
+('CM1_B', 'Zola', 'CM1', 2012),
+('CM2_A', 'Zola', 'CM2', 2012),
+('CM2_B', 'Zola', 'CM2', 2012);
+
 -- --------------------------------------------------------
 
 --
@@ -136,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `ecole` (
 --
 
 INSERT INTO `ecole` (`nom`) VALUES
-('Ecole primaire Epidettes');
+('Ecole Zola');
 
 -- --------------------------------------------------------
 
@@ -230,22 +246,20 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(200) DEFAULT NULL,
   `prenom` varchar(200) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
-  `classe_id` varchar(100) DEFAULT NULL,
-  `ecole_id` varchar(200) DEFAULT NULL,
   `enseignement_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `classe_id` (`classe_id`),
-  KEY `ecole_id` (`ecole_id`),
   KEY `enseignement_id` (`enseignement_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
 --
 
-INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`, `classe_id`, `ecole_id`, `enseignement_id`) VALUES
-(1, 'Ndaw', 'Inna', 'eleve', 'CM1_A', 'Ecole primaire Epidettes', NULL),
-(2, 'Hina', 'Manolo', 'prof', NULL, NULL, 1);
+INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`, `enseignement_id`) VALUES
+(1, 'Ndaw', 'Inna', 'eleve', NULL),
+(2, 'Pied', 'Nelly', 'eleve', NULL),
+(3, 'Hina', 'Manolo', 'prof', 1),
+(4, 'Le', 'Kat', 'prof', 1);
 
 -- --------------------------------------------------------
 
