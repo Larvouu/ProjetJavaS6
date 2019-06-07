@@ -243,7 +243,9 @@ public class Main {
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
-                                
+                            
+                            personneDAO = new PersonneDAO(maConnexion.getConnection());
+                            
                             personne = new Personne();
                             personne.setNom(nomUser);
                             personne.setPrenom(prenomUser);
@@ -311,7 +313,7 @@ public class Main {
                 prenomString=sc.next();
                 personne.setPrenom(prenomString);
        
-                personneDAO.delete(personne);
+                boolean delete = personneDAO.delete(personne);
             }
 
         });
@@ -352,6 +354,9 @@ public class Main {
                 statutComparateur="";
                 nomPrenomExist=false;
                 
+                personne=null;
+                personneDAO=null;
+                
             }
         });
         
@@ -371,6 +376,8 @@ public class Main {
                 prenomComparateur="";
                 statutComparateur="";
                 nomPrenomExist=false;
+                personne=null;
+                personneDAO=null;
                 
             }
         });
