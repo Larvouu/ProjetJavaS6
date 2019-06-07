@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Niveau;
@@ -46,14 +47,24 @@ public class NiveauDAO extends DAO<Niveau>{
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM niveau WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   niveau = new Niveau(id, pst.executeQuery().getString("nom"));
+            }
+            
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM niveau WHERE id = " + id);
             
             if(result.first())
             {
                 niveau = new Niveau(id, result.getString("nom"));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

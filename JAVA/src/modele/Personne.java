@@ -18,7 +18,7 @@ public class Personne {
     private String nom;
     private String prenom;
     private String type;
-   
+    
     //constructeur par défaut
     public Personne(){};
            
@@ -55,6 +55,7 @@ public class Personne {
     public String getPrenom(){return prenom;}
     public String getType(){return type;}
     
+
     //setters
     public void setId(int id)
     {
@@ -75,6 +76,6 @@ public class Personne {
     {
         this.type = type;
     }
-
+    
     
 }

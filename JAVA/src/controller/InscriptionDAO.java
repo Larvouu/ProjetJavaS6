@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Inscription;
@@ -46,7 +47,22 @@ public class InscriptionDAO extends DAO<Inscription>{
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM inscription WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   inscription = new Inscription(id);
+                   
+                   PersonneDAO personneDAO = new PersonneDAO(this.connect);
+                   ClasseDAO classeDAO = new ClasseDAO(this.connect);
+                   
+                   inscription.setPersonne(personneDAO.find(pst.executeQuery().getInt("personne_id")));
+                   inscription.setClasse(classeDAO.find(pst.executeQuery().getInt("classe_id")));
+            }
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM inscription WHERE id = " + id);
             
@@ -59,7 +75,7 @@ public class InscriptionDAO extends DAO<Inscription>{
                 
                 inscription.setPersonne(personneDAO.find(result.getInt("personne_id")));
                 inscription.setClasse(classeDAO.find(result.getInt("classe_id")));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

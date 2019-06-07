@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Trimestre;
@@ -46,6 +47,17 @@ public class TrimestreDAO extends DAO<Trimestre> {
         
         
         try{
+            String sql = "SELECT * FROM trimestre WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                  trimestre = new Trimestre(id, pst.executeQuery().getInt("numero"), pst.executeQuery().getString("debut"), pst.executeQuery().getString("fin"));
+            }
+
+            /*
             ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM trimestre WHERE id = " + id);
@@ -57,7 +69,7 @@ public class TrimestreDAO extends DAO<Trimestre> {
                 AnneeScolaireDAO annScoDAO = new AnneeScolaireDAO(this.connect);
                 //Et on lui donne la bonne année scolaire
                 trimestre.setAnneeScolaire(annScoDAO.find(result.getInt("anneeScolaire_id")));
-            }
+            } */
         }
         catch (SQLException exception)
         {

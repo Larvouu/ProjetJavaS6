@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.DetailBulletin;
@@ -46,9 +47,24 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM detailbulletin WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                  detailBulletin = new DetailBulletin(id, pst.executeQuery().getString("appreciation"));
+                  
+                  EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
+                  BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
+                   
+                  detailBulletin.setBulletin(bulletinDAO.find(pst.executeQuery().getInt("bulletin_id")));
+                  detailBulletin.setEnseignement(enseignementDAO.find(pst.executeQuery().getInt("enseignement_id")));
+            }
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM detail_bulletin WHERE id = " + id);
+                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM detailbulletin WHERE id = " + id);
             
             if(result.first())
             {
@@ -58,7 +74,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                 BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
                 detailBulletin.setBulletin(bulletinDAO.find(result.getInt("bulletin_id")));
                 detailBulletin.setEnseignement(enseignementDAO.find(result.getInt("enseignement_id")));
-            }
+            }*/
         }
         catch (SQLException exception)
         {

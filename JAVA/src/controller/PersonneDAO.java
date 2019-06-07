@@ -149,7 +149,7 @@ public class PersonneDAO extends DAO<Personne>{
                 }
                 break;
 
-            case "type": //marche pas
+            case "type": 
                 String new_type;
                 try{
                     System.out.println("Quel est le nouveau type  ?");
@@ -186,13 +186,14 @@ public class PersonneDAO extends DAO<Personne>{
         
         
         try{
-            ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM personne WHERE id = " + id);
+            String sql = "SELECT * FROM personne WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
             
-            if(result.first())
+            if(pst.executeQuery().first())
             {
-                personne = new Personne(id, result.getString("nom") , result.getString("prenom"), result.getString("type"));
+                personne = new Personne(id, pst.executeQuery().getString("nom") , pst.executeQuery().getString("prenom"), pst.executeQuery().getString("type"));
             }
         }
         catch (SQLException exception)

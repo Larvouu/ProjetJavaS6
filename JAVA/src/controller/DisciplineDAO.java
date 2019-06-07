@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Discipline;
@@ -46,14 +47,23 @@ public class DisciplineDAO extends DAO<Discipline>{
         
         
         try{
-            ResultSet result = this.connect.createStatement(
+            String sql = "SELECT * FROM discipline WHERE id = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, id);     
+            pst.executeQuery();
+            
+            if(pst.executeQuery().first())
+            {
+                   discipline = new Discipline(id, pst.executeQuery().getString("nom"));
+            }
+            /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM discipline WHERE id = " + id);
             
             if(result.first())
             {
                 discipline = new Discipline(id, result.getString("nom"));
-            }
+            }*/
         }
         catch (SQLException exception)
         {
