@@ -9,13 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Niveau;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class NiveauDAO extends DAO<Niveau>{
+    
+       public boolean create_eval(Niveau obj, DetailBulletin detailBulletin){return false;}
     
     public NiveauDAO(Connection conn) 
     {

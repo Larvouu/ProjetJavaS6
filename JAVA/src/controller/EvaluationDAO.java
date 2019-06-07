@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import modele.DetailBulletin;
 import modele.Evaluation;
 
 /**
@@ -23,10 +24,32 @@ public class EvaluationDAO extends DAO<Evaluation> {
         super(conn);
     }
     
-     //Pas encore implémentée
-    public boolean create(Evaluation obj)
+    //Inutilisée
+    public boolean create(Evaluation obj){return false;}
+    
+    
+    public boolean create_eval(Evaluation obj, DetailBulletin detailBulletin)
     {
-        return false;
+        Float note = obj.getNote();
+        String appreciation = obj.getAppreciation();
+        boolean b=true;
+        
+        try{
+            String sql = "INSERT INTO Evaluation (note,appreciation,detailbulletin_id) VALUES (?,?,?)";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setFloat(1, note);
+            pst.setString(2, appreciation);
+            pst.setInt(3, detailBulletin.getId());
+            
+            pst.executeUpdate();
+
+        }
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+            b= false;
+        }
+        return b;
     }
     
     //Pas encore implémentée 

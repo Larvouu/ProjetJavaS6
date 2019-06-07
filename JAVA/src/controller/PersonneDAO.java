@@ -11,13 +11,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import modele.Personne;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class PersonneDAO extends DAO<Personne>{
+    
+       public boolean create_eval(Personne obj, DetailBulletin detailBulletin){return false;}
     
     public PersonneDAO(Connection conn)
     {

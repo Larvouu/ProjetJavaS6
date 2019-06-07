@@ -9,13 +9,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Inscription;
+import modele.*;
 
 /**
  *
  * @author ghias
  */
 public class InscriptionDAO extends DAO<Inscription>{
+    
+       public boolean create_eval(Inscription obj, DetailBulletin detailBulletin){return false;}
     
     public InscriptionDAO(Connection conn) 
     {
