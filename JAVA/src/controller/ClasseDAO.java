@@ -115,13 +115,6 @@ public class ClasseDAO extends DAO<Classe>{
         }
     }
     
-    public void rechercherClassesDontJeSuisProf()
-    {
-        String nom="";
-        
-        
-    }
-    
-    
+     
     
 }

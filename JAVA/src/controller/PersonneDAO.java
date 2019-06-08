@@ -379,7 +379,7 @@ public class PersonneDAO extends DAO<Personne>{
                 ResultSet rs_2=pst2.executeQuery();
                 
                 //if j'ai un résultat de la requete deux
-                if(rs_2.next())
+                while(rs_2.next())
                 {
                     System.out.println("Classe : " + enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
                     System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
@@ -391,5 +391,52 @@ public class PersonneDAO extends DAO<Personne>{
             System.out.println(exception);
         }
     }
+     
+     public void rechercherClassesDontJeSuisProf()
+     {
+         String prenom;
+        String nom;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("---------- IDENTIFIEZ VOUS ---------");
+        System.out.println("Prenom");
+        prenom = sc.next();
+        System.out.println("Nom");
+        nom = sc.next();
+        
+        try{
+            //Premiere requete
+            String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, prenom);
+            pst.setString(2, nom);
+            pst.setString(3, "prof");
+            ResultSet rs_find=pst.executeQuery();
+
+            //if j'ai un résultat
+            if(rs_find.next())
+            {
+                
+                EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
+                
+                // Deuxieme requete
+                String sql2 = "SELECT * FROM enseignement WHERE personne_id = ?";
+                PreparedStatement pst2 = connect.prepareStatement(sql2);
+                pst2.setInt(1, rs_find.getInt("id"));
+                ResultSet rs_2=pst2.executeQuery();
+                
+                //if j'ai un résultat de la requete deux
+                while(rs_2.next())
+                {
+                    System.out.println("Classe : " + enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                    System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
+                } 
+            }
+        }
+        catch (SQLException exception)
+        {
+            System.out.println(exception);
+        }
+     }
     
 }

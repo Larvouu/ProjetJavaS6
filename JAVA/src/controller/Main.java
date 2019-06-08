@@ -245,9 +245,9 @@ public class Main {
                             
                             personne = new Personne();
                             System.out.println("Id = " +personne.getId());
+                            
 
-
-                            System.out.println("Id = " +personne.getId());
+                            
                             personne.setNom(nomUser);
                             personne.setPrenom(prenomUser);
                             personne.setType(statutUser);
@@ -477,8 +477,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                ClasseDAO classeDAO_cdjsp = new ClasseDAO(maConnexion.getConnection());
-                //classeDAO_cdjsp.rechercherClassesDontJeSuisProf();
+                PersonneDAO personneDAO_cdjsp = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_cdjsp.rechercherClassesDontJeSuisProf();
                 
             }
         });
