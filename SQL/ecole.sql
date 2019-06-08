@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 08 juin 2019 à 10:31
+-- Généré le :  sam. 08 juin 2019 à 17:54
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `classe` (
   `ecole_id` varchar(250) DEFAULT NULL,
   `niveau_id` varchar(100) DEFAULT NULL,
   `anneescolaire_id` int(250) DEFAULT NULL,
+  `nbInscrits` int(250) DEFAULT NULL,
   PRIMARY KEY (`nom`),
   KEY `ecole_id` (`ecole_id`),
   KEY `niveau_id` (`niveau_id`),
@@ -85,17 +86,17 @@ CREATE TABLE IF NOT EXISTS `classe` (
 -- Déchargement des données de la table `classe`
 --
 
-INSERT INTO `classe` (`nom`, `ecole_id`, `niveau_id`, `anneescolaire_id`) VALUES
-('CP_A', 'Zola', 'CP', 2012),
-('CP_B', 'Zola', 'CP', 2012),
-('CE1_A', 'Zola', 'CE1', 2012),
-('CE1_B', 'Zola', 'CE1', 2012),
-('CE2_A', 'Zola', 'CE2', 2012),
-('CE2_B', 'Zola', 'CE2', 2012),
-('CM1_A', 'Zola', 'CM1', 2012),
-('CM1_B', 'Zola', 'CM1', 2012),
-('CM2_A', 'Zola', 'CM2', 2012),
-('CM2_B', 'Zola', 'CM2', 2012);
+INSERT INTO `classe` (`nom`, `ecole_id`, `niveau_id`, `anneescolaire_id`, `nbInscrits`) VALUES
+('CP_A', 'Zola', 'CP', 2012, 0),
+('CP_B', 'Zola', 'CP', 2012, 0),
+('CE1_A', 'Zola', 'CE1', 2012, 0),
+('CE1_B', 'Zola', 'CE1', 2012, 0),
+('CE2_A', 'Zola', 'CE2', 2012, 0),
+('CE2_B', 'Zola', 'CE2', 2012, 0),
+('CM1_A', 'Zola', 'CM1', 2012, 0),
+('CM1_B', 'Zola', 'CM1', 2012, 0),
+('CM2_A', 'Zola', 'CM2', 2012, 0),
+('CM2_B', 'Zola', 'CM2', 2012, 0);
 
 -- --------------------------------------------------------
 
@@ -209,15 +210,7 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   PRIMARY KEY (`id`),
   KEY `classe_id` (`classe_id`),
   KEY `personne_id` (`personne_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `inscription`
---
-
-INSERT INTO `inscription` (`id`, `classe_id`, `personne_id`) VALUES
-(1, 'CM1_A', 5),
-(2, 'CM2_A', 8);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -255,17 +248,15 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `prenom` varchar(200) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
 --
 
 INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`) VALUES
-(1, 'Ndaw', 'Inna', 'eleve'),
-(2, 'Pied', 'Nelly', 'eleve'),
-(3, 'Hina', 'Manolo', 'prof'),
-(4, 'Le', 'Kat', 'prof');
+(1, 'Hina', 'Manolo', 'prof'),
+(2, 'Le', 'Kat', 'prof');
 
 -- --------------------------------------------------------
 
