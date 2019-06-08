@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/src/modele" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/src/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/src/vue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/src/controller" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/nbproject" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/production" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.18-bin" level="project" />
+  </component>
+</module>

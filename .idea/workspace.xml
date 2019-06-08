@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bc6cccfb-6ebe-4091-82a7-31428cafc6bf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ProjetJavaS6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_18_bin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/manifest.mf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/AnneeScolaireDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/BulletinDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/ClasseDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Connexion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DetailBulletinDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DisciplineDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EcoleDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EnseignementDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EvaluationDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/InscriptionDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$13.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$14.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/NiveauDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/PersonneDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/TrimestreDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/manifest.mf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/AnneeScolaire.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Bulletin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Classe.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/DetailBulletin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Discipline.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Ecole.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Enseignement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Evaluation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Inscription.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Niveau.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Personne.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Trimestre.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/manifest.mf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/pro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JframePrincipal.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageAccueil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageConnexion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEnseignant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Main.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2243">
+              <caret line="274" selection-start-line="274" selection-end-line="274" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVA/src/controller/PersonneDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4296">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Class.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="331" selection-start-line="331" selection-end-line="331" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Connexion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-410">
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVA/src/controller/NiveauDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>local</find>
+      <find>inna</find>
+      <find>note</find>
+      <find>prof</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" />
+        <option value="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" />
+        <option value="$PROJECT_DIR$/JAVA/src/controller/Main.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/ProjetJavaS6.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_18_bin.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modele" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetJavaS6" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetJavaS6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.Main" />
+      <module name="ProjetJavaS6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="controller.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc6cccfb-6ebe-4091-82a7-31428cafc6bf" name="Default Changelist" comment="" />
+      <created>1560013414459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560013414459</updated>
+      <workItem from="1560013417979" duration="1547000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1547000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2453505" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="331" selection-start-line="331" selection-end-line="331" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Connexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/NiveauDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-410">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../ProjetJavaS6 5/JAVA/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../ProjetJavaS6 4/JAVA/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="270" column="75" lean-forward="true" selection-start-line="266" selection-end-line="270" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#28666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/PersonneDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4296">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2243">
+          <caret line="274" selection-start-line="274" selection-end-line="274" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ProjetJavaS6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>mysql-connector-java-5.1.18-bin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

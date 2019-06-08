@@ -9,7 +9,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
+import java.sql.Statement;
+
 import modele.*;
+import controller.*;
 
 /**
  *
@@ -25,8 +29,67 @@ public class EvaluationDAO extends DAO<Evaluation> {
      //Pas encore implémentée
     public boolean create(Evaluation obj)
     {
+
+
         return false;
     }
+
+    /**
+     * Methods pour ajouter une note
+     * @param obj
+     * @param prof
+     * @return
+     */
+
+    public boolean create_eval(Evaluation obj, Personne prof)
+    {
+        ///Pour créer une note l'eleve doit d'abord avoir un detail bulletin (matiere)
+        DetailBulletinDAO detailBulletinDAO  = new DetailBulletinDAO(this.connect);
+        DetailBulletin detailBulletin=new DetailBulletin();
+
+        int monid=0;
+        Scanner sc = new Scanner(System.in);
+        Personne eleve = new Personne();
+        //On recupere nom et prenom de l'eleve a modifier
+        System.out.println("Pour quel élève souhaitez-vous ajouter une note");
+        System.out.println("NOM");
+        eleve.setNom(sc.next());
+        System.out.println("PRENOM");
+        eleve.setPrenom(sc.next());
+        // on recupere ainsi l'id
+
+            try
+            {
+                String sql="SELECT id FROM personne where nom = ? AND prenom = ? ";
+
+                PreparedStatement pst = connect.prepareStatement(sql);
+                pst.setString(1, eleve.getNom());
+                pst.setString(2, eleve.getPrenom());
+                ResultSet rs	=pst.executeQuery();
+
+                rs.next();
+
+                System.out.println(eleve.getNom());
+                System.out.println(eleve.getPrenom());
+
+                    monid = rs.getInt("id");
+                    eleve.setId(rs.getInt("id"));
+                    System.out.println("hola eleve1 id" +eleve.getId());
+
+
+            }
+
+        catch (SQLException exception)
+            {
+                exception.printStackTrace();
+            }
+           ///On a l'identité de l'eleve a qui on veut rajouter une note donc on crée mainentn la sous partie du bulletin
+        detailBulletinDAO.create_detailbulletin(detailBulletin, eleve, prof);
+
+        return false;
+
+        }
+
 
 
 

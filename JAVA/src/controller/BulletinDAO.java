@@ -9,9 +9,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modele.Bulletin;
-import modele.*;
+import java.util.Scanner;
 
+import modele.Bulletin;
+import controller.DAO;
+import modele.*;
 /**
  *
  * @author ghias
@@ -26,7 +28,72 @@ public class BulletinDAO extends DAO<Bulletin> {
      //Pas encore implémentée
     public boolean create(Bulletin obj)
     {
+
         return false;
+    }
+
+
+    public int create_bulletin(Bulletin obj, Personne eleve) {
+        int id_inscription = 0;
+        System.out.println("eleve id" +eleve.getId());
+        int trimestre = 0;
+        int bulletin_id = 0;
+
+        ///il faut lier ce bulletin à l'inscription d'un élève
+        try {
+
+                String sql="SELECT id FROM inscription where personne_id = ?";
+                PreparedStatement pst = connect.prepareStatement(sql);
+                pst.setInt(1, eleve.getId());
+                ResultSet  rs	=pst.executeQuery();
+
+                rs.next();
+
+                id_inscription = rs.getInt("id");
+                System.out.println("inscription id" +id_inscription);
+
+            System.out.println("Dans quel trimestre vous situez-vous ");
+            Scanner sc = new Scanner(System.in);
+
+            trimestre = sc.nextInt();
+
+
+//On crée un bulletin relié a l'inscription de l'eleve
+            try {
+                String sql2 = "INSERT INTO bulletin (trimestre_id, inscription_id,appreciation) VALUES (?,?,?)";
+                PreparedStatement pst2 = connect.prepareStatement(sql2);
+                pst2.setInt(1, trimestre);
+                pst2.setInt(2, id_inscription);
+                pst2.setString(3, "");
+                pst2.executeUpdate();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+
+        try {
+
+
+            String sql2 = "SELECT id FROM bulletin where trimestre_id = ? AND inscription_id= ?";
+            PreparedStatement pst2 = connect.prepareStatement(sql2);
+            pst2.setInt(1, trimestre);
+            pst2.setInt(2, id_inscription);
+            ResultSet rs2 = pst2.executeQuery();
+
+            rs2.next();
+
+            bulletin_id = rs2.getInt("id");
+            System.out.println("bulletin id : " + bulletin_id);
+        }
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return bulletin_id;//l'id du bulletin;
     }
 
 

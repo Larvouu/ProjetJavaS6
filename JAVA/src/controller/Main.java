@@ -124,7 +124,7 @@ public class Main {
                     try 
                     {
                         //Connexion à la bdd
-                        maConnexion = new Connexion("ecole", "root", ""); //inna
+                        maConnexion = new Connexion("ecole", "root", "root"); //inna
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -266,6 +266,14 @@ public class Main {
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEnseignant);
                             jframe1.setVisible(true);
+
+
+                            Evaluation evaluation= new Evaluation();
+                            EvaluationDAO evaluationDAO= new  EvaluationDAO(maConnexion.getConnection());
+
+                            evaluationDAO.create_eval(evaluation,personne);
+
+
                         }
                         else 
                             JOptionPane.showMessageDialog(pageConnexion, "Vos saisies sont incorrectes.");
