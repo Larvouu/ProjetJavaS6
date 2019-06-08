@@ -434,6 +434,40 @@ public class Main {
             }
         });
         
+        pageAdmin.getjButtonRechercherEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                //Comme personneDAO c'est le prof qui se connecte (selon Sarah ?) J'ai créé une autre personne admin pour appeler la recherche
+                //Parce que avec personneDAO = ca marche pas (puisque pas encore connecté)
+                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
+               personneDAO_admin.rechercherEleve();
+            }
+        });
+        
+        pageAdmin.getjButtonRechercherProf().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               //Comme personneDAO c'est le prof qui se connecte (selon Sarah ?) J'ai créé une autre personne admin pour appeler la recherche
+               //Parce que avec personneDAO = ca marche pas (puisque pas encore connecté)
+               PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
+               personneDAO_admin.rechercherProf();
+            }
+        });
+        
+        pageAdmin.getjButtonRechercherClasse().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("ONONONO");
+               //annyong oursito
+            }
+        });
+        
         
         
         /**

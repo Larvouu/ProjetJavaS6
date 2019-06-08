@@ -50,10 +50,10 @@ public class EnseignementDAO extends DAO<Enseignement> {
         try{
             String sql = "SELECT * FROM enseignement WHERE id = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setInt(1, id);     
-            pst.executeQuery();
+            pst.setInt(1, id);    
+            ResultSet rs = pst.executeQuery();
             
-            if(pst.executeQuery().first())
+            if(rs.next())
             {
                    enseignement = new Enseignement(id);
                    
@@ -61,9 +61,9 @@ public class EnseignementDAO extends DAO<Enseignement> {
                    ClasseDAO classeDAO = new ClasseDAO(this.connect);
                    DisciplineDAO disciplineDAO = new DisciplineDAO(this.connect);
                    
-                   enseignement.setPersonne(personneDAO.find(pst.executeQuery().getInt("personne_id")));
-                   enseignement.setClasse(classeDAO.find(pst.executeQuery().getInt("classe_id")));
-                   enseignement.setDiscipline(disciplineDAO.find(pst.executeQuery().getInt("discipline_id")));
+                   enseignement.setPersonne(personneDAO.find(rs.getInt("personne_id")));
+                   enseignement.setClasse(classeDAO.find(rs.getString("classe_id")));
+                   enseignement.setDiscipline(disciplineDAO.find(rs.getString("discipline_id")));
             }
             /*
             ResultSet result = this.connect.createStatement(

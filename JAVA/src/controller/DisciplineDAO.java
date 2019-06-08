@@ -42,30 +42,29 @@ public class DisciplineDAO extends DAO<Discipline>{
         return false;
     }
     
-    
     public Discipline find(int id)
+    {
+     Discipline discipline = new Discipline();
+     
+        System.out.println("Fallait pas utiliser cette méthode (String vs Int)");
+        return discipline;
+    }
+    public Discipline find(String id)
     {
         Discipline discipline = new Discipline();
         
         
         try{
-            String sql = "SELECT * FROM discipline WHERE id = ?";
+            String sql = "SELECT * FROM discipline WHERE nom = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setInt(1, id);     
-            pst.executeQuery();
+            pst.setString(1, id); 
+            ResultSet rs = pst.executeQuery();
             
-            if(pst.executeQuery().first())
+            if(rs.next())
             {
-                   discipline = new Discipline(id, pst.executeQuery().getString("nom"));
+                discipline = new Discipline(rs.getString("nom"));
             }
-            /*ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM discipline WHERE id = " + id);
             
-            if(result.first())
-            {
-                discipline = new Discipline(id, result.getString("nom"));
-            }*/
         }
         catch (SQLException exception)
         {

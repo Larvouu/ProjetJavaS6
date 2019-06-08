@@ -14,16 +14,14 @@ import java.util.ArrayList;
 public class Discipline {
     
      //attributs
-    private int id;
     private String nom;
    
     //constructeur par défaut
     public Discipline(){};
            
     //constructeur surchargé
-    public Discipline(int id, String nom)
+    public Discipline( String nom)
     {
-        this.id = id;
         this.nom = nom;
     }
         
@@ -38,15 +36,10 @@ public class Discipline {
     
     
     //getters
-    public int getId(){return id;}
     public String getNom(){return nom;}
     
     //setters
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-    
+
     public void setNom(String nom)
     {
         this.nom = nom;
