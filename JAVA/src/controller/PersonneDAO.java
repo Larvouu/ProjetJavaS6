@@ -33,12 +33,6 @@ public class PersonneDAO extends DAO<Personne>{
      */
 
 
-    public boolean create (Personne obj,Personne personne)
-    {
-    return false;
-    }
-
-
     public boolean create(Personne obj)
     {
         String nomString;
@@ -248,5 +242,7 @@ public class PersonneDAO extends DAO<Personne>{
         
         return personne;
     }
+    
+    //public void 
     
 }

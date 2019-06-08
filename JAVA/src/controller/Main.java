@@ -340,11 +340,12 @@ public class Main {
             public void actionPerformed(ActionEvent e)
             {
 
-                personneDAO.create(personne);
+                Personne eleve_a_add = new Personne();
+                personneDAO.create(eleve_a_add);
                 InscriptionDAO inscription_DAO=new InscriptionDAO(maConnexion.getConnection());
                 Inscription inscription=new Inscription();
                 Classe classe = new Classe();
-                inscription_DAO.create_inscription(inscription, personne, classe);
+                inscription_DAO.create_inscription(inscription, eleve_a_add, classe);
             }
 
         });
@@ -429,7 +430,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                System.out.println("RechercherEleve");
+                
             }
         });
         
