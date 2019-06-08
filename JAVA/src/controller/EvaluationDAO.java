@@ -5,12 +5,8 @@
  */
 package controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
-import java.sql.Statement;
 
 import modele.*;
 import controller.*;
@@ -83,8 +79,40 @@ public class EvaluationDAO extends DAO<Evaluation> {
             {
                 exception.printStackTrace();
             }
+            int detailbulletin_id=0;
            ///On a l'identité de l'eleve a qui on veut rajouter une note donc on crée mainentn la sous partie du bulletin
-        detailBulletinDAO.create_detailbulletin(detailBulletin, eleve, prof);
+        detailbulletin_id=detailBulletinDAO.create_detailbulletin(detailBulletin, eleve, prof);
+
+
+            ///Maintenant qu'on a le detail bulletin et le detail bulletin
+        //On crée insert de evaluation
+        int note=0;
+        System.out.println("Quelle est la note de l'élève ?");
+        note=sc.nextInt();
+
+
+            try
+
+            {
+            String sql="INSERT INTO evaluation (detailBulletin_id, note, appreciation)  VALUES (?,?,?) ";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, detailbulletin_id );
+            pst.setInt(2, note);
+            System.out.println("Rentrer une appreciation");
+            String appreciation=sc.nextLine();
+            pst.setString(3,appreciation);
+                System.out.println("detail bulletin id"+detailbulletin_id);
+                System.out.println("note"+note);
+                System.out.println("appreciaiton"+appreciation);;
+                pst.executeUpdate();
+        }
+
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+        }
+
+
 
         return false;
 

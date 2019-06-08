@@ -25,13 +25,15 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
     }
     
 
-    public boolean create_detailbulletin(DetailBulletin obj, Personne eleve, Personne prof) {
+    public int create_detailbulletin(DetailBulletin obj, Personne eleve, Personne prof) {
+
 
         int enseignement_id = 0;
         int bulletin_id;
         String nom_matiere = null;
         int inscription_id = 0;
         String classe_id = null;
+        int detailbulletin_id=0;
 
         ///Mais pour avoir un detail bulletin il faut avoir un Bulletin
         BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
@@ -93,19 +95,33 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                             pst.setInt(1, bulletin_id);
                             System.out.println("enseignement id : " + enseignement_id);
                             pst.setInt(2, enseignement_id);
-                            pst.setString(3, " ");
+                            System.out.println("Appreciation ?");
+                            String appreciation=sc.next();
+                            pst.setString(3, appreciation);
                             pst.executeUpdate();
+                            //on recupere l'id du detail bulletin id
+                            String sql_DBI= "SELECT id FROM detailbulletin where bulletin_id = ? AND enseignement_id = ? AND appreciation = ?";
+                            PreparedStatement pst_DBI = connect.prepareStatement(sql_DBI);
+                            pst_DBI.setInt(1, bulletin_id);
+                            pst_DBI.setInt(2, enseignement_id);
+                            pst_DBI.setString(3, appreciation);
+                            ResultSet rs_DBI = pst_DBI.executeQuery();
+                            if (rs_DBI.next()) {
+                                System.out.println("Holaaaaa");
+                                detailbulletin_id = rs_DBI.getInt("id");}
+
                         } else System.out.println("Hola Inna");
                     }
                 }
             }
+
         }
         catch(SQLException exception){
                 exception.printStackTrace();
             }
 
 
-            return false;
+            return detailbulletin_id;
 
     }
 
