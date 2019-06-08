@@ -20,7 +20,14 @@ import modele.Personne;
  *
  * @author ghias
  */
-public class InscriptionDAO extends DAO<Inscription>{
+public class InscriptionDAO extends DAO<Inscription>
+{
+    
+    private static int nb_cp;
+    private static int nb_ce1;
+    private static int nb_ce2;
+    private static int nb_cm1;
+    private static int nb_cm2;
     
     public InscriptionDAO( Connection conn)
     {
@@ -30,26 +37,21 @@ public class InscriptionDAO extends DAO<Inscription>{
     public boolean create (Inscription obj) {return false;}
 
     //Pas encore implémentée
-    public boolean create_inscription(Inscription obj,Personne personne, Classe classe)
+    public boolean create_inscription(Inscription obj,Personne personne, Classe classe, String niveauSelection)
     {
-
-
-      String niveau;
       Scanner sc = new Scanner(System.in);
         boolean b=true;
 
-        int nb_cp=0;
-        int nb_ce1=0;
-        int nb_ce2=0;
-        int nb_cm1=0;
-        int nb_cm2=0;
+        
 
         String classe_id=null;
         String sql2;
-
-
-        System.out.println("Quel est le niveau de l'élève ? ");
-        niveau = sc.next();
+        int nb_a=0;
+        int nb_b=0;
+        
+        String sql_nb;
+        PreparedStatement  pst_nb;
+        ResultSet rs_nb;
 
 
         try {
@@ -57,27 +59,62 @@ public class InscriptionDAO extends DAO<Inscription>{
             PreparedStatement pst = connect.prepareStatement(sql);
 
 
-            switch (niveau) {
+            switch (niveauSelection) {
                 case "CP":
-                    if (nb_cp == 0) {
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CP_A");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_a = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CP_B");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_b = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    if (nb_a < nb_b || nb_a == nb_b) {
 
                         classe_id="CP_A";
                         pst.setString(1, classe_id);
                         System.out.println("Id = " +personne.getId());
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp++;
+                        nb_a++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_a);
+                        pst_nb.setString(2, "CP_A");
+                        pst_nb.executeUpdate();
+
 
                     }
-
-                    else if (nb_cp == 1) {
-
+                    else if (nb_b < nb_a){
 
                         classe_id="CP_B";
                         pst.setString(1,  classe_id);
-                        pst.setInt(1, personne.getId());
+                        pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp = 0;
+                        nb_b++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_b);
+                        pst_nb.setString(2, "CP_B");
+                        pst_nb.executeUpdate();
+                       
                     }
 
 
@@ -85,97 +122,236 @@ public class InscriptionDAO extends DAO<Inscription>{
 
 
                 case "CE1":
-                    if (nb_ce1 == 0) {
+                    
+                    /////////////////////////
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CE1_A");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_a = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CE1_B");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_b = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                        //////////////////////////
+                    
+                    
+                    
+                    if (nb_a < nb_b || nb_a == nb_b) {
 
+                        
 
                         pst.setString(1, "CE1_A");
                         classe_id="CE1_A";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp++;
+                        nb_a++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_a);
+                        pst_nb.setString(2, "CE1_A");
+                        pst_nb.executeUpdate();
 
                     }
 
-                    else if (nb_ce1 == 1) {
+                    else if (nb_b < nb_a) {
 
 
                         pst.setString(1, "CE1_B");
                         classe_id="CE1_B";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp = 0;
+                        nb_b++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_b);
+                        pst_nb.setString(2, "CE1_B");
+                        pst_nb.executeUpdate();
 
                     }
 
                     break;
 
                 case "CE2":
-                    if (nb_ce2 == 0) {
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CE2_A");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_a = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CE2_B");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_b = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    if (nb_a < nb_b || nb_a == nb_b) {
 
 
                         pst.setString(1, "CE2_A");
                         classe_id="CE2_A";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp++;
+                        nb_a++;
+                        
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_a);
+                        pst_nb.setString(2, "CE2_A");
+                        pst_nb.executeUpdate();
 
                     }
 
-                    else if (nb_ce2 == 1) {
+                    else if (nb_b < nb_a) {
 
 
                         pst.setString(1, "CE2_B");
                         classe_id="CE2_B";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cp = 0;
+                        nb_b++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_b);
+                        pst_nb.setString(2, "CE2_B");
+                        pst_nb.executeUpdate();
 
                     }
 
                     break;
 
                 case "CM1":
-                    if (nb_cm1 == 0) {
+                    
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CM1_A");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_a = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CM1_B");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_b = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    if (nb_a < nb_b || nb_a == nb_b) {
 
                         pst.setString(1, "CM1_A");
                         classe_id="CM1_A";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cm1++;
+                        nb_a++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_a);
+                        pst_nb.setString(2, "CM1_A");
+                        pst_nb.executeUpdate();
                     }
 
-                    else if (nb_cm1 == 1) {
+                    else if (nb_b < nb_a) {
 
 
                         pst.setString(1, "CM1_B");
                         classe_id="CM1_B";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cm1 = 0;
+                        nb_b++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_b);
+                        pst_nb.setString(2, "CM1_B");
+                        pst_nb.executeUpdate();
 
                     }
                     break;
 
 
                 case "CM2":
-                    if (nb_cm2 == 0) {
-
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CM2_A");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_a = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    sql_nb = "SELECT nbInscrits FROM classe WHERE nom = ?";
+                    pst_nb = connect.prepareStatement(sql_nb);
+                    pst_nb.setString(1, "CM2_B");
+                    rs_nb = pst_nb.executeQuery();
+                    
+                    if(rs_nb.next())
+                    {
+                        nb_b = rs_nb.getInt("nbInscrits");
+                   
+                    }
+                    
+                    if (nb_a < nb_b || nb_a == nb_b) {
 
                         pst.setString(1, "CM2_A");
                         classe_id="CM2_A";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cm2++;
+                        nb_a++;
                     }
 
-                   else if (nb_cm2 == 1) {
+                   else if (nb_b < nb_a) {
 
 
                         pst.setString(1, "CM2_B");
                         classe_id="CM2_B";
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
-                        nb_cm2 = 0;
+                        nb_b++;
+                        
+                        sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_b);
+                        pst_nb.setString(2, "CM2_B");
+                        pst_nb.executeUpdate();
                     }
                     break;
 
@@ -254,5 +430,43 @@ public class InscriptionDAO extends DAO<Inscription>{
         return inscription;
     }
 
+    public Inscription find(String id)
+    {
+        Inscription inscription = new Inscription();
+
+
+        return inscription;
+    }
+
+    public int getNbCP(){return nb_cp;}
+    public int getNbCE1(){return nb_ce1;}
+    public int getNbCE2(){return nb_ce2;}
+    public int getNbCM1(){return nb_cm1;}
+    public int getNbCM2(){return nb_cm2;}
+    
+    public void setNbCP(int n)
+    {
+        nb_cp=n;
+    }
+    
+    public void setNbCE1(int n)
+    {
+        nb_ce1=n;
+    }
+    
+    public void setNbCE2(int n)
+    {
+        nb_ce2=n;
+    }
+    
+    public void setNbCM1(int n)
+    {
+        nb_cm1=n;
+    }
+    
+    public void setNbCM2(int n)
+    {
+        nb_cm2=n;
+    }
 
 }

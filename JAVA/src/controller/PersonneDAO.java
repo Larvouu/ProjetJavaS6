@@ -88,6 +88,53 @@ public class PersonneDAO extends DAO<Personne>{
 
         return b;
     }
+    
+    
+    /**
+     * Methode de Sarah : create avec 4 paramètres
+     */
+    
+    public boolean createEleveParEnseignant(Personne obj, String nomEleve, String prenomEleve, String niveauSelection)
+    {
+        String typeEleve = "eleve";
+
+        obj.setNom(nomEleve);
+        obj.setNom(prenomEleve);
+        obj.setNom(typeEleve);
+
+        boolean b=true;
+
+        try{
+            String sql = "INSERT INTO personne (nom,prenom,type) VALUES (?,?,?)";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, nomEleve);
+            pst.setString(2, prenomEleve);
+            pst.setString(3,typeEleve);
+            pst.executeUpdate();
+            int monid=0;
+
+            String requete = "SELECT id FROM personne where nom = '" + nomEleve+ "' AND prenom = '" + prenomEleve + "' ";
+            ResultSet rs = this.connect.prepareStatement(requete).executeQuery();
+            if (rs.next()) 
+            {
+                monid = rs.getInt("id");
+                obj.setId(rs.getInt("id"));
+            }
+
+
+            System.out.println("mon Id a l'intreiru create pers = "+monid);
+            System.out.println("Id a l'intreiru create pers = " +obj.getId());
+
+
+        }
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+            b= false;
+        }
+
+        return b;
+    }
 
     /**
      * Méthode suppression

@@ -26,6 +26,7 @@ import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
+import vue.JpanelAjouterEleveForm;
 
 
 /**
@@ -40,6 +41,7 @@ public class Main {
     private static JpanelPageConnexion pageConnexion;
     private static JpanelPageEleve pageEleve;
     private static JpanelAdmin pageAdmin;
+    private static JpanelAjouterEleveForm pageAjouterEleveForm;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -64,19 +66,6 @@ public class Main {
     //La méthode main
     public static void main(String[] args) {
 
-        /**
-         * FUSION MAIN DE Inna & Sarah
-         
-        /*Scanner sc = new Scanner(System.in);
-        boolean quit = false;
-        String statut = null;
-
-        
-        /**
-         * MAIN DE SARAH (partie graphique)
-         */
-        
-        
         //Le seul JFrame
         jframe1 = new JframePrincipal();
 
@@ -86,6 +75,7 @@ public class Main {
         pageConnexion = new JpanelPageConnexion();
         pageEleve = new JpanelPageEleve();
         pageAdmin = new JpanelAdmin();
+        pageAjouterEleveForm = new JpanelAjouterEleveForm();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -133,7 +123,7 @@ public class Main {
                     }
                    
                     connexionBDDOk = true;
-                    
+    
                     //On change de page : pageAccueil -> pageConnexion
                     jframe1.remove(pageAccueil);
                     jframe1.setContentPane(pageConnexion);
@@ -268,10 +258,10 @@ public class Main {
                             jframe1.setVisible(true);
 
 
-                            Evaluation evaluation= new Evaluation();
-                            EvaluationDAO evaluationDAO= new  EvaluationDAO(maConnexion.getConnection());
-
-                            evaluationDAO.create_eval(evaluation,personne);
+//                            Evaluation evaluation= new Evaluation();
+//                            EvaluationDAO evaluationDAO= new  EvaluationDAO(maConnexion.getConnection());
+//
+//                            evaluationDAO.create_eval(evaluation,personne);
 
 
                         }
@@ -348,14 +338,53 @@ public class Main {
             public void actionPerformed(ActionEvent e)
             {
 
+                  //Utile pour récupérer ce que le user a selectionné
+                pageAjouterEleveForm.getjRadioButtonCP().setActionCommand("CP");
+                pageAjouterEleveForm.getjRadioButtonCE1().setActionCommand("CE1");
+                pageAjouterEleveForm.getjRadioButtonCE2().setActionCommand("CE2");
+                pageAjouterEleveForm.getjRadioButtonCM1().setActionCommand("CM1");
+                pageAjouterEleveForm.getjRadioButtonCM2().setActionCommand("CM2");
+                
+                jframe1.remove(pageEnseignant);
+                jframe1.setContentPane(pageAjouterEleveForm);
+                jframe1.setVisible(true);
+                
+                
+            }
+
+        });
+       
+       pageAjouterEleveForm.getjButtonCreerEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                String niveauSelection = pageAjouterEleveForm.getbuttonGroup1().getSelection().getActionCommand();
+                String nomSaisi = pageAjouterEleveForm.getjTextFieldNomEleve().getText();
+                String prenomSaisi = pageAjouterEleveForm.getjTextFieldPrenomEleve().getText();
+                
+                System.out.println("Le niveau sélectionné : " + niveauSelection);
+                System.out.println("Nom élève entré : " + nomSaisi);
+                System.out.println("Prénom entré : " + prenomSaisi);
+
+                ////////////////////////////////
                 Personne eleve_a_add = new Personne();
-                personneDAO.create(eleve_a_add);
+                personneDAO.createEleveParEnseignant(eleve_a_add, nomSaisi, prenomSaisi, niveauSelection);
+                
                 InscriptionDAO inscription_DAO=new InscriptionDAO(maConnexion.getConnection());
                 Inscription inscription=new Inscription();
                 Classe classe = new Classe();
-                inscription_DAO.create_inscription(inscription, eleve_a_add, classe);
+                
+                
+                if(inscription_DAO.create_inscription(inscription, eleve_a_add, classe, niveauSelection))
+                {
+                    JOptionPane.showMessageDialog(pageAjouterEleveForm, "L'élève "+nomSaisi+" "+prenomSaisi+" a bien été inscrit en "+niveauSelection+".");
+                    jframe1.remove(pageAjouterEleveForm);
+                    jframe1.setContentPane(pageEnseignant);
+                    jframe1.setVisible(true);
+                }
+                
             }
-
         });
 
 
