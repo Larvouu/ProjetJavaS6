@@ -17,8 +17,6 @@ import modele.*;
  */
 public class DisciplineDAO extends DAO<Discipline>{
     
-       public boolean create_eval(Discipline obj, DetailBulletin detailBulletin){return false;}
-    
     public DisciplineDAO(Connection conn) 
     {
         super(conn);
@@ -29,7 +27,9 @@ public class DisciplineDAO extends DAO<Discipline>{
     {
         return false;
     }
-    
+
+
+
     //Pas encore implémentée 
     public boolean delete(Discipline obj)
     {

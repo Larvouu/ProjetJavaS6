@@ -18,9 +18,6 @@ import modele.*;
  */
 public class AnneeScolaireDAO extends DAO<AnneeScolaire>{ 
     
-    
-    public boolean create_eval(AnneeScolaire obj, DetailBulletin detailBulletin){return false;}
-    
     //Il faut que cette classe contienne toutes les méthodes de DAO<T>, sinon Netbeans
     //veut la mettre en abstract (alors que c'est pas une classe abstraite)
     
@@ -36,6 +33,7 @@ public class AnneeScolaireDAO extends DAO<AnneeScolaire>{
         //ajouter une AnneeScolaire via requete SQL ?
         return false;
     }
+    public boolean create_inscription (AnneeScolaire obj, Personne personne) {return false;}
     
     //Pas encore implémentée -- type de la méthode peut-être à changer
     public boolean delete(AnneeScolaire obj)

@@ -17,8 +17,6 @@ import modele.*;
  */
 public class ClasseDAO extends DAO<Classe>{
     
-       public boolean create_eval(Classe obj, DetailBulletin detailBulletin){return false;}
-    
     public ClasseDAO(Connection conn) 
     {
         super(conn);
@@ -29,7 +27,9 @@ public class ClasseDAO extends DAO<Classe>{
     {
         return false;
     }
-    
+    public boolean create_inscription(Classe obj, Personne personne) {return false;}
+
+
     //Pas encore implémentée 
     public boolean delete(Classe obj)
     {
@@ -42,30 +42,26 @@ public class ClasseDAO extends DAO<Classe>{
         return false;
     }
     
-    
     public Classe find(int id)
+    {
+        Classe classe = new Classe();
+        return classe;
+    }
+
+    public Classe find(String id)
     {
         Classe classe = new Classe();
         
         
         try{
-            String sql = "SELECT * FROM classe WHERE id = ?";
+            String sql = "SELECT * FROM classe WHERE nom = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setInt(1, id);     
+            pst.setString(1, id);
             pst.executeQuery();
             
-            if(pst.executeQuery().first())
-            {
-                 classe = new Classe(id, pst.executeQuery().getString("nom"));
-                 
-                 EcoleDAO ecoleDAO = new EcoleDAO(this.connect);
-                 NiveauDAO niveauDAO = new  NiveauDAO(this.connect);
-                 AnneeScolaireDAO anneeScolaireDAO = new AnneeScolaireDAO(this.connect);
-                 
-                 classe.setEcole(ecoleDAO.find(pst.executeQuery().getInt("ecole_id")));
-                 classe.setNiveau(niveauDAO.find(pst.executeQuery().getInt("niveau_id")));
-                 classe.setAnneeScolaire(anneeScolaireDAO.find(pst.executeQuery().getInt("anneescolaire_id")));
-            }
+
+                 classe = new Classe(id);
+
             /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM classe WHERE id = " + id);

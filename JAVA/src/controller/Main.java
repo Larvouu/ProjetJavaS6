@@ -16,13 +16,15 @@ import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+import modele.Inscription;
 import vue.JframePrincipal;
 import vue.JpanelPageAccueil;
 import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
-import modele.Personne;
+import modele.*;
 
 /**
  *
@@ -117,7 +119,7 @@ public class Main {
                     try 
                     {
                         //Connexion à la bdd
-                        maConnexion = new Connexion("ecole", "root", ""); //inna
+                        maConnexion = new Connexion("ecole", "root", "root"); //inna
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -247,6 +249,10 @@ public class Main {
                             personneDAO = new PersonneDAO(maConnexion.getConnection());
                             
                             personne = new Personne();
+                            System.out.println("Id = " +personne.getId());
+
+
+                            System.out.println("Id = " +personne.getId());
                             personne.setNom(nomUser);
                             personne.setPrenom(prenomUser);
                             personne.setType(statutUser);
@@ -323,26 +329,17 @@ public class Main {
 
         });
         
-
+///CREER UN ELEVE
        pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                String nomString;
-                String prenomString;
-                
-                Scanner sc = new Scanner(System.in);
-               
-                
-                System.out.println("Rentrer le nom de la personne a ajouter"); 
-                nomString=sc.next();
-                personne.setNom(nomString);
-                System.out.println("Rentrer le prenom de la personne a ajouter");
-                prenomString=sc.next();
-                personne.setPrenom(prenomString);
-                personne.setType("eleve");
-                
+
                 personneDAO.create(personne);
+                InscriptionDAO inscription_DAO=new InscriptionDAO(maConnexion.getConnection());
+                Inscription inscription=new Inscription();
+                Classe classe = new Classe();
+                inscription_DAO.create_inscription(inscription, personne, classe);
             }
 
         });

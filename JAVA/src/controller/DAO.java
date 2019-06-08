@@ -5,8 +5,10 @@
  */
 package controller;
 
-import java.sql.Connection;
 import modele.*;
+
+import java.sql.Connection;
+
 
 /**
  *
@@ -25,9 +27,7 @@ public abstract class DAO<T> {
 
     //méthode de création
     public abstract boolean create(T obj);
-    
-    //methode de creation d'une évaluation
-    public abstract boolean create_eval(T obj, DetailBulletin detailBulletin);
+
 
     //méthode de suppression
     public abstract boolean delete(T obj);

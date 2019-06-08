@@ -17,8 +17,6 @@ import modele.*;
  */
 public class EnseignementDAO extends DAO<Enseignement> {
     
-       public boolean create_eval(Enseignement obj, DetailBulletin detailBulletin){return false;}
-    
     public EnseignementDAO(Connection conn) 
     {
         super(conn);
@@ -29,6 +27,7 @@ public class EnseignementDAO extends DAO<Enseignement> {
     {
         return false;
     }
+
     
     //Pas encore implémentée 
     public boolean delete(Enseignement obj)

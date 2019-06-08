@@ -55,7 +55,7 @@ public class Connexion {
 
         // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
         //pour Inna  jdbc:mysql://localhost:8889/
-        String urlDatabase = "jdbc:mysql://localhost/" + nameDatabase;
+        String urlDatabase = "jdbc:mysql://localhost:8889/" + nameDatabase;
 
         //création d'une connexion JDBC à la base
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
