@@ -2,154 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc6cccfb-6ebe-4091-82a7-31428cafc6bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ProjetJavaS6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_18_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/manifest.mf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/AnneeScolaireDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/BulletinDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/ClasseDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Connexion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DetailBulletinDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DisciplineDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EcoleDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EnseignementDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EvaluationDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/InscriptionDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$14.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/NiveauDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/PersonneDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/TrimestreDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/manifest.mf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/AnneeScolaire.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Bulletin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Classe.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/DetailBulletin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Discipline.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Ecole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Enseignement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Evaluation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Inscription.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Niveau.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Personne.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Trimestre.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/manifest.mf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/build-impl.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/genfiles.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/eleve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/pro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JframePrincipal.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageAccueil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageConnexion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEnseignant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2243">
-              <caret line="274" selection-start-line="274" selection-end-line="274" />
+            <state relative-caret-position="157">
+              <caret line="434" column="10" lean-forward="true" selection-start-line="434" selection-start-column="10" selection-end-line="434" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -382,15 +234,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560013414459</updated>
-      <workItem from="1560013417979" duration="1547000" />
+      <workItem from="1560013417979" duration="1619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1547000" />
+    <option name="totallyTimeSpent" value="1619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -486,8 +339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2243">
-          <caret line="274" selection-start-line="274" selection-end-line="274" />
+        <state relative-caret-position="157">
+          <caret line="434" column="10" lean-forward="true" selection-start-line="434" selection-start-column="10" selection-end-line="434" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

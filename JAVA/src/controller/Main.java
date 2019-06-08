@@ -431,7 +431,8 @@ public class Main {
                 personneDAO=null;
                 
             }
-        });
+        }
+        );
 
         pageEnseignant.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
@@ -449,6 +450,7 @@ public class Main {
             {
                 ClasseDAO classeDAO_cdjsp = new ClasseDAO(maConnexion.getConnection());
                 //classeDAO_cdjsp.rechercherClassesDontJeSuisProf();
+                
             }
         });
         
