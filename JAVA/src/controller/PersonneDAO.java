@@ -229,9 +229,10 @@ public class PersonneDAO extends DAO<Personne>{
             String sql = "SELECT * FROM personne WHERE id = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
             pst.setInt(1, id);
-            pst.executeQuery();
+            //pst.executeQuery();
             ResultSet rs_find=pst.executeQuery();
 
+            rs_find.next();
             if(rs_find.next()){
 
                 personne = new Personne(id, pst.executeQuery().getString("nom") , pst.executeQuery().getString("prenom"), pst.executeQuery().getString("type"));

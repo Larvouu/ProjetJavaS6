@@ -184,11 +184,11 @@ public class InscriptionDAO extends DAO<Inscription>{
             PersonneDAO personneDAO=new PersonneDAO(this.connect);
 
 
-              /* ClasseDAO classe_eleveDAO = new ClasseDAO(this.connect);
+               ClasseDAO classe_eleveDAO = new ClasseDAO(this.connect);
                 //On met l'attribut Classe de l'inscription au nom de la classe
                 obj.setClasse(classe_eleveDAO.find(classe_id));
                 //On met l'attribut personne de l'inscription a l'id de la personne
-                obj.setPersonne(personneDAO.find(personne.getId()));*/
+                obj.setPersonne(personneDAO.find(personne.getId()));
 
 
 
