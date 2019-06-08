@@ -463,8 +463,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                System.out.println("ONONONO");
-               //annyong oursito
+               ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
+               classeDAO_recherche.rechercherClasse();
             }
         });
         

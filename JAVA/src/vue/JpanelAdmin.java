@@ -488,7 +488,7 @@ public class JpanelAdmin extends javax.swing.JPanel {
 //GETTERS COMPARTIMENT RECHERCHES    
 public javax.swing.JButton getjButtonRechercherClasse()
 {
-    return jButtonRechercherEleve;
+    return jButtonRechercherClasse;
 }
 
 public javax.swing.JButton getjButtonRechercherEleve()
