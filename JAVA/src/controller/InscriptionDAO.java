@@ -75,7 +75,6 @@ public class InscriptionDAO extends DAO<Inscription>{
 
                         classe_id="CP_B";
                         pst.setString(1,  classe_id);
-
                         pst.setInt(1, personne.getId());
                         pst.executeUpdate();
                         nb_cp = 0;
