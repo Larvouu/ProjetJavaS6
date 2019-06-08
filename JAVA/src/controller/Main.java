@@ -430,7 +430,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                
+                personneDAO.rechercherEleve();
             }
         });
         

@@ -243,6 +243,37 @@ public class PersonneDAO extends DAO<Personne>{
         return personne;
     }
     
-    //public void 
+    public void rechercherEleve()
+    {
+        String prenom;
+        String nom;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("---------- RECHERCHER UN ELEVE ---------");
+        System.out.println("Entrer le prenom");
+        prenom = sc.next();
+        System.out.println("Entrer le nom");
+        nom = sc.next();
+        
+        try{
+            String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, prenom);
+            pst.setString(2, nom);
+            //pst.executeQuery();
+            ResultSet rs_find=pst.executeQuery();
+
+            rs_find.next();
+            System.out.println("-------   Informations concernant l'eleve   --------");
+            System.out.println("Id : "+ rs_find.getString("id"));
+            System.out.println("Prenom : "+rs_find.getString("prenom"));
+            System.out.println("Nom : "+rs_find.getString("nom"));
+            
+        }
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+        }
+    }
     
 }
