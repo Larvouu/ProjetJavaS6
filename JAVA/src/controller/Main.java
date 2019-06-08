@@ -23,6 +23,7 @@ import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
 import modele.Personne;
+import vue.JpanelAdmin;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Main {
     private static JpanelPageEnseignant pageEnseignant;
     private static JpanelPageConnexion pageConnexion;
     private static JpanelPageEleve pageEleve;
+    private static JpanelAdmin pageAdmin;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -60,14 +62,6 @@ public class Main {
     public static void main(String[] args) {
 
         /**
-         * FUSION MAIN DE Inna & Sarah
-         
-        /*Scanner sc = new Scanner(System.in);
-        boolean quit = false;
-        String statut = null;
-
-        
-        /**
          * MAIN DE SARAH (partie graphique)
          */
         
@@ -80,12 +74,17 @@ public class Main {
         pageEnseignant = new JpanelPageEnseignant();
         pageConnexion = new JpanelPageConnexion();
         pageEleve = new JpanelPageEleve();
+        pageAdmin = new JpanelAdmin();
 
+        
         //Par défaut c'est la page d'accueil sur le Jframe
         jframe1.setContentPane(pageAccueil);
         jframe1.setVisible(true);
 
-        //Si appuie sur bouton Connexion à la bdd
+         /**
+         * Methode AddActionListener du bouton "Connexion à la bdd".
+         * 
+         */
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
 
             @Override
@@ -141,9 +140,11 @@ public class Main {
                 
             }
         });
-
         
-        //Si appuie sur bouton Connexion (identification d'un eleve ou enseignant)
+        /**
+         * Methode AddActionListener du bouton "Connexion" à un compte Eleve ou Professeur.
+         * 
+         */
         pageConnexion.getButtonSubmitConnexion().addActionListener(new ActionListener() {
 
             @Override
@@ -286,6 +287,31 @@ public class Main {
             }
         });
         
+        /**
+         * Methode AddActionListener du bouton "Connexion" au compte Admin.
+         * 
+         */
+        pageConnexion.getjButtonConnexinAdmin().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+//                    personne = new Personne();
+//                    personne.setNom(nomUser);
+//                    personne.setPrenom(prenomUser);
+//                    personne.setType(statutUser);
+
+                    JOptionPane.showMessageDialog(pageConnexion, "Bonjour Admin !");
+                    jframe1.remove(pageConnexion);
+                    jframe1.setContentPane(pageAdmin);
+                    jframe1.setVisible(true);
+
+                }
+           });
+        
+        /**
+         * Methode AddActionListener du bouton Modifier informations d'un élève.
+         * 
+         */
         //ici il faudrait faire la meme chose pour le modifier des profs enifn que ce soit le mem bouton quoi
         pageEleve.getJButtonModifInfos().addActionListener(new ActionListener() {
                 @Override
@@ -298,7 +324,7 @@ public class Main {
 
 
         /**
-         * Methode AddActionListener du bouton "Supprimer un élève"
+         * Methode AddActionListener du bouton "Supprimer un élève".
          * 
          */
         pageEnseignant.getJButtonSuppEleve().addActionListener(new ActionListener()
@@ -323,7 +349,10 @@ public class Main {
 
         });
         
-
+        /**
+         * Methode AddActionListener du bouton "Ajouter un élève".
+         * 
+         */
        pageEnseignant.getJButtonAddEleve().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -348,7 +377,7 @@ public class Main {
         });
 
         
-        //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION
+        //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A LA PAGE DE CONNEXION D'UN COMPTE
         pageEleve.getButtonDeconnexion().addActionListener(new ActionListener() {
 
             @Override
@@ -394,6 +423,7 @@ public class Main {
             }
         });
 
+         
 
 
         
