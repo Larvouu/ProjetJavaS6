@@ -41,7 +41,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButtonRechercherEleve = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonAfficherClasseDontJeSuisProf = new javax.swing.JButton();
         jButtonSupprEleve = new javax.swing.JButton();
         jButtonCreerEleve = new javax.swing.JButton();
 
@@ -119,7 +119,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButton4.setText("Consulter la moyenne d'une interro par classe (graphe)");
 
-        jButton5.setText("Afficher toutes les classes dont je suis prof");
+        jButtonAfficherClasseDontJeSuisProf.setText("Afficher toutes les classes dont je suis prof");
 
         jButtonSupprEleve.setText("Suppr un élève");
 
@@ -135,7 +135,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton4)
                         .addGap(35, 35, 35)
-                        .addComponent(jButton5))
+                        .addComponent(jButtonAfficherClasseDontJeSuisProf))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jButtonRechercherEleve)
@@ -166,7 +166,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButtonAfficherClasseDontJeSuisProf))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -210,8 +210,8 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButtonAfficherClasseDontJeSuisProf;
     private javax.swing.JButton jButtonCreerEleve;
     private javax.swing.JButton jButtonRechercherEleve;
     private javax.swing.JButton jButtonSupprEleve;
@@ -250,4 +250,9 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     {
         return jButtonRechercherEleve;
     }
+    public javax.swing.JButton getjButtonAfficherClasseDontJeSuisProf()
+    {
+        return jButtonAfficherClasseDontJeSuisProf;
+    }
+    
 }

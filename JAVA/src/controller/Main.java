@@ -434,6 +434,16 @@ public class Main {
             }
         });
         
+        pageEnseignant.getjButtonAfficherClasseDontJeSuisProf().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                ClasseDAO classeDAO_cdjsp = new ClasseDAO(maConnexion.getConnection());
+                //classeDAO_cdjsp.rechercherClassesDontJeSuisProf();
+            }
+        });
+        
         pageAdmin.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
             @Override
@@ -467,6 +477,7 @@ public class Main {
                classeDAO_recherche.rechercherClasse();
             }
         });
+        
         
         
         

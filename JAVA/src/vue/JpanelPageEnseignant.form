@@ -185,7 +185,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAfficherClasseDontJeSuisProf" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -226,7 +226,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAfficherClasseDontJeSuisProf" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
@@ -268,7 +268,7 @@
                 <Property name="text" type="java.lang.String" value="Consulter la moyenne d&apos;une interro par classe (graphe)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="jButtonAfficherClasseDontJeSuisProf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Afficher toutes les classes dont je suis prof"/>
               </Properties>
