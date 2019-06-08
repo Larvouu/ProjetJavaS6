@@ -23,6 +23,7 @@ import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
 import modele.Personne;
+import vue.JpanelAdmin;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Main {
     private static JpanelPageEnseignant pageEnseignant;
     private static JpanelPageConnexion pageConnexion;
     private static JpanelPageEleve pageEleve;
+    private static JpanelAdmin pageAdmin;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -80,6 +82,8 @@ public class Main {
         pageEnseignant = new JpanelPageEnseignant();
         pageConnexion = new JpanelPageConnexion();
         pageEleve = new JpanelPageEleve();
+        pageAdmin = new JpanelAdmin();
+        
 
         //Par défaut c'est la page d'accueil sur le Jframe
         jframe1.setContentPane(pageAccueil);
@@ -394,7 +398,21 @@ public class Main {
             }
         });
 
+         pageConnexion.getjButtonConnexionAdmin().addActionListener(new ActionListener() {
 
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                jframe1.remove(pageConnexion);
+                jframe1.setContentPane(pageAdmin);
+                jframe1.setVisible(true);
+                
+                personne=null;
+                personneDAO=null;
+                
+            }
+        });
 
         
         
