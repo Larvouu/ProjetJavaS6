@@ -344,6 +344,18 @@ public class Main {
 
         });
 
+
+       //Modifier infos d'un prof
+        pageEnseignant.getjButton1().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                personneDAO.update(personne);
+
+            }
+        });
+
+
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION
         pageEleve.getButtonDeconnexion().addActionListener(new ActionListener() {

@@ -106,19 +106,16 @@ public class PersonneDAO extends DAO<Personne>{
 
         String nom = obj.getNom();
         String prenom = obj.getPrenom();
-        String type= obj.getType();
       
         
         boolean b=true;
 
         try
         {
-            String sql = "DELETE FROM personne WHERE nom = ? AND prenom = ? AND type = ?";
+            String sql = "DELETE FROM personne WHERE nom = ? AND prenom = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
             pst.setString(1, nom);
             pst.setString(2, prenom);
-            pst.setString(3, type);
-          
             pst.executeUpdate();
         }
         catch (SQLException exception)
