@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JpanelAjouterEleveForm;
+import vue.JpanelSupprEleveForm;
 
 
 /**
@@ -42,6 +43,7 @@ public class Main {
     private static JpanelPageEleve pageEleve;
     private static JpanelAdmin pageAdmin;
     private static JpanelAjouterEleveForm pageAjouterEleveForm;
+    private static JpanelSupprEleveForm pageSupprEleveForm;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -76,6 +78,7 @@ public class Main {
         pageEleve = new JpanelPageEleve();
         pageAdmin = new JpanelAdmin();
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
+        pageSupprEleveForm = new JpanelSupprEleveForm();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -316,18 +319,31 @@ public class Main {
             public void actionPerformed(ActionEvent e)
             {
                
-                String nomString;
-                String prenomString;
+                jframe1.remove(pageEnseignant);
+                jframe1.setContentPane(pageSupprEleveForm);
+                jframe1.setVisible(true);
                 
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Rentrer le nom de la personne a supprimer");
-                nomString=sc.next();
-                personne.setNom(nomString);
-                System.out.println("Rentrer le prenom de la personne a supprimer");
-                prenomString=sc.next();
-                personne.setPrenom(prenomString);
-       
-                boolean delete = personneDAO.delete(personne);
+            
+            }
+
+        });
+        
+        pageSupprEleveForm.getjButtonSubmitSupprPersonne().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                Personne personne_a_supprimer = new Personne();
+                
+                //récupération nom et prénom de l'élève à supprimer entrés par le user
+                String nomString = pageSupprEleveForm.getjTextField1().getText();
+                String prenomString = pageSupprEleveForm.getjTextField2().getText();
+
+                personne_a_supprimer.setNom(nomString);
+                personne_a_supprimer.setPrenom(prenomString);
+              
+                //boolean decrementerNbInscrits = 
+                boolean delete = personneDAO.delete(personne_a_supprimer);
             }
 
         });
@@ -482,6 +498,8 @@ public class Main {
                 
             }
         });
+        
+        
         
         pageAdmin.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
