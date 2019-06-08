@@ -9,9 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
-import modele.DetailBulletin;
-import modele.Evaluation;
+import modele.*;
 
 /**
  *
@@ -24,34 +22,14 @@ public class EvaluationDAO extends DAO<Evaluation> {
         super(conn);
     }
     
-    //Inutilisée
-    public boolean create(Evaluation obj){return false;}
-    
-    
-    public boolean create_eval(Evaluation obj, DetailBulletin detailBulletin)
+     //Pas encore implémentée
+    public boolean create(Evaluation obj)
     {
-        Float note = obj.getNote();
-        String appreciation = obj.getAppreciation();
-        boolean b=true;
-        
-        try{
-            String sql = "INSERT INTO Evaluation (note,appreciation,detailbulletin_id) VALUES (?,?,?)";
-            PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setFloat(1, note);
-            pst.setString(2, appreciation);
-            pst.setInt(3, detailBulletin.getId());
-            
-            pst.executeUpdate();
-
-        }
-        catch (SQLException exception)
-        {
-            exception.printStackTrace();
-            b= false;
-        }
-        return b;
+        return false;
     }
-    
+
+
+
     //Pas encore implémentée 
     public boolean delete(Evaluation obj)
     {
@@ -60,52 +38,8 @@ public class EvaluationDAO extends DAO<Evaluation> {
     
     //Pas encore implémentée 
     public boolean update(Evaluation obj)
-    {        
-        boolean b = true;
-        String modif = null;
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Voulez-vous modifier note ou appreciation ?");
-        modif=sc.next();
-        switch(modif)
-        {
-            case "note":
-                Float new_note;
-                try{
-                    System.out.println("Quelle est la nouvelle note  ? (. au lieu de , pour une virgule)");
-                    new_note=sc.nextFloat();
-                    String sql = "UPDATE evaluation set note =? WHERE id=?";
-                    PreparedStatement pst = connect.prepareStatement(sql);
-                    pst.setFloat(1, new_note);
-                    pst.setInt(2, obj.getId());
-                    pst.executeUpdate();
-                }
-                catch (SQLException exception)
-                {
-                    exception.printStackTrace();
-                    b= false;
-                }
-                break;
-                
-            case "appreciation":
-                String new_app;
-                try{
-                    System.out.println("Quelle est la nouvelle appreciation ?");
-                    new_app=sc.next();
-                    String sql = "UPDATE evaluation set appreciation =? WHERE id=?";
-                    PreparedStatement pst = connect.prepareStatement(sql);
-                    pst.setString(1, new_app);
-                    pst.setInt(2, obj.getId());
-                    pst.executeUpdate();
-                }
-                catch (SQLException exception)
-                {
-                    exception.printStackTrace();
-                    b= false;
-                }
-                break;
-        }
-        return b;
+    {
+        return false;
     }
     
     

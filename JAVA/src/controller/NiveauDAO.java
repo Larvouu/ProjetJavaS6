@@ -17,8 +17,6 @@ import modele.*;
  */
 public class NiveauDAO extends DAO<Niveau>{
     
-       public boolean create_eval(Niveau obj, DetailBulletin detailBulletin){return false;}
-    
     public NiveauDAO(Connection conn) 
     {
         super(conn);
@@ -29,7 +27,9 @@ public class NiveauDAO extends DAO<Niveau>{
     {
         return false;
     }
-    
+
+
+
     //Pas encore implémentée 
     public boolean delete(Niveau obj)
     {

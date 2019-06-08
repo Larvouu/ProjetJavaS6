@@ -240,5 +240,10 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     {
         return jButtonCreerEleve;
     }
+
+    public javax.swing.JButton getjButton1()
+    {
+        return jButton1;
+    }
      
 }

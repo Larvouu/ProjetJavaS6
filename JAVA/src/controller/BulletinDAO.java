@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
+import modele.Bulletin;
 import modele.*;
 
 /**
@@ -17,8 +17,6 @@ import modele.*;
  * @author ghias
  */
 public class BulletinDAO extends DAO<Bulletin> {
-    
-       public boolean create_eval(Bulletin obj, DetailBulletin detailBulletin){return false;}
     
     public BulletinDAO(Connection conn) 
     {
@@ -30,7 +28,9 @@ public class BulletinDAO extends DAO<Bulletin> {
     {
         return false;
     }
-    
+
+
+
     //Pas encore implémentée 
     public boolean delete(Bulletin obj)
     {
@@ -40,32 +40,14 @@ public class BulletinDAO extends DAO<Bulletin> {
     //Pas encore implémentée 
     public boolean update(Bulletin obj)
     {
-        boolean b = true;
-        Scanner sc = new Scanner(System.in);
-        
-        String new_app;
-        try{
-            System.out.println("Quelle est la nouvelle appreciation ?");
-            new_app = sc.next();   
-            String sql = "UPDATE bulletin set appreciation =? WHERE id=?";
-            PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setString(1, new_app);
-            pst.setInt(2, obj.getId());
-            pst.executeUpdate();
-        }
-        catch (SQLException exception)
-        {
-            exception.printStackTrace();
-            b= false;
-        }
-        
-        return b;
+        return false;
     }
     
     
     public Bulletin find(int id)
     {
         Bulletin bulletin = new Bulletin();
+        Personne pers = new Personne();
         
         
         try{
