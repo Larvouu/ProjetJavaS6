@@ -59,9 +59,12 @@ public class ClasseDAO extends DAO<Classe>{
             pst.setString(1, id);
             pst.executeQuery();
             
-
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next())
+            {
                  classe = new Classe(id);
-
+            }
             /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM classe WHERE id = " + id);

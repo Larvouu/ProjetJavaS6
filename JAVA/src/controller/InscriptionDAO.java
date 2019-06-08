@@ -228,32 +228,23 @@ public class InscriptionDAO extends DAO<Inscription>{
             String sql = "SELECT * FROM inscription WHERE id = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
             pst.setInt(1, id);     
-            pst.executeQuery();
+            //pst.executeQuery();
+            ResultSet rs_find = pst.executeQuery();
+            //rs_find.next();
             
-            if(pst.executeQuery().first())
+            
+            inscription = new Inscription(id);
+
+            PersonneDAO personneDAO = new PersonneDAO(this.connect);
+            ClasseDAO classeDAO = new ClasseDAO(this.connect);
+
+            if(rs_find.next())
             {
-                   inscription = new Inscription(id);
-                   
-                   PersonneDAO personneDAO = new PersonneDAO(this.connect);
-                   ClasseDAO classeDAO = new ClasseDAO(this.connect);
-                   
-                   inscription.setPersonne(personneDAO.find(pst.executeQuery().getInt("personne_id")));
-                   inscription.setClasse(classeDAO.find(pst.executeQuery().getInt("classe_id")));
+                inscription.setPersonne(personneDAO.find(rs_find.getInt("personne_id")));
+                inscription.setClasse(classeDAO.find(rs_find.getString("classe_id")));
             }
-            /*ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM inscription WHERE id = " + id);
+            else{System.out.println("Pas de resultat pour la requete");}
             
-            if(result.first())
-            {
-                inscription = new Inscription(id);
-                
-                PersonneDAO personneDAO = new PersonneDAO(this.connect);
-                ClasseDAO classeDAO = new ClasseDAO(this.connect);
-                
-                inscription.setPersonne(personneDAO.find(result.getInt("personne_id")));
-                inscription.setClasse(classeDAO.find(result.getInt("classe_id")));
-            }*/
         }
         catch (SQLException exception)
         {
@@ -264,12 +255,4 @@ public class InscriptionDAO extends DAO<Inscription>{
     }
 
 
-
-    public Inscription find(String id)
-    {
-        Inscription inscription = new Inscription();
-
-
-        return inscription;
-    }
 }

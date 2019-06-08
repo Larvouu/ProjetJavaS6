@@ -226,12 +226,11 @@ public class PersonneDAO extends DAO<Personne>{
             //pst.executeQuery();
             ResultSet rs_find=pst.executeQuery();
 
-            rs_find.next();
-            if(rs_find.next()){
-
-                personne = new Personne(id, pst.executeQuery().getString("nom") , pst.executeQuery().getString("prenom"), pst.executeQuery().getString("type"));
-
+            if(rs_find.next())
+            {
+                personne = new Personne(id, rs_find.getString("nom") , rs_find.getString("prenom"), rs_find.getString("type"));
             }
+            
 
 
         }
@@ -263,16 +262,39 @@ public class PersonneDAO extends DAO<Personne>{
             //pst.executeQuery();
             ResultSet rs_find=pst.executeQuery();
 
-            rs_find.next();
-            System.out.println("-------   Informations concernant l'eleve   --------");
-            System.out.println("Id : "+ rs_find.getString("id"));
-            System.out.println("Prenom : "+rs_find.getString("prenom"));
-            System.out.println("Nom : "+rs_find.getString("nom"));
+            //rs_find.next();
+            
+            if(rs_find.next())
+            {
+                
+                System.out.println("-------   Informations concernant l'eleve   --------");
+                System.out.println("Id : "+ rs_find.getInt("id"));
+                System.out.println("Prenom : "+rs_find.getString("prenom"));
+                System.out.println("Nom : "+rs_find.getString("nom"));
+            
+                InscriptionDAO inscriptionDAO = new InscriptionDAO(this.connect);
+                //System.out.println("Id : ---- "+rs_find.getInt("id")); //PAS BON renvoi l'id de la personne alors que je veux la classe_id
+                //System.out.println("Classe : "+inscriptionDAO.find(rs_find.getInt("classe_id")).getClasse().getNom());
+                //System.out.println("Classe : "+inscriptionDAO.find(9).getClass().getName());
+                
+                ////////////// ------------- REQUETE DEUX ----------- //////////////////
+                String sql2 = "SELECT * FROM inscription WHERE personne_id = ?";
+                PreparedStatement pst2 = connect.prepareStatement(sql2);
+                pst2.setInt(1, rs_find.getInt("id"));
+                //pst.executeQuery();
+                ResultSet rs_2=pst2.executeQuery();
+                
+                if(rs_2.next())
+                {
+                    System.out.println("Classe : " + inscriptionDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                }
+            }
+            
             
         }
         catch (SQLException exception)
         {
-            exception.printStackTrace();
+            System.out.println(exception);
         }
     }
     
