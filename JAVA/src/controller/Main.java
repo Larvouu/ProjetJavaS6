@@ -424,7 +424,14 @@ public class Main {
             }
         });
 
-        
+        pageEnseignant.getjButtonRechercherEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("RechercherEleve");
+            }
+        });
         
         
         

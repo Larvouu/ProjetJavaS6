@@ -38,7 +38,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        jButtonRechercherEleve = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -113,7 +113,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jTextArea1.setText("- Afficher tous les élèves de l'enseignant\n- Afficher les infos d'un élève : nom, prenom, classe, niveau, (moyenne général?), \n- possibilité de SUPPRIMER UN ELEVE\n- possibilite d'AJOUTER UN ELEVE\n- possibilité de MODIFIER INFOS d'un eleve ? \n- mettre un bouton pour accéder à des graphiques ?");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton2.setText("Rechercher un élève (nom, prenom, classe, niveau, moyenne g)");
+        jButtonRechercherEleve.setText("Rechercher un élève (nom, prenom, classe, niveau, moyenne g)");
 
         jButton3.setText("Consulter les notes d'un élève");
 
@@ -138,7 +138,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                         .addComponent(jButton5))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonRechercherEleve)
                         .addGap(31, 31, 31)
                         .addComponent(jButton3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -162,7 +162,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonRechercherEleve))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
@@ -208,12 +208,12 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonCreerEleve;
+    private javax.swing.JButton jButtonRechercherEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -246,4 +246,8 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         return jButton1;
     }
      
+    public javax.swing.JButton getjButtonRechercherEleve()
+    {
+        return jButtonRechercherEleve;
+    }
 }
