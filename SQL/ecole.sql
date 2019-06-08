@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 07 juin 2019 à 17:48
+-- Généré le :  sam. 08 juin 2019 à 10:31
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -209,7 +209,15 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   PRIMARY KEY (`id`),
   KEY `classe_id` (`classe_id`),
   KEY `personne_id` (`personne_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `inscription`
+--
+
+INSERT INTO `inscription` (`id`, `classe_id`, `personne_id`) VALUES
+(1, 'CM1_A', 5),
+(2, 'CM2_A', 8);
 
 -- --------------------------------------------------------
 
@@ -246,20 +254,18 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(200) DEFAULT NULL,
   `prenom` varchar(200) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
-  `enseignement_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `enseignement_id` (`enseignement_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
 --
 
-INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`, `enseignement_id`) VALUES
-(1, 'Ndaw', 'Inna', 'eleve', NULL),
-(2, 'Pied', 'Nelly', 'eleve', NULL),
-(3, 'Hina', 'Manolo', 'prof', 1),
-(4, 'Le', 'Kat', 'prof', 1);
+INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`) VALUES
+(1, 'Ndaw', 'Inna', 'eleve'),
+(2, 'Pied', 'Nelly', 'eleve'),
+(3, 'Hina', 'Manolo', 'prof'),
+(4, 'Le', 'Kat', 'prof');
 
 -- --------------------------------------------------------
 
