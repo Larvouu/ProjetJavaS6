@@ -28,6 +28,7 @@ public class BulletinDAO extends DAO<Bulletin> {
     public void Afficher_bulletinDAO(Personne eleve)
     {
         int id_eleve=0;
+        String classe_id = null;
         System.out.println("Bulletin trimestrielle de : ");
         try 
             {
@@ -42,8 +43,122 @@ public class BulletinDAO extends DAO<Bulletin> {
                 id_eleve= rs_ideleve.getInt("id");
                 eleve.setId(rs_ideleve.getInt("id"));
                 System.out.println("Votre INE " +eleve.getId());
-                
-            }catch (SQLException exception)
+               
+                ///On recupere la classe
+               String sql_classe = "SELECT classe_id FROM inscription where personne_id= ?";
+               PreparedStatement pst_classe =connect.prepareStatement(sql_classe);
+               pst_classe.setInt(1, id_eleve);
+               ResultSet rs_classe = pst_classe.executeQuery();
+               if(rs_classe.next())
+               {
+                   classe_id = rs_classe.getString("classe_id");
+                   System.out.println("Votre classe " +classe_id);
+            
+               }
+               
+               
+               //On recupere le Bulletin
+               int id_inscription=0;
+               String sql_idinscription = "SELECT id FROM inscription WHERE personne_id= ?";
+               PreparedStatement pst_idinscription = connect.prepareStatement(sql_idinscription);
+               pst_idinscription.setInt(1, id_eleve);
+               ResultSet rs_idinscription = pst_idinscription.executeQuery();
+               if(rs_idinscription.next()==true)
+               {
+                  id_inscription=rs_idinscription.getInt("id");
+                   System.out.println("Numero d'inscription"+ id_inscription); 
+               }
+               
+                int id_bulletin=0;
+               String sql_bull = "SELECT id FROM bulletin WHERE inscription_id= ?";
+               PreparedStatement pst_bull = connect.prepareStatement(sql_bull);
+               pst_bull.setInt(1, id_inscription);
+               ResultSet rs_bull = pst_bull.executeQuery();
+               if(rs_bull.next()==true)
+               {
+                  id_bulletin=rs_bull.getInt("id");
+                   System.out.println("Identifiant Bulletin"+ id_bulletin); 
+               }
+               ///On recupere les infos de chaque matiere
+                int id_db=0;
+                String nom_matiere=null;
+                String nomprof=null;
+                String prenomprof=null;
+                int id_enseignement=0;
+                int id_prof=0;
+               String sql_db = "SELECT id FROM detailbulletin WHERE bulletin_id= ?";
+               PreparedStatement pst_db = connect.prepareStatement(sql_db);
+               pst_db.setInt(1, id_bulletin);
+               ResultSet rs_db = pst_db.executeQuery();
+               while(rs_db.next()==true)
+               {
+                     id_db=rs_db.getInt("id");
+                   System.out.println("Matiere"+ id_db);
+                   //Ensignement id
+                   String sql_ens = "SELECT enseignement_id FROM detailbulletin WHERE bulletin_id= ?";
+                  
+                   PreparedStatement pst_ens=connect.prepareStatement(sql_ens);
+                   pst_ens.setInt(1, id_bulletin);
+                   ResultSet rs_ens = pst_ens.executeQuery();
+                 
+                   if(rs_ens.next())
+                   {
+                       
+                   id_enseignement=rs_ens.getInt("enseignement_id");
+      
+                   System.out.println("id enseignement " + id_enseignement);
+             
+                   
+                 //nom matiere
+                   String sql_mat = "SELECT discipline_id FROM enseignement WHERE id= ?";
+                   PreparedStatement pst_mat=connect.prepareStatement(sql_mat);
+                   pst_mat.setInt(1, id_enseignement);
+                   ResultSet rs_mat = pst_mat.executeQuery();
+                  if( rs_mat.next()){
+                   nom_matiere=rs_mat.getString("discipline_id");
+                   System.out.println("Matiere " + nom_matiere);
+                   
+                   
+                  //prof
+                   String sql_prof = "SELECT personne_id FROM enseignement WHERE id=?";
+                   PreparedStatement pst_prof=connect.prepareStatement(sql_prof);
+                   pst_prof.setInt(1, id_enseignement);
+                   ResultSet rs_prof = pst_prof.executeQuery();
+                   if(rs_prof.next()){
+                   id_prof=rs_prof.getInt("personne_id");
+                   System.out.println("id prof " + id_prof);
+                   
+                   String sql_nomprof = "SELECT nom FROM personne WHERE id=?";
+                   PreparedStatement pst_nomprof=connect.prepareStatement(sql_nomprof);
+                   pst_nomprof.setInt(1, id_prof);
+                   ResultSet rs_nomprof = pst_nomprof.executeQuery();
+                   if(rs_nomprof.next())
+                   {
+                   nomprof=rs_nomprof.getString("nom");
+                   System.out.println("nom prof " + nomprof);
+                   
+                    String sql_prenomprof = "SELECT prenom FROM personne WHERE id=?";
+                   PreparedStatement pst_prenomprof=connect.prepareStatement(sql_prenomprof);
+                   pst_prenomprof.setInt(1, id_prof);
+                   ResultSet rs_prenomprof = pst_prenomprof.executeQuery();
+                   if(rs_prenomprof.next())
+                   {
+                   prenomprof=rs_prenomprof.getString("prenom");
+                   System.out.println("prenom prof " + prenomprof);
+                   }
+                   }
+                   } 
+                   
+               }
+                  
+            }
+               } 
+               
+           
+            }
+                       
+           
+           catch (SQLException exception)
             {
                 exception.printStackTrace();
             }
