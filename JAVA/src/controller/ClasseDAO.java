@@ -83,8 +83,9 @@ public class ClasseDAO extends DAO<Classe>{
         return classe;
     }
     
-    public void rechercherClasse()
+    public boolean rechercherClasse()
     {
+        boolean b = true;
         String nom ="";
         Scanner sc = new Scanner(System.in);
         System.out.println("---------- RECHERCHER UNE CLASSE ---------");
@@ -108,11 +109,15 @@ public class ClasseDAO extends DAO<Classe>{
                 System.out.println("Annee : "+rs_find.getInt("anneescolaire_id"));
                 System.out.println("Niveau : "+rs_find.getString("niveau_id"));
             }
+            else{
+                b = false;
+            }
         }
         catch (SQLException exception)
         {
             System.out.println(exception);
         }
+        return b;
     }
     
      

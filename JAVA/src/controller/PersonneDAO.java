@@ -382,9 +382,9 @@ public class PersonneDAO extends DAO<Personne>{
     }
     
     //rechercher un eleve
-    public void rechercherEleve(String nom, String prenom)
+    public boolean rechercherEleve(String nom, String prenom)
     {
-        
+        boolean b= true;
         try{
             //Premiere requete
             String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
@@ -416,17 +416,22 @@ public class PersonneDAO extends DAO<Personne>{
                     System.out.println("Classe : " + inscriptionDAO.find(rs_2.getInt("id")).getClasse().getNom());
                 }
             }
+            else
+            {
+                b=false;
+            }
         }
         catch (SQLException exception)
         {
             System.out.println(exception);
         }
+        return b;
     }
     
     //rechercher un prof
-     public void rechercherProf(String nom, String prenom)
+     public boolean rechercherProf(String nom, String prenom)
     {
-
+        boolean b = true;
         try{
             //Premiere requete
             String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
@@ -459,11 +464,16 @@ public class PersonneDAO extends DAO<Personne>{
                     System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
                 } 
             }
+            else
+            {
+                b = false;
+            }
         }
         catch (SQLException exception)
         {
             System.out.println(exception);
         }
+        return b;
     }
      
      public void rechercherClassesDontJeSuisProf(Personne personne)

@@ -530,7 +530,7 @@ public class Main {
         });
         
                 
-                ///Coucou Inna page enseignant
+        ///Coucou Inna page enseignant
         pageEnseignant.getjButtonAjouterNoteEleve().addActionListener(new ActionListener() {
 
             @Override
@@ -548,9 +548,9 @@ public class Main {
 
             }
         });
-      
         
      
+        
         
         //hola guapa page admin
         pageAdmin.getjButtonAjouterEleve().addActionListener(new ActionListener() {
@@ -570,22 +570,26 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 jframe1.remove(pageAdmin);
-                jframe1.setContentPane(pageRechercherPersonne);
+                jframe1.setContentPane(pageRechercherEleve);
                 jframe1.setVisible(true);
                 
             }
         });
         
-        pageRechercherPersonne.getjButtonRechercherEleve().addActionListener(new ActionListener() {
+        pageRechercherEleve.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) 
             {
                
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               String nom = pageRechercherPersonne.getjTextFieldNomRecherche().getText();
-               String prenom = pageRechercherPersonne.getjTextFieldPrenomRecherche().getText();
-               personneDAO_admin.rechercherEleve(nom,prenom);
+               String nom = pageRechercherEleve.getjTextFieldNomRecherche().getText();
+               String prenom = pageRechercherEleve.getjTextFieldPrenomRecherche().getText();
+               if(personneDAO_admin.rechercherEleve(nom,prenom))
+               {
+                   
+                   
+               }
             }
         });
         
@@ -611,7 +615,10 @@ public class Main {
                String nom = pageRechercherProf.getjTextFieldNom().getText();
                String prenom = pageRechercherProf.getjTextFieldPrenom().getText();
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               personneDAO_admin.rechercherProf(nom, prenom);
+               if(personneDAO_admin.rechercherProf(nom, prenom))
+               {
+                   //JOptionPane.showMessageDialog(page, personne);
+               }
             }
         });
         
@@ -668,8 +675,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                PersonneDAO personneDAO_modifNomEleve = new PersonneDAO(maConnexion.getConnection());
-                personneDAO_modifNomEleve.modifierEleveDepuisAdmin("nom");
+               
             }
         });
                 
@@ -679,8 +685,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                PersonneDAO personneDAO_modifPrenomEleve = new PersonneDAO(maConnexion.getConnection());
-                personneDAO_modifPrenomEleve.modifierEleveDepuisAdmin("prenom");
+               
             }
         });
                 
@@ -689,8 +694,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                PersonneDAO personneDAO_modifClasseEleve = new PersonneDAO(maConnexion.getConnection());
-                personneDAO_modifClasseEleve.modifierClasseEleveDepuisAdmin();
+               
             }
         });
         
