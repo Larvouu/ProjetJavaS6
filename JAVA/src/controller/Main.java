@@ -657,7 +657,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifNomEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifNomEleve.modifierEleveDepuisAdmin("nom");
             }
         });
                 
@@ -667,7 +668,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifPrenomEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifPrenomEleve.modifierEleveDepuisAdmin("prenom");
             }
         });
                 
@@ -676,7 +678,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifClasseEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifClasseEleve.modifierClasseEleveDepuisAdmin();
             }
         });
         
