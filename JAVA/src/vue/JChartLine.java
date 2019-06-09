@@ -5,7 +5,6 @@
  */
 package vue;
 
-import static demo.BubbleChartDemo1.createDataset;
 import javax.swing.JFrame;  
 import javax.swing.SwingUtilities;  
 import javax.swing.WindowConstants;
