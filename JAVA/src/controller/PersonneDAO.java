@@ -382,17 +382,8 @@ public class PersonneDAO extends DAO<Personne>{
     }
     
     //rechercher un eleve
-    public void rechercherEleve()
+    public void rechercherEleve(String nom, String prenom)
     {
-        String prenom;
-        String nom;
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.println("---------- RECHERCHER UN ELEVE ---------");
-        System.out.println("Entrer le prenom");
-        prenom = sc.next();
-        System.out.println("Entrer le nom");
-        nom = sc.next();
         
         try{
             //Premiere requete

@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JpanelAjouterEleveForm;
+import vue.JpanelRechercherPersonne;
 import vue.JpanelSupprEleveForm;
 
 
@@ -44,6 +45,7 @@ public class Main {
     private static JpanelAdmin pageAdmin;
     private static JpanelAjouterEleveForm pageAjouterEleveForm;
     private static JpanelSupprEleveForm pageSupprEleveForm;
+    private static JpanelRechercherPersonne pageRechercherPersonne;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -79,6 +81,7 @@ public class Main {
         pageAdmin = new JpanelAdmin();
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
         pageSupprEleveForm = new JpanelSupprEleveForm();
+        pageRechercherPersonne = new JpanelRechercherPersonne();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -492,9 +495,14 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                personneDAO.rechercherEleve();
+               jframe1.remove(pageEnseignant);
+               jframe1.setContentPane(pageRechercherPersonne);
+               jframe1.setVisible(true);
             }
         });
+        
+        
+        
         
         pageEnseignant.getjButtonAfficherClasseDontJeSuisProf().addActionListener(new ActionListener() {
 
@@ -527,6 +535,8 @@ public class Main {
             }
         });
         
+     
+        
         //hola guapa page admin
         pageAdmin.getjButtonAjouterEleve().addActionListener(new ActionListener() {
 
@@ -544,12 +554,27 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                //Comme personneDAO c'est le prof qui se connecte (selon Sarah ?) J'ai créé une autre personne admin pour appeler la recherche
-                //Parce que avec personneDAO = ca marche pas (puisque pas encore connecté)
-                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               personneDAO_admin.rechercherEleve();
+                jframe1.remove(pageAdmin);
+                jframe1.setContentPane(pageRechercherPersonne);
+                jframe1.setVisible(true);
+                
             }
         });
+        
+        pageRechercherPersonne.getjButtonRechercher().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               
+               PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
+               String nom = pageRechercherPersonne.getjTextFieldNomRecherche().getText();
+               String prenom = pageRechercherPersonne.getjTextFieldPrenomRecherche().getText();
+               personneDAO_admin.rechercherEleve(nom,prenom);
+            }
+        });
+        
+        
         
         pageAdmin.getjButtonRechercherProf().addActionListener(new ActionListener() {
 
