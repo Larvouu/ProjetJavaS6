@@ -336,6 +336,12 @@ public class InscriptionDAO extends DAO<Inscription>
                         pst.setInt(2, personne.getId());
                         pst.executeUpdate();
                         nb_a++;
+                        
+                         sql_nb = "UPDATE classe SET nbInscrits=? WHERE nom = ?";
+                        pst_nb = connect.prepareStatement(sql_nb);
+                        pst_nb.setInt(1, nb_a);
+                        pst_nb.setString(2, "CM2_A");
+                        pst_nb.executeUpdate();
                     }
 
                    else if (nb_b < nb_a) {
@@ -352,6 +358,8 @@ public class InscriptionDAO extends DAO<Inscription>
                         pst_nb.setInt(1, nb_b);
                         pst_nb.setString(2, "CM2_B");
                         pst_nb.executeUpdate();
+                        
+                        
                     }
                     break;
 

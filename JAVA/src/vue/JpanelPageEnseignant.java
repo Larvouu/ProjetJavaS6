@@ -32,16 +32,13 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelNomProf = new javax.swing.JLabel();
+        jLabelPrenomProf = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButtonAjouterNoteEleve = new javax.swing.JButton();
         jButtonSupprEleve = new javax.swing.JButton();
         jButtonCreerEleve = new javax.swing.JButton();
-        jButtonRemplirBulletinEleve = new javax.swing.JButton();
         jButtonRechercherEleve = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButtonAfficherClasseDontJeSuisProf = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -62,11 +59,11 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Enseignant", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel3.setText("Arash");
+        jLabelNomProf.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNomProf.setText("Arash");
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel4.setText("Mockber");
+        jLabelPrenomProf.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelPrenomProf.setText("Mockber");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pro.png"))); // NOI18N
@@ -80,17 +77,17 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelNomProf)
+                    .addComponent(jLabelPrenomProf))
                 .addGap(52, 52, 52))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel3)
+                .addComponent(jLabelNomProf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabelPrenomProf)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel5)
@@ -103,13 +100,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButtonCreerEleve.setText("Ajouter un élève");
 
-        jButtonRemplirBulletinEleve.setText("Remplir le bulletin de l'élève");
-
         jButtonRechercherEleve.setText("Rechercher un élève (nom, prenom, classe, niveau, moyenne g)");
-
-        jButton4.setText("Consulter la moyenne d'une interro par classe (graphe)");
-
-        jButton3.setText("Consulter les notes d'un élève");
 
         jButtonAfficherClasseDontJeSuisProf.setText("Afficher toutes les classes dont je suis prof");
 
@@ -122,7 +113,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
                             .addComponent(jButtonRechercherEleve)
                             .addComponent(jButtonAjouterNoteEleve)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -132,13 +122,11 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonAfficherClasseDontJeSuisProf)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonRemplirBulletinEleve, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(304, 304, 304)
+                                .addGap(555, 555, 555)
                                 .addComponent(jButtonSupprEleve)))
                         .addContainerGap(71, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCreerEleve)
                         .addGap(78, 78, 78))))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -161,11 +149,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jButtonAjouterNoteEleve)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonRemplirBulletinEleve)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3))
+                        .addComponent(jButtonAjouterNoteEleve))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jButtonSupprEleve)
@@ -173,9 +157,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                         .addComponent(jButtonCreerEleve)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRechercherEleve)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -218,24 +200,31 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonAfficherClasseDontJeSuisProf;
     private javax.swing.JButton jButtonAjouterNoteEleve;
     private javax.swing.JButton jButtonCreerEleve;
     private javax.swing.JButton jButtonRechercherEleve;
-    private javax.swing.JButton jButtonRemplirBulletinEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelNomProf;
+    private javax.swing.JLabel jLabelPrenomProf;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 
+    public javax.swing.JLabel getjLabelNomProf()
+    {
+        return jLabelNomProf;
+    }
+    
+    public javax.swing.JLabel getjLabelPrenomProf()
+    {
+        return jLabelPrenomProf;
+    }        
+            
     public javax.swing.JButton getButtonDeconnexion()
     {
         return jButton8;
@@ -269,12 +258,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     {
         return jButtonAjouterNoteEleve;
     }
-    
-    public javax.swing.JButton getjButtonRemplirBulletinEleve()
-    {
-        return jButtonRemplirBulletinEleve;
-    }
-    
-    
+      
     
 }
