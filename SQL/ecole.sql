@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 08 juin 2019 à 17:54
+-- Généré le :  Dim 09 juin 2019 à 09:28
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -171,14 +171,15 @@ CREATE TABLE IF NOT EXISTS `enseignement` (
   KEY `classe_id` (`classe_id`),
   KEY `discipline_id` (`discipline_id`),
   KEY `personne_id` (`personne_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `enseignement`
 --
 
 INSERT INTO `enseignement` (`id`, `classe_id`, `discipline_id`, `personne_id`) VALUES
-(1, 'CM1_A', 'physique', 2);
+(1, 'CM1_A', 'physique', 2),
+(2, 'CP_B', 'francais', 2);
 
 -- --------------------------------------------------------
 
