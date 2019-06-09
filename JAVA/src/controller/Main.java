@@ -24,6 +24,7 @@ import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
+import javax.swing.WindowConstants;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JChartLine;
@@ -71,7 +72,7 @@ public class Main {
     private static Personne personne;
     
     
-    private static JChartLine graph;
+    private static JChartLine graph;//je suis là
    
     
 
@@ -96,13 +97,20 @@ public class Main {
         
         
         
-        graph = new JChartLine("Lowl");
+        graph = new JChartLine("Graphe notes de l'elève / moyennnes de sa classe"); // je suis là
         
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
         jframe1.setContentPane(pageAccueil);
         jframe1.setVisible(true);
+        
+        
+        graph.setAlwaysOnTop(true);  // je suis là
+        graph.pack();  
+        graph.setSize(600, 400);  
+        //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
+        graph.setVisible(true); // je suis là
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -1013,7 +1021,7 @@ public class Main {
          */       
         
         
-        graph.setVisible(true);
+        
 
     }
 }

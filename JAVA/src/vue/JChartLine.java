@@ -31,9 +31,9 @@ public class JChartLine extends JFrame {
     DefaultCategoryDataset dataset = createDataset();  
     // Create chart  
     JFreeChart chart = ChartFactory.createLineChart(  
-        "Site Traffic", // Chart title  
-        "Date", // X-Axis Label  
-        "Number of Visitor", // Y-Axis Label  
+        "Graphe notes de l'elève / moyennnes de sa classe", // Chart title  
+        "Numéro de la note", // X-Axis Label  
+        "Valeur de la note", // Y-Axis Label  
         dataset  
         );  
   
@@ -67,26 +67,28 @@ public class JChartLine extends JFrame {
     // End of variables declaration//GEN-END:variables
 private DefaultCategoryDataset createDataset() {  
   
-    String series1 = "Visitor";  
-    String series2 = "Unique Visitor";  
+    String series1 = "Notes de l'élève";  
+    String series2 = "Moyenne de sa classe";  
   
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
   
-    dataset.addValue(200, series1, "2016-12-19");  
-    dataset.addValue(150, series1, "2016-12-20");  
-    dataset.addValue(100, series1, "2016-12-21");  
-    dataset.addValue(210, series1, "2016-12-22");  
-    dataset.addValue(240, series1, "2016-12-23");  
-    dataset.addValue(195, series1, "2016-12-24");  
-    dataset.addValue(245, series1, "2016-12-25");  
+    //Notes de l'eleve
+    dataset.addValue(6, series1, "note 1");  
+    dataset.addValue(14, series1, "note 2");  
+    dataset.addValue(18, series1, "note 3");  
+    dataset.addValue(12, series1, "note 4");  
+    dataset.addValue(8, series1, "note 5");  
+    dataset.addValue(10, series1, "note 6");  
+    dataset.addValue(13, series1, "note 7");  
   
-    dataset.addValue(150, series2, "2016-12-19");  
-    dataset.addValue(130, series2, "2016-12-20");  
-    dataset.addValue(95, series2, "2016-12-21");  
-    dataset.addValue(195, series2, "2016-12-22");  
-    dataset.addValue(200, series2, "2016-12-23");  
-    dataset.addValue(180, series2, "2016-12-24");  
-    dataset.addValue(230, series2, "2016-12-25");  
+    //Moyennes de sa classe
+    dataset.addValue(10, series2, "note 1");  
+    dataset.addValue(11, series2, "note 2");  
+    dataset.addValue(11, series2, "note 3");  
+    dataset.addValue(8, series2, "note 4");  
+    dataset.addValue(9, series2, "note 5");  
+    dataset.addValue(7, series2, "note 6");  
+    dataset.addValue(12, series2, "note 7");  
   
     return dataset;  
   }  
