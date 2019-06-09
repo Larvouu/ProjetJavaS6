@@ -5,6 +5,9 @@
  */
 package controller;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
@@ -24,10 +27,14 @@ import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JChartLine;
+import vue.JpanelAfficherEleveClasse;
 import vue.JpanelAjouterEleveForm;
 import vue.JpanelRechercheProf;
 import vue.JpanelRechercherClasse;
@@ -54,6 +61,8 @@ public class Main {
     private static JpanelRechercheProf pageRechercherProf;
     private static JpanelRechercherEleveParEnseignant pageRechercherEleveParEnseignant;
     private static JpanelRechercherClasse pageRechercherClasse;
+    //private static JpanelAfficherEleveClasse pageAfficherEleveClasse;
+    
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -83,6 +92,8 @@ public class Main {
 
         //Le seul JFrame
         jframe1 = new JframePrincipal();
+        jframe1.setLocationRelativeTo(null);
+        jframe1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Les différents JPanel
         pageAccueil = new JpanelPageAccueil();
@@ -96,6 +107,7 @@ public class Main {
         pageRechercherProf = new JpanelRechercheProf();
         pageRechercherEleveParEnseignant = new JpanelRechercherEleveParEnseignant();
         pageRechercherClasse = new JpanelRechercherClasse();
+        //pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
         
         
         
@@ -114,6 +126,10 @@ public class Main {
         graph.setSize(600, 400);  
         //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
         //graph.setVisible(true); 
+        
+
+        
+        
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -756,6 +772,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                JFrame frame = new JFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
+
                 //Utile pour récupérer ce que le user a selectionné
                 pageRechercherClasse.getjRadioButtonCP_A().setActionCommand("CP_A");
                 pageRechercherClasse.getjRadioButtonCP_B().setActionCommand("CP_B");
@@ -778,11 +798,17 @@ public class Main {
                 
                
                 ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
-                if(classeDAO_recherche.rechercherClasse(classeSelection, anneeSelection))
+                if(classeDAO_recherche.rechercherClasse(classeSelection, anneeSelection, pageAfficherEleveClasse))
                 {
-                    jframe1.remove(pageRechercherClasse);
-                    jframe1.setContentPane(pageAdmin);
-                    jframe1.setVisible(true);
+                    
+                    frame.remove(pageRechercherClasse);
+                    frame.setContentPane(pageAfficherEleveClasse);
+                    frame.setSize(400, 600);
+                    frame.setVisible(true);
+                    
+                    
+                    
+                    
                 }
             }
         });
