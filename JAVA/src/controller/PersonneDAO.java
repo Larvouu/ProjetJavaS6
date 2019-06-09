@@ -218,6 +218,13 @@ public class PersonneDAO extends DAO<Personne>{
                         pst4.setInt(1, nbInscrits);
                         pst4.setString(2, nom_classe_id);
                         pst4.executeUpdate();
+                        
+                        
+                        //On delete aussi dans inscription 
+                        String sql5="DELETE FROM inscription WHERE personne_id=?";
+                        PreparedStatement pst = connect.prepareStatement(sql5);
+                        pst.setInt(1, idPersonneASuppr);
+                        pst.executeUpdate();
                        
                         
                     } catch (SQLException ex) {
