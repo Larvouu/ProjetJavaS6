@@ -24,6 +24,7 @@ public class JChartLine extends JFrame {
     DefaultCategoryDataset dataset;
     
     String series1 ="";
+    JFreeChart chart;
     /**
      * Creates new form JChartLine
      */
@@ -32,13 +33,13 @@ public class JChartLine extends JFrame {
     // Create dataset  
      dataset = createDataset();  
     // Create chart  
-    JFreeChart chart = ChartFactory.createLineChart(  
+    chart = ChartFactory.createLineChart(  
         //"Graphe notes de l'elève / moyennnes de sa classe", // Chart title  
         "Graphe des notes de l'élève",
         "Numéro de la note", // X-Axis Label  
         "Valeur de la note", // Y-Axis Label  
         dataset  
-        );  
+        ); 
   
     ChartPanel panel = new ChartPanel(chart);  
     setContentPane(panel);
@@ -76,7 +77,7 @@ private DefaultCategoryDataset createDataset() {
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
   
     //Notes de l'eleve
-    dataset.addValue(6, series1, "note 1");  
+    /*dataset.addValue(6, series1, "note 1");  
     dataset.addValue(14, series1, "note 2");  
     dataset.addValue(18, series1, "note 3");  
     dataset.addValue(12, series1, "note 4");  
@@ -84,7 +85,7 @@ private DefaultCategoryDataset createDataset() {
     dataset.addValue(10, series1, "note 6");  
     dataset.addValue(13, series1, "note 7");  
   
-    /*
+    
     //Moyennes de sa classe
     dataset.addValue(10, series2, "note 1");  
     dataset.addValue(11, series2, "note 2");  
@@ -100,5 +101,6 @@ private DefaultCategoryDataset createDataset() {
 
 public DefaultCategoryDataset getDataset (){return dataset;}
 public String getSeries1(){return series1;}
+
    
 }

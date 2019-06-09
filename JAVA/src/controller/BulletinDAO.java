@@ -29,7 +29,7 @@ public class BulletinDAO extends DAO<Bulletin> {
     {
         int id_eleve=0;
         String classe_id = null;
-        System.out.println("Bulletin trimestrielle de : ");
+        System.out.println("****Bulletin trimestrielle *****");
         try 
             {
                String sql_ideleve = "SELECT id FROM personne WHERE nom = ? AND prenom = ?";
@@ -38,11 +38,10 @@ public class BulletinDAO extends DAO<Bulletin> {
                 pst_ideleve.setString(2, eleve.getPrenom());
                 ResultSet rs_ideleve= pst_ideleve.executeQuery();
                 rs_ideleve.next();
-                System.out.println("Nom " +eleve.getNom());
-                System.out.println("Prenom " + eleve.getPrenom());
+                System.out.println("            Nom : " +eleve.getNom() + "           Prenom : " + eleve.getPrenom());
                 id_eleve= rs_ideleve.getInt("id");
                 eleve.setId(rs_ideleve.getInt("id"));
-                System.out.println("Votre INE " +eleve.getId());
+         
                
                 ///On recupere la classe
                String sql_classe = "SELECT classe_id FROM inscription where personne_id= ?";
@@ -52,7 +51,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                if(rs_classe.next())
                {
                    classe_id = rs_classe.getString("classe_id");
-                   System.out.println("Votre classe " +classe_id);
+                   System.out.println("En " +classe_id);
             
                }
                
@@ -66,7 +65,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                if(rs_idinscription.next()==true)
                {
                   id_inscription=rs_idinscription.getInt("id");
-                   System.out.println("Numero d'inscription"+ id_inscription); 
+                   
                }
                
                 int id_bulletin=0;
@@ -77,7 +76,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                if(rs_bull.next()==true)
                {
                   id_bulletin=rs_bull.getInt("id");
-                   System.out.println("Identifiant Bulletin"+ id_bulletin); 
+                  
                }
                ///On recupere les infos de chaque matiere
                 int id_db=0;
@@ -93,12 +92,12 @@ public class BulletinDAO extends DAO<Bulletin> {
                while(rs_db.next()==true)
                {
                      id_db=rs_db.getInt("id");
-                   System.out.println("Matiere"+ id_db);
+             
                    //Ensignement id
-                   String sql_ens = "SELECT enseignement_id FROM detailbulletin WHERE bulletin_id= ?";
+                   String sql_ens = "SELECT enseignement_id FROM detailbulletin WHERE id= ?";
                   
                    PreparedStatement pst_ens=connect.prepareStatement(sql_ens);
-                   pst_ens.setInt(1, id_bulletin);
+                   pst_ens.setInt(1, id_db);
                    ResultSet rs_ens = pst_ens.executeQuery();
                  
                    if(rs_ens.next())
@@ -106,8 +105,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                        
                    id_enseignement=rs_ens.getInt("enseignement_id");
       
-                   System.out.println("id enseignement " + id_enseignement);
-             
+                
                    
                  //nom matiere
                    String sql_mat = "SELECT discipline_id FROM enseignement WHERE id= ?";
@@ -116,7 +114,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                    ResultSet rs_mat = pst_mat.executeQuery();
                   if( rs_mat.next()){
                    nom_matiere=rs_mat.getString("discipline_id");
-                   System.out.println("Matiere " + nom_matiere);
+                   System.out.println("** " + nom_matiere + " ** ");
                    
                    
                   //prof
@@ -126,16 +124,15 @@ public class BulletinDAO extends DAO<Bulletin> {
                    ResultSet rs_prof = pst_prof.executeQuery();
                    if(rs_prof.next()){
                    id_prof=rs_prof.getInt("personne_id");
-                   System.out.println("id prof " + id_prof);
-                   
+                 
                    String sql_nomprof = "SELECT nom FROM personne WHERE id=?";
                    PreparedStatement pst_nomprof=connect.prepareStatement(sql_nomprof);
                    pst_nomprof.setInt(1, id_prof);
                    ResultSet rs_nomprof = pst_nomprof.executeQuery();
                    if(rs_nomprof.next())
-                   {
+                   { 
                    nomprof=rs_nomprof.getString("nom");
-                   System.out.println("nom prof " + nomprof);
+                  
                    
                     String sql_prenomprof = "SELECT prenom FROM personne WHERE id=?";
                    PreparedStatement pst_prenomprof=connect.prepareStatement(sql_prenomprof);
@@ -144,7 +141,36 @@ public class BulletinDAO extends DAO<Bulletin> {
                    if(rs_prenomprof.next())
                    {
                    prenomprof=rs_prenomprof.getString("prenom");
-                   System.out.println("prenom prof " + prenomprof);
+                    System.out.println("Dispensé par Mr ou Mme  " + nomprof+ " " +prenomprof);
+           
+                   
+                   /// Calcul des moyennes par matières
+                   double moyenne=0;
+                   int somme=0;
+                   int nb_note=0;
+                   String sql_note="SELECT note FROM evaluation WHERE detailbulletin_id = ?";
+                   PreparedStatement pst_note=connect.prepareStatement(sql_note);
+                   pst_note.setInt(1, id_db);
+                   ResultSet rs_note=pst_note.executeQuery();
+                   while(rs_note.next()==true)
+                   {
+                       somme+=+rs_note.getInt("note");
+                       nb_note++;
+                   }
+                   moyenne=somme/nb_note;
+                   String appreciation=null;
+                   String sql_app="SELECT appreciation FROM evaluation WHERE detailbulletin_id = ?";
+                   PreparedStatement pst_app=connect.prepareStatement(sql_app);
+                   pst_app.setInt(1, id_db);
+                   ResultSet rs_app=pst_app.executeQuery();
+                   if(rs_app.next())
+                   {
+                       appreciation=rs_app.getString("appreciation");
+                       System.out.println(appreciation);
+                   }
+                       
+                       
+                   
                    }
                    }
                    } 
@@ -152,7 +178,20 @@ public class BulletinDAO extends DAO<Bulletin> {
                }
                   
             }
-               } 
+               }
+               ///Appreciation generale
+               String appreciationG=null;
+                String sql_appG="SELECT appreciation FROM bulletin WHERE id = ?";
+                   PreparedStatement pst_appG=connect.prepareStatement(sql_appG);
+                   pst_appG.setInt(1, id_bulletin);
+                   ResultSet rs_appG=pst_appG.executeQuery();
+                   if(rs_appG.next())
+                   {
+                       appreciationG=rs_appG.getString("appreciation");
+                       System.out.println("Commentaire de l'ensemble de l'équipe pédagogique : " +appreciationG);
+                   }
+                       
+               
                
            
             }
