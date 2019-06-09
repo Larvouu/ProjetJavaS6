@@ -342,8 +342,12 @@ public class Main {
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
+                  BulletinDAO bulletinDAO = new BulletinDAO(maConnexion);
+                  Bulletin bulletin= new Bulletin();
                   
-
+                  bulletinDAO.Afficher_bulletinDAO(personne);
+                  
+                    
                 }
            });
         

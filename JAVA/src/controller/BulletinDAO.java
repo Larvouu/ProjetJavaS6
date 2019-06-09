@@ -25,6 +25,34 @@ public class BulletinDAO extends DAO<Bulletin> {
         super(conn);
     }
     
+    public void Afficher_bulletinDAO(Personne eleve)
+    {
+        int id_eleve=0;
+        System.out.println("Bulletin trimestrielle de : ");
+        try 
+            {
+               String sql_ideleve = "SELECT id FROM personne WHERE nom = ? AND prenom = ?";
+               PreparedStatement pst_ideleve = connect.prepareStatement(sql_ideleve);
+               pst_ideleve.setString(1, eleve.getNom());
+                pst_ideleve.setString(2, eleve.getPrenom());
+                ResultSet rs_ideleve= pst_ideleve.executeQuery();
+                rs_ideleve.next();
+                System.out.println("Nom " +eleve.getNom());
+                System.out.println("Prenom " + eleve.getPrenom());
+                id_eleve= rs_ideleve.getInt("id");
+                eleve.setId(rs.getInt("id"));
+                System.out.println("Votre INE " +eleve.getId());
+                
+            }catch (SQLException exception)
+            {
+                exception.printStackTrace();
+            }
+    }
+            
+            
+    
+    
+    
      //Pas encore implémentée
     public boolean create(Bulletin obj)
     {
