@@ -26,6 +26,7 @@ import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
+import vue.JChartLine;
 import vue.JpanelAjouterEleveForm;
 import vue.JpanelRechercheProf;
 import vue.JpanelRechercherEleve;
@@ -66,6 +67,9 @@ public class Main {
     
     private static PersonneDAO personneDAO;
     private static Personne personne;
+    
+    
+    private static JChartLine graph;
    
     
 
@@ -84,6 +88,12 @@ public class Main {
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
         pageSupprEleveForm = new JpanelSupprEleveForm();
         pageRechercherEleve = new JpanelRechercherEleve();
+        
+        
+        
+        
+        graph = new JChartLine("Lowl");
+        
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -958,6 +968,9 @@ public class Main {
         }
                 
          */       
+        
+        
+        graph.setVisible(true);
 
     }
 }
