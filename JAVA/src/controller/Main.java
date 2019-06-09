@@ -722,8 +722,7 @@ public class Main {
                 jframe1.setContentPane(pageRechercherClasse);
                 jframe1.setVisible(true);
                 
-               ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
-               classeDAO_recherche.rechercherClasse();
+            
             }
         });
         
