@@ -507,6 +507,26 @@ public class Main {
             }
         });
         
+        ///Coucou Inna page enseignant
+        pageEnseignant.getjButtonAjouterNoteEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("bouton ajouter note");
+            }
+        });
+        
+        //hola guapa page admin
+        pageAdmin.getjButtonAjouterEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("bouton ajouter note");
+            }
+        });
+        
         
         
         pageAdmin.getjButtonRechercherEleve().addActionListener(new ActionListener() {
