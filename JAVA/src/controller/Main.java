@@ -234,6 +234,7 @@ public class Main {
                         if("eleve".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
                             
+                            
                           personneDAO = new PersonneDAO(maConnexion.getConnection());
                             
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
@@ -243,15 +244,35 @@ public class Main {
                             //On set les infos de l'élève qui vient de se connecter AVANT D'AFFICHER LA PAGE ELEVE
                             pageEleve.getJLabelNom().setText(nomUser);
                             pageEleve.getJLabelPrenom().setText(prenomUser);
-                            String requete2 = "SELECT classe_id FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
+                            //String requete2 = "SELECT classe_id FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
                                 
                             try 
                             {
-                                rs = maConnexion.getStmt().executeQuery(requete2);
+                                String sql_e = "SELECT * FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
+                                PreparedStatement pst_e = maConnexion.getConnection().prepareStatement(sql_e);
+                                ResultSet rs_e = pst_e.executeQuery();
+                                
+                                if(rs_e.next())
+                                {
+                                    String sql_e2 = "SELECT * FROM inscription WHERE personne_id = ?";
+                                    PreparedStatement pst_e2 = maConnexion.getConnection().prepareStatement(sql_e2);
+                                    pst_e2.setInt(1, rs_e.getInt("id"));
+                                    ResultSet rs_e2 = pst_e2.executeQuery();
+                                    
+                                    if(rs_e2.next())
+                                    {
+                                        String classeEleve = rs_e2.getString("classe_id");
+                                        pageEleve.getJLabelClasse().setText(classeEleve);
+                                    }
+                                    
+                                }
+                                
+                                
+                                /*rs = maConnexion.getStmt().executeQuery(requete2);
                                 while (rs.next()) {
                                     String classeEleve = rs.getString("classe_id");
                                     pageEleve.getJLabelClasse().setText(classeEleve);
-                                }
+                                }*/
                             } 
                             catch (SQLException ex) 
                             {
