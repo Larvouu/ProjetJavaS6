@@ -383,7 +383,7 @@ public class Main {
                 public void actionPerformed(ActionEvent e) 
                 {
                     PersonneDAO personneDAO_afficherGraphe = new PersonneDAO(maConnexion.getConnection());
-                    if(personneDAO_afficherGraphe.afficherGraphe(personne))
+                    if(personneDAO_afficherGraphe.afficherGraphe(personne,graph))
                     {
                         graph.setVisible(true); //je suis là
                     }
