@@ -75,7 +75,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonRechercherEleve" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonAjouterNoteEleve" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -94,8 +93,7 @@
                               <EmptySpace pref="71" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jButtonCreerEleve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
@@ -127,8 +125,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="jButtonAjouterNoteEleve" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
@@ -139,9 +135,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonRechercherEleve" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -267,16 +261,6 @@
             <Component class="javax.swing.JButton" name="jButtonRechercherEleve">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rechercher un &#xe9;l&#xe8;ve (nom, prenom, classe, niveau, moyenne g)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consulter la moyenne d&apos;une interro par classe (graphe)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consulter les notes d&apos;un &#xe9;l&#xe8;ve"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonAfficherClasseDontJeSuisProf">

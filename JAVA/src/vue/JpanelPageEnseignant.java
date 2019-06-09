@@ -39,8 +39,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButtonSupprEleve = new javax.swing.JButton();
         jButtonCreerEleve = new javax.swing.JButton();
         jButtonRechercherEleve = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButtonAfficherClasseDontJeSuisProf = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -104,10 +102,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButtonRechercherEleve.setText("Rechercher un élève (nom, prenom, classe, niveau, moyenne g)");
 
-        jButton4.setText("Consulter la moyenne d'une interro par classe (graphe)");
-
-        jButton3.setText("Consulter les notes d'un élève");
-
         jButtonAfficherClasseDontJeSuisProf.setText("Afficher toutes les classes dont je suis prof");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -119,7 +113,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
                             .addComponent(jButtonRechercherEleve)
                             .addComponent(jButtonAjouterNoteEleve)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -133,8 +126,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                                 .addComponent(jButtonSupprEleve)))
                         .addContainerGap(71, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCreerEleve)
                         .addGap(78, 78, 78))))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -157,9 +149,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jButtonAjouterNoteEleve)
-                        .addGap(51, 51, 51)
-                        .addComponent(jButton3))
+                        .addComponent(jButtonAjouterNoteEleve))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jButtonSupprEleve)
@@ -167,9 +157,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                         .addComponent(jButtonCreerEleve)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRechercherEleve)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -212,8 +200,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonAfficherClasseDontJeSuisProf;
     private javax.swing.JButton jButtonAjouterNoteEleve;
@@ -237,8 +223,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     public javax.swing.JLabel getjLabelPrenomProf()
     {
         return jLabelPrenomProf;
-    }
-            
+    }        
             
     public javax.swing.JButton getButtonDeconnexion()
     {
