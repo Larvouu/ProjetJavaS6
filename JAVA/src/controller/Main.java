@@ -29,6 +29,7 @@ import modele.*;
 import vue.JpanelAjouterEleveForm;
 import vue.JpanelRechercheProf;
 import vue.JpanelRechercherEleve;
+import vue.JpanelRechercherEleveParEnseignant;
 import vue.JpanelSupprEleveForm;
 
 
@@ -48,6 +49,7 @@ public class Main {
     private static JpanelSupprEleveForm pageSupprEleveForm;
     private static JpanelRechercherEleve pageRechercherEleve;
     private static JpanelRechercheProf pageRechercherProf;
+    private static JpanelRechercherEleveParEnseignant pageRechercherEleveParEnseignant;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -84,6 +86,8 @@ public class Main {
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
         pageSupprEleveForm = new JpanelSupprEleveForm();
         pageRechercherEleve = new JpanelRechercherEleve();
+        pageRechercherProf = new JpanelRechercheProf();
+        pageRechercherEleveParEnseignant = new JpanelRechercherEleveParEnseignant();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -492,14 +496,29 @@ public class Main {
         }
         );
 
+         /**
+          * Rechercher un élève depuiis la page Enseignant
+          */
         pageEnseignant.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) 
             {
                jframe1.remove(pageEnseignant);
-               jframe1.setContentPane(pageRechercherEleve);
+               jframe1.setContentPane(pageRechercherEleveParEnseignant);
                jframe1.setVisible(true);
+            }
+        });
+        
+        pageRechercherEleveParEnseignant.getjButtonRechercher().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+//               jframe1.remove(pageEnseignant);
+//               jframe1.setContentPane(pageRechercherEleveParEnseignant);
+//               jframe1.setVisible(true);
             }
         });
         
@@ -562,7 +581,9 @@ public class Main {
             }
         });
         
-        
+        /**
+         * RECHERCHER UN ELEVE A PARTIR DE LA PAGE ADMIN
+         */
         
         pageAdmin.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
@@ -593,7 +614,21 @@ public class Main {
             }
         });
         
+        pageRechercherEleve.getjButtonPrecedent().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               
+               jframe1.remove(pageRechercherEleve);
+               jframe1.setContentPane(pageAdmin);
+               jframe1.setVisible(true);
+            }
+        });
         
+        /**
+         * RECHERCHER UN ENSEIGNANT A PARTIR DE LA PAGE ADMIN
+         */
         
         pageAdmin.getjButtonRechercherProf().addActionListener(new ActionListener() {
 
@@ -611,17 +646,25 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-             
                String nom = pageRechercherProf.getjTextFieldNom().getText();
                String prenom = pageRechercherProf.getjTextFieldPrenom().getText();
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               if(personneDAO_admin.rechercherProf(nom, prenom))
-               {
-                   //JOptionPane.showMessageDialog(page, personne);
-               }
+               personneDAO_admin.rechercherProf(nom, prenom);
+               
             }
         });
         
+        pageRechercherProf.getJButtonPrecedent().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               jframe1.remove(pageRechercherProf);
+               jframe1.setContentPane(pageAdmin);
+               jframe1.setVisible(true);
+               
+            }
+        });
         
         pageAdmin.getjButtonRechercherClasse().addActionListener(new ActionListener() {
 
