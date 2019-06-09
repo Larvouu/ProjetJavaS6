@@ -382,8 +382,16 @@ public class Main {
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                    graph.getDataset().addValue(50, graph.getSeries1(), "Note XXX");
-                    graph.setVisible(true); //je suis là
+                    PersonneDAO personneDAO_afficherGraphe = new PersonneDAO(maConnexion.getConnection());
+                    if(personneDAO_afficherGraphe.afficherGraphe(personne))
+                    {
+                        graph.setVisible(true); //je suis là
+                    }
+                    else{
+                        System.out.println("Probleme lors des requetes SQL : pas de correspondance");
+                    }
+                    //graph.getDataset().addValue(50, graph.getSeries1(), "Note XXX");
+                    
                 }
            });
 
