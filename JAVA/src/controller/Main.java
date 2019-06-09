@@ -107,29 +107,16 @@ public class Main {
         pageRechercherProf = new JpanelRechercheProf();
         pageRechercherEleveParEnseignant = new JpanelRechercherEleveParEnseignant();
         pageRechercherClasse = new JpanelRechercherClasse();
-        //pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
-        
-        
-        
-        
-        graph = new JChartLine("Graphe notes de l'elève / moyennnes de sa classe"); // je suis là
-        
-        
+  
+        graph = new JChartLine("Graphe notes de l'elève / moyennnes de sa classe"); 
 
         //Par défaut c'est la page d'accueil sur le Jframe
         jframe1.setContentPane(pageAccueil);
         jframe1.setVisible(true);
         
-        
-        //graph.setAlwaysOnTop(true);  // je suis là
         graph.pack();  
         graph.setSize(600, 400);  
-        //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
-        //graph.setVisible(true); 
-        
 
-        
-        
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -137,11 +124,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                
-//                System.out.println("Vous avez appuyé sur Connexion");
-//                System.out.println("Le nom du serveur entré : " + pageAccueil.getTextNomServeur().getText());
-                
-                
+
                 //name_bdd prend la valeur de ce qui a été écrit dans le TextField
                 name_bdd = pageAccueil.getTextNomBDD().getText();
                 System.out.println("Le nom de bdd entré : " + pageAccueil.getTextNomBDD().getText());
@@ -612,19 +595,8 @@ public class Main {
                 
             }
         });
-        
-        //remplirBulletin
-        pageEnseignant.getjButtonRemplirBulletinEleve().addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) 
-            {
-                System.out.println("");
-            }
-        });
-        
-                
-        ///Coucou Inna page enseignant
+           
+       
         pageEnseignant.getjButtonAjouterNoteEleve().addActionListener(new ActionListener() {
 
             @Override
@@ -644,9 +616,6 @@ public class Main {
         });
         
      
-        
-        
-        //hola guapa page admin
         pageAdmin.getjButtonAjouterEleve().addActionListener(new ActionListener() {
 
             @Override

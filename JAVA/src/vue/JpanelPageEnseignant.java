@@ -38,7 +38,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButtonAjouterNoteEleve = new javax.swing.JButton();
         jButtonSupprEleve = new javax.swing.JButton();
         jButtonCreerEleve = new javax.swing.JButton();
-        jButtonRemplirBulletinEleve = new javax.swing.JButton();
         jButtonRechercherEleve = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -103,8 +102,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButtonCreerEleve.setText("Ajouter un élève");
 
-        jButtonRemplirBulletinEleve.setText("Remplir le bulletin de l'élève");
-
         jButtonRechercherEleve.setText("Rechercher un élève (nom, prenom, classe, niveau, moyenne g)");
 
         jButton4.setText("Consulter la moyenne d'une interro par classe (graphe)");
@@ -132,8 +129,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonAfficherClasseDontJeSuisProf)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonRemplirBulletinEleve, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(304, 304, 304)
+                                .addGap(555, 555, 555)
                                 .addComponent(jButtonSupprEleve)))
                         .addContainerGap(71, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -162,9 +158,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jButtonAjouterNoteEleve)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonRemplirBulletinEleve)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(51, 51, 51)
                         .addComponent(jButton3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
@@ -225,7 +219,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAjouterNoteEleve;
     private javax.swing.JButton jButtonCreerEleve;
     private javax.swing.JButton jButtonRechercherEleve;
-    private javax.swing.JButton jButtonRemplirBulletinEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
@@ -280,12 +273,6 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     {
         return jButtonAjouterNoteEleve;
     }
-    
-    public javax.swing.JButton getjButtonRemplirBulletinEleve()
-    {
-        return jButtonRemplirBulletinEleve;
-    }
-    
-    
+      
     
 }

@@ -87,8 +87,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButtonRemplirBulletinEleve" min="-2" pref="251" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="555" max="-2" attributes="0"/>
                                       <Component id="jButtonSupprEleve" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -128,9 +127,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="jButtonAjouterNoteEleve" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButtonRemplirBulletinEleve" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -265,11 +262,6 @@
             <Component class="javax.swing.JButton" name="jButtonCreerEleve">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajouter un &#xe9;l&#xe8;ve"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonRemplirBulletinEleve">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Remplir le bulletin de l&apos;&#xe9;l&#xe8;ve"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRechercherEleve">
