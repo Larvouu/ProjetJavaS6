@@ -40,7 +40,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                 System.out.println("Nom " +eleve.getNom());
                 System.out.println("Prenom " + eleve.getPrenom());
                 id_eleve= rs_ideleve.getInt("id");
-                eleve.setId(rs.getInt("id"));
+                eleve.setId(rs_ideleve.getInt("id"));
                 System.out.println("Votre INE " +eleve.getId());
                 
             }catch (SQLException exception)
