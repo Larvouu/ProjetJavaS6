@@ -424,18 +424,9 @@ public class PersonneDAO extends DAO<Personne>{
     }
     
     //rechercher un prof
-     public void rechercherProf()
+     public void rechercherProf(String nom, String prenom)
     {
-        String prenom;
-        String nom;
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.println("---------- RECHERCHER UN PROF ---------");
-        System.out.println("Entrer le prenom");
-        prenom = sc.next();
-        System.out.println("Entrer le nom");
-        nom = sc.next();
-        
+
         try{
             //Premiere requete
             String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
@@ -590,6 +581,71 @@ public class PersonneDAO extends DAO<Personne>{
         }
      }
      
+     public void modifierEleveDepuisAdmin(String choix)
+     {
+        String nom = "";
+        String prenom = "";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("--------- QUEL ELEVE VOULEZ VOUS MODIFIER ? ---------- ");
+        System.out.println("Prenom : ");
+        prenom = sc.next();
+        System.out.println("Nom : ");
+        nom=sc.next();
+        switch(choix)
+        {
+            case "nom":
+                String new_nom;
+                try{
+                    System.out.println("Quel est le nouveau nom  ?");
+                    new_nom=sc.next();
+                    String sql = "UPDATE personne set nom =? WHERE prenom=? AND nom=? AND type=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_nom);
+                    pst.setString(2, prenom);
+                    pst.setString(3, nom);
+                    pst.setString(4, "eleve");
+                    pst.executeUpdate();
+                    
+                    System.out.println();
+                    System.out.println("La modification a bien été prise en compte.");
+                    System.out.println();
+
+               
+                }
+                catch (SQLException exception)
+                {
+                    exception.printStackTrace();
+                }
+                break;
+
+            case "prenom":
+                String new_prenom;
+                try{
+                    System.out.println("Quel est le nouveau prenom  ?");
+                    new_prenom=sc.next();
+                    String sql = "UPDATE personne set prenom =? WHERE nom=? AND prenom=? AND type=?";
+                    PreparedStatement pst = connect.prepareStatement(sql);
+                    pst.setString(1, new_prenom);
+                    pst.setString(2, nom);
+                    pst.setString(3, prenom);
+                    pst.setString(4, "eleve");
+                    pst.executeUpdate();
+                    
+                    System.out.println();
+                    System.out.println("La modification a bien été prise en compte.");
+                    System.out.println();
+
+
+                }
+                catch (SQLException exception)
+                {
+                    exception.printStackTrace();
+                }
+                break;
+        }
+     }
+     
      public void modifierDisciplineProfDepuisAdmin()
      {
         String nom = "";
@@ -658,6 +714,76 @@ public class PersonneDAO extends DAO<Personne>{
                         
                         System.out.println();
                         System.out.println("La modification de discipline_id de enseignement a bien été prise en compte.");
+                        System.out.println();                        
+                    }
+                } 
+            }
+        }
+        catch (SQLException exception)
+        {
+            System.out.println(exception);
+        }
+     }
+     
+     public void modifierClasseEleveDepuisAdmin()
+     {
+        String nom = "";
+        String prenom = "";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("--------- QUEL ELEVE VOULEZ VOUS MODIFIER ? ---------- ");
+        System.out.println("Prenom : ");
+        prenom = sc.next();
+        System.out.println("Nom : ");
+        nom=sc.next();
+        
+        
+        String new_classe;
+        System.out.println("Quelle sera sa nouvelle classe ?");
+        new_classe = sc.next();
+        
+        try{
+            //Premiere requete pour select la personne
+            String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, prenom);
+            pst.setString(2, nom);
+            pst.setString(3, "eleve");
+            ResultSet rs_find=pst.executeQuery();
+
+            if(rs_find.next())
+            {                
+                System.out.println("La requete 1 a marché");
+                // Deuxieme requete pour select l'enseignement relié à cette personne
+                String sql2 = "SELECT * FROM inscription WHERE personne_id = ?";
+                PreparedStatement pst2 = connect.prepareStatement(sql2);
+                pst2.setInt(1, rs_find.getInt("id"));
+                ResultSet rs_2=pst2.executeQuery();
+                
+                if(rs_2.next())
+                {
+                    System.out.println("La requete 2 a marché");
+                    // Troisième requete pour select la discipline de l'enseignement relié à cette personne
+                    String sql3 = "SELECT * FROM classe WHERE nom = ?";
+                    PreparedStatement pst3 = connect.prepareStatement(sql3);
+                    pst3.setString(1, rs_2.getString("classe_id"));
+                    ResultSet rs_3=pst3.executeQuery();
+                    
+                    if(rs_3.next())
+                    {
+                        System.out.println("La requete 3 a marché");
+                        
+                        
+                        
+                        //Change le discipline_id dans enseignement pour concorder avec le premier changement
+                        String sql5 = "UPDATE inscription set classe_id =? WHERE personne_id=?";
+                        PreparedStatement pst5 = connect.prepareStatement(sql5);
+                        pst5.setString(1, new_classe);
+                        pst5.setInt(2, rs_find.getInt("id"));
+                        pst5.executeUpdate();
+                        
+                        System.out.println();
+                        System.out.println("La modification de classe_id de inscription a bien été prise en compte.");
                         System.out.println();                        
                     }
                 } 

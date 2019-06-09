@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JpanelAjouterEleveForm;
+import vue.JpanelRechercheProf;
 import vue.JpanelRechercherEleve;
 import vue.JpanelSupprEleveForm;
 
@@ -45,7 +46,8 @@ public class Main {
     private static JpanelAdmin pageAdmin;
     private static JpanelAjouterEleveForm pageAjouterEleveForm;
     private static JpanelSupprEleveForm pageSupprEleveForm;
-    private static JpanelRechercherEleve pageRechercherPersonne;
+    private static JpanelRechercherEleve pageRechercherEleve;
+    private static JpanelRechercheProf pageRechercherProf;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -81,7 +83,7 @@ public class Main {
         pageAdmin = new JpanelAdmin();
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
         pageSupprEleveForm = new JpanelSupprEleveForm();
-        pageRechercherPersonne = new JpanelRechercherEleve();
+        pageRechercherEleve = new JpanelRechercherEleve();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -496,10 +498,12 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                jframe1.remove(pageEnseignant);
-               jframe1.setContentPane(pageRechercherPersonne);
+               jframe1.setContentPane(pageRechercherEleve);
                jframe1.setVisible(true);
             }
         });
+        
+        
         
         
         
@@ -572,7 +576,7 @@ public class Main {
             }
         });
         
-        pageRechercherPersonne.getjButtonRechercher().addActionListener(new ActionListener() {
+        pageRechercherPersonne.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) 
@@ -592,10 +596,22 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               //Comme personneDAO c'est le prof qui se connecte (selon Sarah ?) J'ai créé une autre personne admin pour appeler la recherche
-               //Parce que avec personneDAO = ca marche pas (puisque pas encore connecté)
+               jframe1.remove(pageAdmin);
+               jframe1.setContentPane(pageRechercherProf);
+               jframe1.setVisible(true);
+            }
+        });
+        
+        pageRechercherProf.getjButtonRechercherProf().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+             
+               String nom = pageRechercherProf.getjTextFieldNom().getText();
+               String prenom = pageRechercherProf.getjTextFieldPrenom().getText();
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               personneDAO_admin.rechercherProf();
+               personneDAO_admin.rechercherProf(nom, prenom);
             }
         });
         
@@ -652,7 +668,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifNomEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifNomEleve.modifierEleveDepuisAdmin("nom");
             }
         });
                 
@@ -662,7 +679,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifPrenomEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifPrenomEleve.modifierEleveDepuisAdmin("prenom");
             }
         });
                 
@@ -671,7 +689,8 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-               
+                PersonneDAO personneDAO_modifClasseEleve = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifClasseEleve.modifierClasseEleveDepuisAdmin();
             }
         });
         
