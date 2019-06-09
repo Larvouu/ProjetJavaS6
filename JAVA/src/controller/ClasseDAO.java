@@ -83,20 +83,15 @@ public class ClasseDAO extends DAO<Classe>{
         return classe;
     }
     
-    public boolean rechercherClasse()
+    public boolean rechercherClasse(String nomClasse)
     {
         boolean b = true;
-        String nom ="";
-        Scanner sc = new Scanner(System.in);
-        System.out.println("---------- RECHERCHER UNE CLASSE ---------");
-        System.out.println("Entrer le nom de la classe");
-        nom = sc.next();
         
         try{
             //requete
             String sql = "SELECT * FROM classe WHERE nom = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setString(1, nom);
+            pst.setString(1, nomClasse);
             ResultSet rs_find=pst.executeQuery();
 
             //if j'ai un résultat
