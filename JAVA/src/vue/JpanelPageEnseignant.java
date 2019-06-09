@@ -32,8 +32,8 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelNomProf = new javax.swing.JLabel();
+        jLabelPrenomProf = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButtonAjouterNoteEleve = new javax.swing.JButton();
         jButtonSupprEleve = new javax.swing.JButton();
@@ -62,11 +62,11 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Enseignant", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel3.setText("Arash");
+        jLabelNomProf.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelNomProf.setText("Arash");
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel4.setText("Mockber");
+        jLabelPrenomProf.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabelPrenomProf.setText("Mockber");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pro.png"))); // NOI18N
@@ -80,17 +80,17 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelNomProf)
+                    .addComponent(jLabelPrenomProf))
                 .addGap(52, 52, 52))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel3)
+                .addComponent(jLabelNomProf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabelPrenomProf)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel5)
@@ -228,14 +228,25 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton jButtonRemplirBulletinEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelNomProf;
+    private javax.swing.JLabel jLabelPrenomProf;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 
+    public javax.swing.JLabel getjLabelNomProf()
+    {
+        return jLabelNomProf;
+    }
+    
+    public javax.swing.JLabel getjLabelPrenomProf()
+    {
+        return jLabelPrenomProf;
+    }
+            
+            
     public javax.swing.JButton getButtonDeconnexion()
     {
         return jButton8;

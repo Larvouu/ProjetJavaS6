@@ -241,9 +241,7 @@ public class Main {
                     System.out.println("nomUser : "+nomUser);
                     System.out.println("prenom Comparateur : "+prenomComparateur);
                     System.out.println("prenomUser : "+prenomUser);
-                    
-//                    System.out.println("statutComparateur : "+statutComparateur);
-//                    System.out.println("pageConnexion.getButt : "+statutUser);
+
                     
                     //Si le nom et prenom entrés existe dans la bdd et que c'est le bon statut qui a été selectionné 
                     if (nomPrenomExist && statutUser.equals(statutComparateur)) 
@@ -285,13 +283,7 @@ public class Main {
                                     }
                                     
                                 }
-                                
-                                
-                                /*rs = maConnexion.getStmt().executeQuery(requete2);
-                                while (rs.next()) {
-                                    String classeEleve = rs.getString("classe_id");
-                                    pageEleve.getJLabelClasse().setText(classeEleve);
-                                }*/
+
                             } 
                             catch (SQLException ex) 
                             {
@@ -310,14 +302,12 @@ public class Main {
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
+                            pageEnseignant.getjLabelNomProf().setText(nomUser);
+                            pageEnseignant.getjLabelPrenomProf().setText(prenomUser);
                             
                             personneDAO = new PersonneDAO(maConnexion.getConnection());
-                            
                             personne = new Personne();
-                            System.out.println("Id = " +personne.getId());
-                            
 
-                            
                             personne.setNom(nomUser);
                             personne.setPrenom(prenomUser);
                             personne.setType(statutUser);
@@ -326,13 +316,6 @@ public class Main {
                             jframe1.remove(pageConnexion);
                             jframe1.setContentPane(pageEnseignant);
                             jframe1.setVisible(true);
-
-
-//                            Evaluation evaluation= new Evaluation();
-//                            EvaluationDAO evaluationDAO= new  EvaluationDAO(maConnexion.getConnection());
-//
-//                            evaluationDAO.create_eval(evaluation,personne);
-
 
                         }
                         else 
@@ -493,7 +476,6 @@ public class Main {
                 System.out.println("Nom élève entré : " + nomSaisi);
                 System.out.println("Prénom entré : " + prenomSaisi);
 
-                ////////////////////////////////
                 Personne eleve_a_add = new Personne();
                 personneDAO.createEleveParEnseignant(eleve_a_add, nomSaisi, prenomSaisi, niveauSelection);
                 
