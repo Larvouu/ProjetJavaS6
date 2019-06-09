@@ -49,6 +49,7 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jButtonPrecedent = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -214,21 +215,32 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
+        jButtonPrecedent.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonPrecedent.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPrecedent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/previous.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(182, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonPrecedent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonPrecedent, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -236,6 +248,7 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JButton jButtonRechercherClasse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -261,6 +274,11 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
     public javax.swing.JButton getjButtonRechercherClasse()
     {
         return jButtonRechercherClasse;
+    }
+    
+    public javax.swing.JButton getjButtonPrecedent()
+    {
+        return jButtonPrecedent;
     }
     
     public javax.swing.ButtonGroup getbuttonGroup1()
@@ -343,6 +361,6 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
         return jRadioButtonCM2_B;
     }
     
-     
+    
 
 }

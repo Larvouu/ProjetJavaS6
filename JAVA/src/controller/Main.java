@@ -821,6 +821,17 @@ public class Main {
             }
         });
         
+        pageRechercherClasse.getjButtonPrecedent().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                jframe1.remove(pageRechercherClasse);
+                jframe1.setContentPane(pageAdmin);
+                jframe1.setVisible(true);
+            }
+        });
+        
         pageAdmin.getjButtonModifNomProf().addActionListener(new ActionListener() {
 
             @Override
