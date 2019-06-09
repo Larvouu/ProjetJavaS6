@@ -37,9 +37,11 @@ public class EvaluationDAO extends DAO<Evaluation> {
      * @return
      */
 
-    public boolean create_eval(Evaluation obj, Personne prof)
+   public boolean create_eval(Evaluation obj, Personne prof)
+   
     {
         ///Pour créer une note l'eleve doit d'abord avoir un detail bulletin (matiere)
+        //On doit donc verifier qu'il n'a pas deja un bulletin et sinon lui en créer un
         DetailBulletinDAO detailBulletinDAO  = new DetailBulletinDAO(this.connect);
         DetailBulletin detailBulletin=new DetailBulletin();
 
@@ -70,8 +72,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
 
                     monid = rs.getInt("id");
                     eleve.setId(rs.getInt("id"));
-                    System.out.println("hola eleve1 id" +eleve.getId());
-
+                    System.out.println("id eleve " +eleve.getId());
 
             }
 
@@ -103,7 +104,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
             pst.setString(3,appreciation);
                 System.out.println("detail bulletin id"+detailbulletin_id);
                 System.out.println("note"+note);
-                System.out.println("appreciaiton"+appreciation);;
+                System.out.println("appreciaiton"+appreciation);
                 pst.executeUpdate();
         }
 
@@ -117,7 +118,6 @@ public class EvaluationDAO extends DAO<Evaluation> {
         return false;
 
         }
-
 
 
 

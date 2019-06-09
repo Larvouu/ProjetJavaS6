@@ -96,7 +96,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                             System.out.println("enseignement id : " + enseignement_id);
                             pst.setInt(2, enseignement_id);
                             System.out.println("Appreciation ?");
-                            String appreciation=sc.next();
+                            String appreciation=sc.nextLine();
                             pst.setString(3, appreciation);
                             pst.executeUpdate();
                             //on recupere l'id du detail bulletin id

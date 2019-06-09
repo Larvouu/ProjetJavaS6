@@ -525,15 +525,26 @@ public class Main {
             }
         });
         
-        ///Coucou Inna page enseignant
+                
+                ///Coucou Inna page enseignant
         pageEnseignant.getjButtonAjouterNoteEleve().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) 
             {
                 System.out.println("bouton ajouter note");
+
+                EvaluationDAO evaluationDAO = new EvaluationDAO(maConnexion.getConnection());
+                Evaluation evaluation= new Evaluation();
+                System.out.println("Une note va etre ajoutée par ");
+                System.out.println("Nom user " +personne.getNom());
+                System.out.println("PreNom user " +personne.getPrenom());
+                evaluationDAO.create_eval(evaluation, personne);
+
+
             }
         });
+      
         
      
         
