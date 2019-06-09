@@ -82,6 +82,8 @@ public class Main {
     private static PersonneDAO personneDAO;
     private static Personne personne;
     
+    private static boolean isPageAdmin = false;
+    
     
     private static JChartLine graph;//je suis là
    
@@ -117,6 +119,8 @@ public class Main {
         graph.pack();  
         graph.setSize(600, 400);  
 
+        
+
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -147,6 +151,7 @@ public class Main {
                     {
                         //Connexion à la bdd
                         maConnexion = new Connexion("ecole", "root", ""); //inna
+                        
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -235,7 +240,7 @@ public class Main {
                         {
                             
                             
-                          personneDAO = new PersonneDAO(maConnexion.getConnection());
+                           personneDAO = new PersonneDAO(maConnexion.getConnection());
                             
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
                             jframe1.remove(pageConnexion);
@@ -285,6 +290,7 @@ public class Main {
                         }
                         else if ("prof".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
+                            isPageAdmin=false;
                             pageEnseignant.getjLabelNomProf().setText(nomUser);
                             pageEnseignant.getjLabelPrenomProf().setText(prenomUser);
                             
@@ -386,7 +392,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-               
+                isPageAdmin=false;
                 jframe1.remove(pageEnseignant);
                 jframe1.setContentPane(pageSupprEleveForm);
                 jframe1.setVisible(true);
@@ -401,6 +407,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                PersonneDAO pers = new PersonneDAO(maConnexion.getConnection());
                 Personne personne_a_supprimer = new Personne();
                 
                 //récupération nom et prénom de l'élève à supprimer entrés par le user
@@ -411,15 +418,43 @@ public class Main {
                 personne_a_supprimer.setPrenom(prenomString);
               
                 
-                
-                if(personneDAO.delete(personne_a_supprimer))
+                if(isPageAdmin==false)
                 {
-                  
-                    JOptionPane.showMessageDialog(pageSupprEleveForm, "Succès de la supression.");
-                    jframe1.remove(pageSupprEleveForm);
-                    jframe1.setContentPane(pageEnseignant);
-                    jframe1.setVisible(true);
+                    if(pers.delete(personne_a_supprimer))
+                    {
+
+                        JOptionPane.showMessageDialog(pageSupprEleveForm, "Succès de la supression.");
+                        jframe1.remove(pageSupprEleveForm);
+                        jframe1.setContentPane(pageEnseignant);
+                        jframe1.setVisible(true);
+                    }
                 }
+                else if(isPageAdmin)
+                {
+                    if(pers.delete(personne_a_supprimer))
+                    {
+                     JOptionPane.showMessageDialog(pageSupprEleveForm, "Succès de la supression!");
+                        jframe1.remove(pageSupprEleveForm);
+                        jframe1.setContentPane(pageAdmin);
+                        jframe1.setVisible(true);
+                    }
+                }
+                
+            }
+
+        });
+        
+        pageAdmin.getjButtonSupprEleve().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                isPageAdmin=true;
+                jframe1.remove(pageAdmin);
+                jframe1.setContentPane(pageSupprEleveForm);
+                jframe1.setVisible(true);
+                
+            
             }
 
         });
@@ -440,6 +475,7 @@ public class Main {
                 jframe1.remove(pageEnseignant);
                 jframe1.setContentPane(pageAjouterEleveForm);
                 jframe1.setVisible(true);
+                isPageAdmin = false;
                 
                 
             }
@@ -451,6 +487,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                PersonneDAO pdao = new PersonneDAO(maConnexion.getConnection());
                 String niveauSelection = pageAjouterEleveForm.getbuttonGroup1().getSelection().getActionCommand();
                 String nomSaisi = pageAjouterEleveForm.getjTextFieldNomEleve().getText();
                 String prenomSaisi = pageAjouterEleveForm.getjTextFieldPrenomEleve().getText();
@@ -460,21 +497,33 @@ public class Main {
                 System.out.println("Prénom entré : " + prenomSaisi);
 
                 Personne eleve_a_add = new Personne();
-                personneDAO.createEleveParEnseignant(eleve_a_add, nomSaisi, prenomSaisi, niveauSelection);
+                pdao.createEleveParEnseignant(eleve_a_add, nomSaisi, prenomSaisi, niveauSelection);
                 
                 InscriptionDAO inscription_DAO=new InscriptionDAO(maConnexion.getConnection());
                 Inscription inscription=new Inscription();
                 Classe classe = new Classe();
                 
-                
-                if(inscription_DAO.create_inscription(inscription, eleve_a_add, classe, niveauSelection))
+                if(isPageAdmin==false)
                 {
-                    JOptionPane.showMessageDialog(pageAjouterEleveForm, "L'élève "+nomSaisi+" "+prenomSaisi+" a bien été inscrit en "+niveauSelection+".");
-                    jframe1.remove(pageAjouterEleveForm);
-                    jframe1.setContentPane(pageEnseignant);
-                    jframe1.setVisible(true);
+                    if(inscription_DAO.create_inscription(inscription, eleve_a_add, classe, niveauSelection))
+                    {
+                        JOptionPane.showMessageDialog(pageAjouterEleveForm, "L'élève "+nomSaisi+" "+prenomSaisi+" a bien été inscrit en "+niveauSelection+".");
+                        jframe1.remove(pageAjouterEleveForm);
+                        jframe1.setContentPane(pageEnseignant);
+                        jframe1.setVisible(true);
+                    }
                 }
-                
+                else if(isPageAdmin==true)
+                {
+                    if(inscription_DAO.create_inscription(inscription, eleve_a_add, classe, niveauSelection))
+                    {
+                        JOptionPane.showMessageDialog(pageAjouterEleveForm, "L'élève "+nomSaisi+" "+prenomSaisi+" a bien été inscrit en "+niveauSelection+".");
+                        jframe1.remove(pageAjouterEleveForm);
+                        jframe1.setContentPane(pageAdmin);
+                        jframe1.setVisible(true);
+                    }
+                }
+              
             }
         });
 
@@ -518,6 +567,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                isPageAdmin=false;
                 JOptionPane.showMessageDialog(pageEnseignant, "Vous êtes déconnecté.");
                 jframe1.remove(pageEnseignant);
                 jframe1.setContentPane(pageConnexion);
@@ -540,7 +590,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                
+                isPageAdmin=true;
                 jframe1.remove(pageConnexion);
                 jframe1.setContentPane(pageAdmin);
                 jframe1.setVisible(true);
@@ -615,15 +665,6 @@ public class Main {
             }
         });
         
-     
-        pageAdmin.getjButtonAjouterEleve().addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) 
-            {
-                System.out.println("bouton ajouter note");
-            }
-        });
         
         /**
          * RECHERCHER UN ELEVE A PARTIR DE LA PAGE ADMIN
@@ -762,7 +803,7 @@ public class Main {
                     
                     frame.remove(pageRechercherClasse);
                     frame.setContentPane(pageAfficherEleveClasse);
-                    frame.setSize(400, 600);
+                    frame.setSize(500, 700);
                     frame.setVisible(true);
                     
                     
@@ -782,6 +823,33 @@ public class Main {
                 jframe1.setVisible(true);
             }
         });
+        
+        //Fin des boutons liés à la recherche d'une classe
+        
+        /**
+         * Ajout/Suppr un élève à partir de la page Admin
+         */
+        pageAdmin.getjButtonAjoutEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                  //Utile pour récupérer ce que le user a selectionné
+                pageAjouterEleveForm.getjRadioButtonCP().setActionCommand("CP");
+                pageAjouterEleveForm.getjRadioButtonCE1().setActionCommand("CE1");
+                pageAjouterEleveForm.getjRadioButtonCE2().setActionCommand("CE2");
+                pageAjouterEleveForm.getjRadioButtonCM1().setActionCommand("CM1");
+                pageAjouterEleveForm.getjRadioButtonCM2().setActionCommand("CM2");
+                
+                jframe1.remove(pageAdmin);
+                jframe1.setContentPane(pageAjouterEleveForm);
+                jframe1.setVisible(true);
+                PersonneDAO personneDAO = new PersonneDAO(maConnexion.getConnection());
+            }
+        });
+        
+        //Fin des boutons liés à l'ajout/suppression d'un élève
         
         pageAdmin.getjButtonModifNomProf().addActionListener(new ActionListener() {
 
@@ -853,9 +921,11 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+               isPageAdmin=false;
                jframe1.remove(pageAdmin);
                jframe1.setContentPane(pageConnexion);
                jframe1.setVisible(true);
+               personneDAO=null;
             }
         });
         
@@ -864,253 +934,14 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                isPageAdmin=false;
                jframe1.remove(pageAdmin);
                jframe1.setContentPane(pageConnexion);
                jframe1.setVisible(true);
+               personneDAO=null;
             }
         });
-        
-        
-        
-        
-        
-        /**
-         * MAIN DE INNA (modifier infos d'un élève)
-         */
-
-        /*
-         Scanner sc = new Scanner(System.in);
-         boolean quit = false;
-         String login_bdd =null;
-         String pw_bdd=null;
-         String name_bdd=null;
-         String name=null;
-         String firstname=null;
-         String statut=null;
-
-         String requete = null;
-         
-        //Connexion à la base de données
-
-        
-
-         System.out.println("Nom BBD ?");
-         name_bdd = sc.next();
-
-         System.out.println("login BBD ?");
-         login_bdd = sc.next();
-
-         System.out.println("pw BBD ?");
-         pw_bdd = sc.next();
-         
-        //char pw = pw_bdd.charAt(0);
-        
-        
-        try {
-            if (name_bdd.equals("ecole") && login_bdd.equals("root") && pw_bdd.equals("root")) {
-                maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
-                //Connexion maConnexion = new Connexion("ecole", "root", ""); // Inna il faut enlever le « root » pour le mdp
-                System.out.println("Connexion à la base de données successfull");
-                    /// Connexion en tant qu'élève ou professeur
-                ///Si ses nom prenoms appartiennent à la table en tant qu'élève connexion en tant qu'élève
-                System.out.println("Nom ?");
-                prenomUser = sc.next();
-
-                System.out.println("prenom ?");
-                nomUser = sc.next();
-
-                System.out.println("statut ?");
-                statut = sc.next();
-
-                    ///Recuperer le statut ou prenom et nom correspondent
-                requete = "SELECT type FROM personne where nom = '" + prenomUser + "' AND prenom = '" + nomUser + "' ";
-                ResultSet rs = maConnexion.getStmt().executeQuery(requete);
-                while (rs.next()) {
-                    statut = rs.getString("type");
-                }
-
-                do {
-                    if (statut.equals("eleve")) {
-                        System.out.println("Connecté en tant qu'élève");
-                            //L'enfant a accès aux fonctions suivantes
-                        //1. consulter ses notes toutes (et les moyennes)
-                        //2. Consulter ses profs
-                        //3. Consulter les graphs
-                    }
-
-                    if (statut.equals("enseignant")) {
-                        System.out.println("Connecte en tant qu'enseignant");
-
-                            //L'enseignant a accès aux fonctions suivantes
-                        //1. Afficher la liste de tous ces élèves
-                        //2. Consulter les moyennes de ses classes
-                        //3. Consulter les notes par élève
-                        //4.Consulter les notes par classes par interro
-                        //5. rechercher un eleve
-                    }
-
-                    System.out.println("Que souhaitez vous faire ?");
-                    System.out.println("1. Afficher les tables");
-                    System.out.println("2. Insérer des données");
-                    System.out.println("3. Modifier les données");
-
-                    int choix_menu = 0;
-                    choix_menu = sc.nextInt();
-                    switch (choix_menu) {
-                        case 1:
-                            //REQUETE SELECT
-                            ResultSet résultats = null;
-
-                            System.out.println("Quel table voulez vous afficher ?");
-                            System.out.println("1. Personne");
-                            System.out.println("2. Eleve");
-                            System.out.println("3. blabla");
-                            int choix_table = sc.nextInt();
-                            try {
-                                switch (choix_table) {
-                                    case 1:
-                                        requete = "SELECT * FROM personne";
-                                        break;
-                                    case 2:
-                                        requete = "SELECT * FROM personne";
-                                        break;
-                                    case 3:
-                                        requete = "SELECT * FROM personne";
-                                        break;
-                                }
-                                rs = maConnexion.getStmt().executeQuery(requete);
-                                while (rs.next()) {
-                                    String type = rs.getString("type");
-                                    System.out.println("type = " + type);
-                                    String prenom = rs.getString("prenom");
-                                    System.out.println("prenom = " + prenom);
-                                    String nom = rs.getString("nom");
-                                    System.out.println("nom = " + nom);
-                                }
-                            } catch (SQLException e) {
-                                //traitement de l'exception
-                                System.out.println("exectepeiton SQL" + e);
-                            }
-                            break;
-                        ///FIN AFFICHER TABLE
-                        case 2:
-                            //DEBUT INSERER DONNEES
-                            System.out.println("Dans quelle table voulezvous inserer des données ?");
-                            System.out.println("1. Personne");
-                            System.out.println("2. Eleve");
-                            System.out.println("3. blabla");
-                            String table_insert = null;
-                            String nom_personne = null;
-                            String prenom_personne = null;
-                            String type_personne = null;
-                            int choix_table_donnees = sc.nextInt();
-                            switch (choix_table_donnees) {
-                                case 1:
-                                    table_insert = "personne";
-                                    System.out.println("Veuillez rentrer le nouveau nom");
-                                    nom_personne = sc.next();
-                                    System.out.println("Veuillez rentrer le nouveau prenom");
-                                    prenom_personne = sc.next();
-                                    System.out.println("Veuillez rentrer le nouveau type");
-                                    type_personne = sc.next();
-                                    ///////////////////////
-                                   
-                                     String sql = "INSERT into personne (nom, prenom, type) VALUES (?,?,?)";
-                                 
-                                     PreparedStatement pstmt = maConnexion.getConnection().prepareStatement(sql);
-                                     
-                                        pstmt.setString(1, nom_personne );
-                                        pstmt.setString(2, prenom_personne);
-                                        pstmt.setString(3, type_personne);
-                                        pstmt.executeUpdate();
-                                    
-                                    ///////////////////////////
-                                   // maConnexion.getStmt().executeUpdate("INSERT into personne (nom, prenom, type) VALUES (' " + nom_personne + " ',' " + prenom_personne + " ',' " + type_personne + " ')");
-                                    break;
-                                case 2:
-                                    table_insert = "eleve";
-                                    break;
-                                case 3:
-                                    table_insert = "blabla";
-                                    break;
-                            }
-                            break;
-                        //FIN INSERER DONNEES
-                        case 3:
-                            //DEBUT MODIF DONNEES
-                            System.out.println("Quelle table souhaitez vous update");
-                            System.out.println("1. Personne");
-                            System.out.println("2. Eleve");
-                            System.out.println("3. blabla");
-                            String table_update = null;
-                            String nom_personne_update = null;
-                            String prenom_personne_update = null;
-                            String type_personne_update = null;
-                            String amodifier = null;
-                            int champ_choix = 0;
-                            champ_choix = sc.nextInt();
-
-                            switch (champ_choix) {
-                                case 1:
-                                    System.out.println("Quelle champ souhaitez vous modifier ?");
-                                    System.out.println("1. nom");
-                                    System.out.println("2. prenom");
-                                    System.out.println("3. type");
-                                    int choix_col_update = 0;
-                                    choix_col_update = sc.nextInt();
-                                    switch (choix_col_update) {
-                                        case 1:
-                                            System.out.println("Rentre le prenom de la personne a modifier");
-                                            amodifier = sc.next();
-                                            System.out.println("Veuillez rentrer le nouveau nom");
-                                            nom_personne_update = sc.next();
-
-                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set nom='" + nom_personne_update + "' where prenom = '" + amodifier + "' ");
-                                            break;
-                                        case 2:
-                                            System.out.println("Rentre le nom de la personne a modifier");
-                                            amodifier = sc.next();
-                                            System.out.println("Veuillez rentrer le nouveau prenom");
-                                            prenom_personne_update = sc.next();
-
-                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set prenom='" + prenom_personne_update + "' where nom = '" + amodifier + "' ");
-                                            break;
-                                        case 3:
-                                            System.out.println("Rentre le nom de la personne a modifier");
-                                            amodifier = sc.next();
-                                            System.out.println("Veuillezrentrer le nouveau type");
-                                            type_personne_update = sc.next();
-
-                                            maConnexion.getStmt().executeUpdate(" UPDATE personne set  type='" + type_personne_update + "' where nom = '" + amodifier + "' ");
-                                            break;
-                                    }
-                                case 2:
-                                    break;
-                                case 3:
-                                    break;
-                            }
-                            break;
-                    }
-                } while (!quit);
-
-            } else {
-                System.out.println("Erreur ");
-                System.out.println(name_bdd);
-                System.out.println(login_bdd);
-                System.out.println(pw_bdd);
-                quit = true;
-            }
-        } catch (SQLException s) {
-            System.out.println(s + " SQL excep");
-        } catch (ClassNotFoundException e) {
-            System.out.println(e + "Class Not Found !");
-
-        }
-                
-         */       
-        
-        
-        
+       
 
     }
 }

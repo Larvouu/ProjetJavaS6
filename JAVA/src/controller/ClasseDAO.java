@@ -112,9 +112,9 @@ public class ClasseDAO extends DAO<Classe>{
                 boucle1=true;
                 //Je fais mes petits traitements
                 System.out.println("-------   Informations concernant la classe   --------");
-                System.out.println("Ecole : "+rs_find.getString("ecole_id"));
-                System.out.println("Nom : "+ rs_find.getString("nom"));
-                System.out.println("Annee : "+rs_find.getInt("anneescolaire_id"));
+                System.out.println("Ecole : Ecole primaire "+rs_find.getString("ecole_id"));
+                System.out.println("Classe : "+ rs_find.getString("nom"));
+                System.out.println("Annee Scolaire: "+rs_find.getInt("anneescolaire_id"));
                 System.out.println("Niveau : "+rs_find.getString("niveau_id"));
             }
             else
@@ -141,7 +141,7 @@ public class ClasseDAO extends DAO<Classe>{
                 System.out.println("-------   Eleves de la classe   --------");
                 JLabel l = new JLabel("infos");
                 page.add(l);
-                l.setText("Liste des élèves de la classe "+nomClasseSelection+" de l'année "+(anneeSelection-1)+"-"+anneeSelection+" :");
+                l.setText("Liste des élèves de la classe "+nomClasseSelection+", école primaire Zola, année "+(anneeSelection-1)+"-"+anneeSelection+" :");
                 Dimension s = l.getPreferredSize();
                 l.setBounds(30, 10,s.width, s.height);
                 
