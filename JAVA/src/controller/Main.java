@@ -24,8 +24,10 @@ import vue.JpanelPageConnexion;
 import vue.JpanelPageEleve;
 import vue.JpanelPageEnseignant;
 import java.sql.PreparedStatement;
+import javax.swing.WindowConstants;
 import vue.JpanelAdmin;
 import modele.*;
+import vue.JChartLine;
 import vue.JpanelAjouterEleveForm;
 import vue.JpanelRechercheProf;
 import vue.JpanelRechercherEleve;
@@ -68,6 +70,9 @@ public class Main {
     
     private static PersonneDAO personneDAO;
     private static Personne personne;
+    
+    
+    private static JChartLine graph;//je suis là
    
     
 
@@ -89,10 +94,23 @@ public class Main {
         pageRechercherProf = new JpanelRechercheProf();
         pageRechercherEleveParEnseignant = new JpanelRechercherEleveParEnseignant();
         
+        
+        
+        
+        graph = new JChartLine("Graphe notes de l'elève / moyennnes de sa classe"); // je suis là
+        
+        
 
         //Par défaut c'est la page d'accueil sur le Jframe
         jframe1.setContentPane(pageAccueil);
         jframe1.setVisible(true);
+        
+        
+        graph.setAlwaysOnTop(true);  // je suis là
+        graph.pack();  
+        graph.setSize(600, 400);  
+        //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
+        graph.setVisible(true); // je suis là
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -317,6 +335,29 @@ public class Main {
                 }
            });
 
+        /**
+         * Bouton "Mon Bulletin" de la page Eleve
+         */
+        pageEleve.getjButtonBulletin().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                  
+
+                }
+           });
+        
+        /**
+         * Un eleve peut voir l'évolution de ses notes 
+         */
+        pageEleve.getjButtonEvolutionNotes().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                   
+
+                }
+           });
 
         /**
          * Methode AddActionListener du bouton "Supprimer un élève"
@@ -430,8 +471,6 @@ public class Main {
 
             }
         });
-
-
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION
         pageEleve.getButtonDeconnexion().addActionListener(new ActionListener() {
@@ -515,10 +554,17 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                
-//               jframe1.remove(pageEnseignant);
-//               jframe1.setContentPane(pageRechercherEleveParEnseignant);
-//               jframe1.setVisible(true);
+                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
+               String nom = pageRechercherEleveParEnseignant.getjTextFieldNom().getText();
+               String prenom = pageRechercherEleveParEnseignant.getjTextFieldPrenom().getText();
+               
+               if(personneDAO_admin.rechercherEleve(nom,prenom))
+               {
+                   jframe1.remove(pageRechercherEleveParEnseignant);
+                   jframe1.setContentPane(pageEnseignant);
+                   jframe1.setVisible(true);
+               }
+               
             }
         });
         
@@ -1001,6 +1047,9 @@ public class Main {
         }
                 
          */       
+        
+        
+        
 
     }
 }
