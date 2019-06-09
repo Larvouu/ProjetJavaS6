@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.18-bin2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../OneDrive - Groupe INSEEC (POCE)/Ecole/Ing3 Paris/JAVA/JDBCV2018/lib/mysql-connector-java-5.1.18-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

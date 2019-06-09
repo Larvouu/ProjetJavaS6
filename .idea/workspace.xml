@@ -2,33 +2,262 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc6cccfb-6ebe-4091-82a7-31428cafc6bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_18_bin1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ProjetJavaS6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjetJavaS6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/ClasseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/ClasseDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DetailBulletinDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DetailBulletinDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EvaluationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EvaluationDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/InscriptionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/InscriptionDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/PersonneDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/PersonneDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/EvaluationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/production/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/AnneeScolaireDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/BulletinDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/ClasseDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Connexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DetailBulletinDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/DisciplineDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EcoleDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EnseignementDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/EvaluationDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/InscriptionDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/NiveauDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/PersonneDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/controller/TrimestreDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/AnneeScolaire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Bulletin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Classe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/DetailBulletin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Discipline.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Ecole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Enseignement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Evaluation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Inscription.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Niveau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Personne.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/modele/Trimestre.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/production/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/production/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/src/img/pro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JframePrincipal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelAjouterEleveForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageAccueil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageConnexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEleve.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelPageEnseignant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAVA/production/ProjetJavaS6/vue/JpanelSupprEleveForm.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,16 +266,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="115" column="69" selection-start-line="115" selection-start-column="69" selection-end-line="115" selection-end-column="69" />
+            <state relative-caret-position="145">
+              <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,7 +285,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/PersonneDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="105">
               <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
@@ -76,16 +304,16 @@
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Connexion.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+              <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1153">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="315">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -93,7 +321,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="180">
               <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -129,8 +357,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java" />
-        <option value="$PROJECT_DIR$/JAVA/src/controller/Main.java" />
         <option value="$PROJECT_DIR$/JAVA/src/controller/Connexion.java" />
+        <option value="$PROJECT_DIR$/JAVA/src/controller/Main.java" />
       </list>
     </option>
   </component>
@@ -144,8 +372,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,6 +424,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,17 +489,17 @@
       <updated>1560013414459</updated>
       <workItem from="1560013417979" duration="1619000" />
       <workItem from="1560034074167" duration="424000" />
+      <workItem from="1560071862827" duration="548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2043000" />
+    <option name="totallyTimeSpent" value="2591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24892704" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -308,19 +536,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../ProjetJavaS6 5/JAVA/src/controller/Main.java" />
     <entry file="file://$PROJECT_DIR$/../../ProjetJavaS6 4/JAVA/src/controller/Main.java" />
-    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="115" column="69" selection-start-line="115" selection-start-column="69" selection-end-line="115" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JAVA/src/controller/PersonneDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="105">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
@@ -334,7 +552,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JAVA/src/controller/BulletinDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="180">
           <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -349,17 +567,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Connexion.java">
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+        <state relative-caret-position="315">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/DetailBulletinDAO.java">
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Connexion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1153">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="220">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVA/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
