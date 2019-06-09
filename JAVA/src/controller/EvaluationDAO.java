@@ -102,11 +102,8 @@ public class EvaluationDAO extends DAO<Evaluation> {
             sc.nextLine();
             appreciation = sc.nextLine();
             pst.setString(3, appreciation);
-            System.out.println("detail bulletin id" + detailbulletin_id);
-            System.out.println("note" + note);
-            System.out.println("appreciaiton");
-            System.out.println(appreciation);
-            System.out.println("bouuu");
+    
+           
             pst.executeUpdate();
         } catch (SQLException exception) {
             exception.printStackTrace();
