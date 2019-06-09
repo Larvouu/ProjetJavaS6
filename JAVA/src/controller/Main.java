@@ -731,9 +731,29 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                String nomClasse = pageRechercherClasse.getjTextFieldClasse().getText();
+                //Utile pour récupérer ce que le user a selectionné
+                pageRechercherClasse.getjRadioButtonCP_A().setActionCommand("CP_A");
+                pageRechercherClasse.getjRadioButtonCP_B().setActionCommand("CP_B");
+                pageRechercherClasse.getjRadioButtonCE1_A().setActionCommand("CE1_A");
+                pageRechercherClasse.getjRadioButtonCE1_B().setActionCommand("CE1_B");
+                pageRechercherClasse.getjRadioButtonCE2_A().setActionCommand("CE2_A");
+                pageRechercherClasse.getjRadioButtonCE2_B().setActionCommand("CE2_B");
+                pageRechercherClasse.getjRadioButtonCM1_A().setActionCommand("CM1_A");
+                pageRechercherClasse.getjRadioButtonCM1_B().setActionCommand("CM1_B");
+                pageRechercherClasse.getjRadioButtonCM2_A().setActionCommand("CM2_A");
+                pageRechercherClasse.getjRadioButtonCM2_B().setActionCommand("CM2_B");
+                
+                pageRechercherClasse.getjRadioButton1().setActionCommand("2011");
+                pageRechercherClasse.getjRadioButton2().setActionCommand("2012");
+                pageRechercherClasse.getjRadioButton3().setActionCommand("2013");
+                pageRechercherClasse.getjRadioButton4().setActionCommand("2014");
+                
+                String classeSelection = pageRechercherClasse.getbuttonGroup1().getSelection().getActionCommand();
+                int anneeSelection = Integer.parseInt(pageRechercherClasse.getbuttonGroup2().getSelection().getActionCommand());
+                
+               
                 ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
-                if(classeDAO_recherche.rechercherClasse(nomClasse))
+                if(classeDAO_recherche.rechercherClasse(classeSelection, anneeSelection))
                 {
                     jframe1.remove(pageRechercherClasse);
                     jframe1.setContentPane(pageAdmin);

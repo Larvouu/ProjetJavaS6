@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import modele.*;
 
@@ -83,20 +84,24 @@ public class ClasseDAO extends DAO<Classe>{
         return classe;
     }
     
-    public boolean rechercherClasse(String nomClasse)
+    public boolean rechercherClasse(String nomClasseSelection, int anneeSelection)
     {
         boolean b = true;
+        boolean boucle1 = false;
+        ArrayList<Integer> arl = new ArrayList<Integer>();
         
         try{
             //requete
-            String sql = "SELECT * FROM classe WHERE nom = ?";
+            String sql = "SELECT * FROM classe WHERE nom = ? AND anneescolaire_id=?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setString(1, nomClasse);
+            pst.setString(1, nomClasseSelection);
+            pst.setInt(2, anneeSelection);
             ResultSet rs_find=pst.executeQuery();
 
             //if j'ai un résultat
             if(rs_find.next())
             {
+                boucle1=true;
                 //Je fais mes petits traitements
                 System.out.println("-------   Informations concernant la classe   --------");
                 System.out.println("Ecole : "+rs_find.getString("ecole_id"));
@@ -104,9 +109,49 @@ public class ClasseDAO extends DAO<Classe>{
                 System.out.println("Annee : "+rs_find.getInt("anneescolaire_id"));
                 System.out.println("Niveau : "+rs_find.getString("niveau_id"));
             }
-            else{
+            else
+            {
                 b = false;
+                System.out.println("Cette classe n'existe pas");
             }
+            
+            if(boucle1)
+            {
+                String sql2 = "SELECT * FROM inscription WHERE classe_id=?"; 
+                PreparedStatement pst2 = connect.prepareStatement(sql2);
+                pst2.setString(1, nomClasseSelection);
+                ResultSet rs2 = pst2.executeQuery();
+                
+                while(rs2.next())
+                {
+                    arl.add(rs2.getInt("personne_id"));
+                  
+                }
+                
+                
+                System.out.println("-------   Eleves de la classe   --------");
+                
+                for(int i = 0 ; i < arl.size(); i++)
+                {
+                    String sql3 = "SELECT * FROM personne WHERE id=?";
+                    PreparedStatement pst3 = connect.prepareStatement(sql3);
+                    pst3.setInt(1, arl.get(i));
+                    ResultSet rs3 = pst3.executeQuery();
+                    
+                    if(rs3.next())
+                    {
+                        
+                        System.out.println("Nom: "+rs3.getString("nom"));
+                        System.out.println("Prenom : "+ rs3.getString("prenom"));
+                       
+                        System.out.println("");
+                    }
+                }
+                
+            }
+            
+            
+            
         }
         catch (SQLException exception)
         {
