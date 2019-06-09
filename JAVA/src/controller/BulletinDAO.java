@@ -38,6 +38,7 @@ public class BulletinDAO extends DAO<Bulletin> {
         System.out.println("eleve id " +eleve.getId());
         int trimestre = 0;
         int bulletin_id = 0;
+        String appreciation=null;
 
         ///il faut lier ce bulletin à l'inscription d'un élève
         try {
@@ -78,7 +79,10 @@ else
         PreparedStatement pst2 = connect.prepareStatement(sql2);
         pst2.setInt(1, trimestre);
         pst2.setInt(2, id_inscription);
-        pst2.setString(3, "");
+        System.out.println("Veuillez rentrer l'appreciation generale du bulletin");
+        appreciation=sc.nextLine();
+        sc.nextLine();
+        pst2.setString(3, appreciation);
         pst2.executeUpdate();
     } catch (SQLException exception) {
         exception.printStackTrace();

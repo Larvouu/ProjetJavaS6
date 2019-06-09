@@ -50,38 +50,56 @@ public class EvaluationDAO extends DAO<Evaluation> {
         Scanner sc = new Scanner(System.in);
         Personne eleve = new Personne();
         //On recupere nom et prenom de l'eleve a modifier
-        System.out.println("Pour quel élève souhaitez-vous ajouter une note");
+        int detailbulletin_id;
+        boolean eleve_existe=false;
+         ResultSet rs=null;
+          PreparedStatement pst=null ;
+        // on recupere ainsi l'id
+try
+{
+        while(!eleve_existe)
+        {
+            String sql="SELECT id FROM personne where nom = ? AND prenom = ? ";
+                    System.out.println("Pour quel élève souhaitez-vous ajouter une note");
         System.out.println("NOM");
         eleve.setNom(sc.next());
         System.out.println("PRENOM");
         eleve.setPrenom(sc.next());
-        // on recupere ainsi l'id
-
-            try
-            {
-                String sql="SELECT id FROM personne where nom = ? AND prenom = ? ";
-
-                PreparedStatement pst = connect.prepareStatement(sql);
+                 pst = connect.prepareStatement(sql);
                 pst.setString(1, eleve.getNom());
                 pst.setString(2, eleve.getPrenom());
-                ResultSet rs	=pst.executeQuery();
+                 rs	=pst.executeQuery();
 
-                rs.next();
+                if(rs.next()==true)
+                {
+                    System.out.println("l'eleve existe");
+                    eleve_existe=true;
+                }else
+                {
+                    System.out.println("L'eleve n'existe pas");
+                }
+           
+        
 
-                System.out.println(eleve.getNom());
+            
+            }  
+           
+
+              System.out.println(eleve.getNom());
                 System.out.println(eleve.getPrenom());
 
                     monid = rs.getInt("id");
                     eleve.setId(rs.getInt("id"));
                     System.out.println("id eleve " +eleve.getId());
-
-            }
-
-        catch (SQLException exception)
+                      detailbulletin_id=0;
+              
+             } catch (SQLException exception)
             {
                 exception.printStackTrace();
             }
-            int detailbulletin_id=0;
+
+       
+          
            ///On a l'identité de l'eleve a qui on veut rajouter une note donc on crée mainentn la sous partie du bulletin
         detailbulletin_id=detailBulletinDAO.create_detailbulletin(detailBulletin, eleve, prof);
 
@@ -97,7 +115,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
 
             {
             String sql="INSERT INTO evaluation (detailBulletin_id, note, appreciation)  VALUES (?,?,?) ";
-            PreparedStatement pst = connect.prepareStatement(sql);
+             pst = connect.prepareStatement(sql);
             pst.setInt(1, detailbulletin_id );
             pst.setInt(2, note);
             System.out.println("Rentrer une appreciation");
@@ -121,7 +139,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
 
         return false;
 
-        }
+    }
 
 
 
