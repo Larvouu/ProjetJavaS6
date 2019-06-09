@@ -27,6 +27,8 @@ public class BulletinDAO extends DAO<Bulletin> {
     
     public void Afficher_bulletinDAO(Personne eleve)
     {
+        double nb_g=0;
+                   double moyenne_g=0;
         int id_eleve=0;
         String classe_id = null;
         System.out.println("****Bulletin trimestrielle *****");
@@ -146,6 +148,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                    
                    /// Calcul des moyennes par matières
                    double moyenne=0;
+                   
                    int somme=0;
                    int nb_note=0;
                    String sql_note="SELECT note FROM evaluation WHERE detailbulletin_id = ?";
@@ -154,8 +157,11 @@ public class BulletinDAO extends DAO<Bulletin> {
                    ResultSet rs_note=pst_note.executeQuery();
                    while(rs_note.next()==true)
                    {
-                       somme+=+rs_note.getInt("note");
+                       somme+=rs_note.getInt("note");
                        nb_note++;
+                       nb_g++;
+                       moyenne_g+=rs_note.getInt("note");
+                       
                    }
                    moyenne=somme/nb_note;
                    String appreciation=null;
@@ -165,6 +171,7 @@ public class BulletinDAO extends DAO<Bulletin> {
                    ResultSet rs_app=pst_app.executeQuery();
                    if(rs_app.next())
                    {
+                       System.out.println("Moyenne de l'eleve "+moyenne);
                        appreciation=rs_app.getString("appreciation");
                        System.out.println(appreciation);
                    }
@@ -185,10 +192,12 @@ public class BulletinDAO extends DAO<Bulletin> {
                    PreparedStatement pst_appG=connect.prepareStatement(sql_appG);
                    pst_appG.setInt(1, id_bulletin);
                    ResultSet rs_appG=pst_appG.executeQuery();
+                   moyenne_g=moyenne_g/nb_g;
                    if(rs_appG.next())
                    {
                        appreciationG=rs_appG.getString("appreciation");
                        System.out.println("Commentaire de l'ensemble de l'équipe pédagogique : " +appreciationG);
+                        System.out.println("Moyenne trimestrielle: " +moyenne_g);
                    }
                        
                

@@ -103,6 +103,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
             appreciation = sc.nextLine();
             pst.setString(3, appreciation);
     
+            
            
             pst.executeUpdate();
         } catch (SQLException exception) {
