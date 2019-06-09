@@ -67,6 +67,7 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
 
         jRadioButtonCP_A.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonCP_A);
+        jRadioButtonCP_A.setSelected(true);
         jRadioButtonCP_A.setText("CP_A");
 
         jRadioButtonCP_B.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,6 +114,7 @@ public class JpanelRechercherClasse extends javax.swing.JPanel {
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setSelected(true);
         jRadioButton2.setText("2012");
 
         jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));

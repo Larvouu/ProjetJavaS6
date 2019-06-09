@@ -5,13 +5,18 @@
  */
 package controller;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JLabel;
 import modele.*;
+import vue.JpanelAfficherEleveClasse;
 
 /**
  *
@@ -84,11 +89,13 @@ public class ClasseDAO extends DAO<Classe>{
         return classe;
     }
     
-    public boolean rechercherClasse(String nomClasseSelection, int anneeSelection)
+    public boolean rechercherClasse(String nomClasseSelection, int anneeSelection, JpanelAfficherEleveClasse page)
     {
+        
         boolean b = true;
         boolean boucle1 = false;
         ArrayList<Integer> arl = new ArrayList<Integer>();
+        page.setLayout(null);
         
         try{
             //requete
@@ -130,6 +137,12 @@ public class ClasseDAO extends DAO<Classe>{
                 
                 
                 System.out.println("-------   Eleves de la classe   --------");
+                JLabel l = new JLabel("infos");
+                page.add(l);
+                l.setText("Liste des élèves de la classe sélectionnée :");
+                Dimension s = l.getPreferredSize();
+                l.setBounds(70, 10,s.width, s.height);
+                
                 
                 for(int i = 0 ; i < arl.size(); i++)
                 {
@@ -145,8 +158,37 @@ public class ClasseDAO extends DAO<Classe>{
                         System.out.println("Prenom : "+ rs3.getString("prenom"));
                        
                         System.out.println("");
+                        
+                        
+                        ////////////////////////
+                        JLabel lab1 = new JLabel("eleveClasse"); 
+                        page.add(lab1);
+                        //lab1.setText("Nom : "+rs3.getString("nom")+"\n Prénom : "+rs3.getString("prenom")+"\n\n");
+                        lab1.setText("Nom : "+rs3.getString("nom"));
+                        Dimension size = lab1.getPreferredSize();
+                        lab1.setBounds(100, (i+1)*60, size.width, size.height);
+                        
+                        JLabel lab2 = new JLabel("eleveClassek"); 
+                        page.add(lab2);
+                        lab2.setText("Prénom : "+rs3.getString("prenom"));
+                        Dimension size2 = lab2.getPreferredSize();
+                        lab2.setBounds(100, ((i+1)*60)+20, size2.width, size2.height);
                     }
                 }
+                
+                /////////////////////////////
+                
+                
+                //page.setLayout(null);
+ 
+//                JLabel lab1 = new JLabel("User Name"); 
+//                page.add(lab1);
+//                lab1.setText("gufgfgzef");
+//                Dimension size = lab1.getPreferredSize();
+//                lab1.setBounds(100, 100, size.width, size.height);
+                
+       
+                /////////////////////////////
                 
             }
             
