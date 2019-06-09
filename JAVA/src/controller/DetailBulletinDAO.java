@@ -18,22 +18,19 @@ import modele.*;
  * @author ghias
  */
 public class DetailBulletinDAO extends DAO<DetailBulletin> {
-    
-    public DetailBulletinDAO(Connection conn) 
-    {
+
+    public DetailBulletinDAO(Connection conn) {
         super(conn);
     }
-    
 
     public int create_detailbulletin(DetailBulletin obj, Personne eleve, Personne prof) {
-
 
         int enseignement_id = 0;
         int bulletin_id;
         String nom_matiere = null;
         int inscription_id = 0;
         String classe_id = null;
-        int detailbulletin_id=0;
+        int detailbulletin_id = 0;
 
         ///Mais pour avoir un detail bulletin il faut avoir un Bulletin
         BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
@@ -50,7 +47,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
             if (rs_prof_id.next()) {
                 id_prof = rs_prof_id.getInt("id");
                 System.out.println("prof nom : " + prof.getNom());
-                System.out.println("prof id : " + prof.getPrenom());
+                System.out.println("prof Prenom : " + prof.getPrenom());
                 System.out.println("prof id : " + id_prof);
 
                 ///On peut maintenant créer le detail bulletin
@@ -59,7 +56,6 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                 nom_matiere = sc.next();
 
                 //On recupere l'id inscription à partit du bulletin pour qu'on a crée car on va vouloir recuperer l'eleve
-
                 String sql_inscription_id = "SELECT inscription_id FROM bulletin where id = ? ";
                 PreparedStatement pst2 = connect.prepareStatement(sql_inscription_id);
                 pst2.setInt(1, bulletin_id);
@@ -69,8 +65,6 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                     System.out.println("inscription id : " + inscription_id);
 
                     //on veut recupérer la classe de l'élève
-
-
                     String sql_classe = "SELECT classe_id FROM inscription where id = ? ";
                     PreparedStatement pst_classe = connect.prepareStatement(sql_classe);
                     pst_classe.setInt(1, inscription_id);
@@ -79,7 +73,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                         classe_id = rs_classe.getString("classe_id");
                         System.out.println("classe id : " + classe_id);
                         System.out.println("Prof id : " + id_prof);
-//On recupere l'enseignement car maintenant on a les données du prof et de l'eleve et la matière qu'il veut noyer
+//On recupere l'enseignement car maintenant on a les données du prof et de l'eleve et la matière qu'il veut noter
                         String sql_enseignement = "SELECT id FROM enseignement where classe_id = ? AND discipline_id = ? AND personne_id = ?";
                         PreparedStatement pst_enseignement = connect.prepareStatement(sql_enseignement);
                         pst_enseignement.setString(1, classe_id);
@@ -89,80 +83,102 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                         if (rs_enseignement.next()) {
                             enseignement_id = rs_enseignement.getInt("id");
                             System.out.println("enseignement id : " + enseignement_id);
-                            String sql = "INSERT INTO detailbulletin (bulletin_id,enseignement_id,appreciation) VALUES (?,?,?)";
-                            PreparedStatement pst = connect.prepareStatement(sql);
-                            System.out.println("bulletin id : " + bulletin_id);
-                            pst.setInt(1, bulletin_id);
-                            System.out.println("enseignement id : " + enseignement_id);
-                            pst.setInt(2, enseignement_id);
-                            System.out.println("Appreciation ?");
-                            String appreciation=sc.nextLine();
-                            pst.setString(3, appreciation);
-                            pst.executeUpdate();
-                            //on recupere l'id du detail bulletin id
-                            String sql_DBI= "SELECT id FROM detailbulletin where bulletin_id = ? AND enseignement_id = ? AND appreciation = ?";
-                            PreparedStatement pst_DBI = connect.prepareStatement(sql_DBI);
-                            pst_DBI.setInt(1, bulletin_id);
-                            pst_DBI.setInt(2, enseignement_id);
-                            pst_DBI.setString(3, appreciation);
-                            ResultSet rs_DBI = pst_DBI.executeQuery();
-                            if (rs_DBI.next()) {
-                                System.out.println("Holaaaaa");
-                                detailbulletin_id = rs_DBI.getInt("id");}
+                            //Si le sa matiere est deja dans le bulletin il ne faut pas la réajouter
 
-                        } else System.out.println("Hola Inna");
+                            try {
+                                String sql_existe = "SELECT id FROM detailbulletin where bulletin_id = ? AND enseignement_id = ?";
+                                PreparedStatement pst_existe = connect.prepareStatement(sql_existe);
+                                pst_existe.setInt(1, bulletin_id);
+                                pst_existe.setInt(2, enseignement_id);
+                                ResultSet rs_existe = pst_existe.executeQuery();
+                                if (rs_existe.next() == true) {
+                                    rs_existe.next();
+                                    System.out.println("Une sous partie pour cette matière existe deja, les notes y seront ajoutés et la derniere appreciation sera celle prise en compte");
+                                } else {
+
+                                    String sql = "INSERT INTO detailbulletin (bulletin_id,enseignement_id,appreciation) VALUES (?,?,?)";
+                                    PreparedStatement pst = connect.prepareStatement(sql);
+                                    System.out.println("bulletin id : " + bulletin_id);
+                                    pst.setInt(1, bulletin_id);
+                                    System.out.println("enseignement id : " + enseignement_id);
+                                    pst.setInt(2, enseignement_id);
+                                    System.out.println("Appreciation ?");
+                                    String appreciation = sc.nextLine();
+                                    pst.setString(3, appreciation);
+                                    pst.executeUpdate();
+
+                                }
+                            }catch (SQLException exception) { exception.printStackTrace();}
+
+                            try {
+                                //on recupere l'id du detail bulletin id
+                                String sql_DBI = "SELECT id FROM detailbulletin where bulletin_id = ? AND enseignement_id = ?";
+                                PreparedStatement pst_DBI = connect.prepareStatement(sql_DBI);
+                                pst_DBI.setInt(1, bulletin_id);
+                                pst_DBI.setInt(2, enseignement_id);
+                     
+                                ResultSet rs_DBI = pst_DBI.executeQuery();
+                                if (rs_DBI.next()) {
+
+                                    detailbulletin_id = rs_DBI.getInt("id");
+                                }
+
+                            } catch (SQLException exception) {
+                                exception.printStackTrace();
+
+                            }
+                        }
                     }
                 }
+
             }
+
+        } catch (SQLException exception)
+        {
+            exception.printStackTrace();
 
         }
-        catch(SQLException exception){
-                exception.printStackTrace();
-            }
-
-
-            return detailbulletin_id;
-
+        return detailbulletin_id;
     }
+    
 
 
+
+
+
+    
 
     public boolean create(DetailBulletin obj) {
         return false;
     }
+
     //Pas encore implémentée 
-    public boolean delete(DetailBulletin obj)
-    {
+    public boolean delete(DetailBulletin obj) {
         return false;
     }
-    
+
     //Pas encore implémentée 
-    public boolean update(DetailBulletin obj)
-    {
+    public boolean update(DetailBulletin obj) {
         return false;
     }
-    
-    
-    public DetailBulletin find(int id)
-    {
+
+    public DetailBulletin find(int id) {
         DetailBulletin detailBulletin = new DetailBulletin();
-        
-        
-        try{
+
+        try {
             String sql = "SELECT * FROM detailbulletin WHERE id = ?";
             PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setInt(1, id);     
+            pst.setInt(1, id);
             pst.executeQuery();
-            
-            if(pst.executeQuery().first())
-            {
-                  detailBulletin = new DetailBulletin(id, pst.executeQuery().getString("appreciation"));
-                  
-                  EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
-                  BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
-                   
-                  detailBulletin.setBulletin(bulletinDAO.find(pst.executeQuery().getInt("bulletin_id")));
-                  detailBulletin.setEnseignement(enseignementDAO.find(pst.executeQuery().getInt("enseignement_id")));
+
+            if (pst.executeQuery().first()) {
+                detailBulletin = new DetailBulletin(id, pst.executeQuery().getString("appreciation"));
+
+                EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
+                BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
+
+                detailBulletin.setBulletin(bulletinDAO.find(pst.executeQuery().getInt("bulletin_id")));
+                detailBulletin.setEnseignement(enseignementDAO.find(pst.executeQuery().getInt("enseignement_id")));
             }
             /*ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -177,13 +193,11 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                 detailBulletin.setBulletin(bulletinDAO.find(result.getInt("bulletin_id")));
                 detailBulletin.setEnseignement(enseignementDAO.find(result.getInt("enseignement_id")));
             }*/
-        }
-        catch (SQLException exception)
-        {
+        } catch (SQLException exception) {
             exception.printStackTrace();
         }
-        
+
         return detailBulletin;
     }
-    
+
 }
