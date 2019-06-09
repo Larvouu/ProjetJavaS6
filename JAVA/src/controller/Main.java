@@ -579,6 +579,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 System.out.println("1");
+                PersonneDAO personneDAO_modifNomProf = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifNomProf.modifierProfDepuisAdmin("nom");
             }
         });
         
@@ -588,6 +590,11 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 System.out.println("2");
+                PersonneDAO personneDAO_modifPrenomProf = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifPrenomProf.modifierProfDepuisAdmin("prenom");
+                
+                //Ca a transformé la discipline Physique en Philo --> OK
+                //Mais il reste à changer discipline_id de enseignement puis ce sera parfait
             }
         });
         
@@ -597,6 +604,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 System.out.println("3");
+                PersonneDAO personneDAO_modifEnseignementProf = new PersonneDAO(maConnexion.getConnection());
+                personneDAO_modifEnseignementProf.modifierDisciplineProfDepuisAdmin();
             }
         });
         
