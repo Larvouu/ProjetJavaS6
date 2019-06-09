@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import modele.Inscription;
 import modele.Personne;
+import vue.JChartLine;
 
 /**
  *
@@ -688,7 +689,7 @@ public class PersonneDAO extends DAO<Personne> {
         }
     }
 
-    public boolean afficherGraphe(Personne personne) {
+    public boolean afficherGraphe(Personne personne,JChartLine graph) {
         Scanner sc = new Scanner(System.in);
         //true par défaut, on passea à false si ca foire quelque part
         boolean b = true;
@@ -754,9 +755,18 @@ public class PersonneDAO extends DAO<Personne> {
                                 int cpt = 0;
 
                                 while (rs_5.next()) {
-                                    System.out.println("La requete 5 a marché (" + cpt + ")");
+                                    
                                     cpt++;
-                                    System.out.println("Note " + cpt + " : " + rs_5.getInt("note"));
+                                    /////////////////////////////////////////
+                                    //////////////// C EST ICI QUE TOUT SE PASSE 
+                                    /////////////////////////////////////////
+                                    //System.out.println("La requete 5 a marché (" + cpt + ")");
+                                    //System.out.println("Note " + cpt + " : " + rs_5.getInt("note"));
+                                    //////////////////////////////////////
+                                    //////////////////////////////////////
+                                    ///////////////////////////////////////
+                                    //graph.setTitreGraphe("Notes de "+ personne.getPrenom()+" "+personne.getNom()+ " en "+ discipline_saisie);
+                                    graph.getDataset().addValue(rs_5.getInt("note"), graph.getSeries1(), "Note " +cpt);
                                 }
                                 //else{b=false; System.out.println("Pb requete 5");} //pas un if
                             } else {
