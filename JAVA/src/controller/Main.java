@@ -27,7 +27,7 @@ import java.sql.PreparedStatement;
 import vue.JpanelAdmin;
 import modele.*;
 import vue.JpanelAjouterEleveForm;
-import vue.JpanelRechercherPersonne;
+import vue.JpanelRechercherEleve;
 import vue.JpanelSupprEleveForm;
 
 
@@ -45,7 +45,7 @@ public class Main {
     private static JpanelAdmin pageAdmin;
     private static JpanelAjouterEleveForm pageAjouterEleveForm;
     private static JpanelSupprEleveForm pageSupprEleveForm;
-    private static JpanelRechercherPersonne pageRechercherPersonne;
+    private static JpanelRechercherEleve pageRechercherPersonne;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -81,7 +81,7 @@ public class Main {
         pageAdmin = new JpanelAdmin();
         pageAjouterEleveForm = new JpanelAjouterEleveForm();
         pageSupprEleveForm = new JpanelSupprEleveForm();
-        pageRechercherPersonne = new JpanelRechercherPersonne();
+        pageRechercherPersonne = new JpanelRechercherEleve();
         
 
         //Par défaut c'est la page d'accueil sur le Jframe
@@ -588,6 +588,7 @@ public class Main {
             }
         });
         
+        
         pageAdmin.getjButtonRechercherClasse().addActionListener(new ActionListener() {
 
             @Override
@@ -634,6 +635,35 @@ public class Main {
             }
         });
         
+        //Pour antoiinou
+        pageAdmin.getjButtonModifNomEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               
+            }
+        });
+                
+                
+        pageAdmin.getjButtonModifPrenomEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               
+            }
+        });
+                
+        pageAdmin.getjButtonChangerEleveClasse().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               
+            }
+        });
+        
         pageAdmin.getjButtonSeDeconnecter().addActionListener(new ActionListener() {
 
             @Override
@@ -655,6 +685,8 @@ public class Main {
                jframe1.setVisible(true);
             }
         });
+        
+        
         
         
         

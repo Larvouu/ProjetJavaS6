@@ -9,12 +9,12 @@ package vue;
  *
  * @author Sarah
  */
-public class JpanelRechercherPersonne extends javax.swing.JPanel {
+public class JpanelRechercherEleve extends javax.swing.JPanel {
 
     /**
      * Creates new form JpanelRechercherPersonne
      */
-    public JpanelRechercherPersonne() {
+    public JpanelRechercherEleve() {
         initComponents();
     }
 
