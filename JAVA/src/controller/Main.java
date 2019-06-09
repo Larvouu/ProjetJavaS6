@@ -563,6 +563,32 @@ public class Main {
             }
         });
         
+        pageAdmin.getjButtonModifNomProf().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("1");
+            }
+        });
+        
+        pageAdmin.getjButtonModifPrenomProf().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("2");
+            }
+        });
+        
+        pageAdmin.getjButtonModifEnseignement().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("3");
+            }
+        });
         
         
         
