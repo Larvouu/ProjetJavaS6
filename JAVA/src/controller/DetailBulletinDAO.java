@@ -31,13 +31,15 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
         int inscription_id = 0;
         String classe_id = null;
         int detailbulletin_id = 0;
-
+         Scanner sc = new Scanner(System.in);
         ///Mais pour avoir un detail bulletin il faut avoir un Bulletin
         BulletinDAO bulletinDAO = new BulletinDAO(this.connect);
         Bulletin bulletin = new Bulletin();
         bulletin_id = bulletinDAO.create_bulletin(bulletin, eleve);
         int id_prof = 0;
         try {
+            
+       
             //on recupere l'id du prof qui crée le detail bulletin
             String sql_prof = "SELECT id FROM personne where nom = ? AND prenom = ? ";
             PreparedStatement pst_prof = connect.prepareStatement(sql_prof);
@@ -46,14 +48,16 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
             ResultSet rs_prof_id = pst_prof.executeQuery();
             if (rs_prof_id.next()) {
                 id_prof = rs_prof_id.getInt("id");
-                System.out.println("prof nom : " + prof.getNom());
-                System.out.println("prof Prenom : " + prof.getPrenom());
-                System.out.println("prof id : " + id_prof);
+                
 
                 ///On peut maintenant créer le detail bulletin
-                System.out.println("Veuillez ecrire l'enseignement concerné (Francais, Maths, Sciences, Musique, Art)");
-                Scanner sc = new Scanner(System.in);
+                do
+                {
+                System.out.println("Veuillez ecrire l'enseignement concerné");
+               
                 nom_matiere = sc.next();
+                }while(!(nom_matiere.equals("francais"))&&!(nom_matiere.equals("maths"))&&!(nom_matiere.equals("sciences"))&&!(nom_matiere.equals("musique"))&&!(nom_matiere.equals("EPS")));
+                
 
                 //On recupere l'id inscription à partit du bulletin pour qu'on a crée car on va vouloir recuperer l'eleve
                 String sql_inscription_id = "SELECT inscription_id FROM bulletin where id = ? ";
@@ -71,8 +75,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                     ResultSet rs_classe = pst_classe.executeQuery();
                     if (rs_classe.next()) {
                         classe_id = rs_classe.getString("classe_id");
-                        System.out.println("classe id : " + classe_id);
-                        System.out.println("Prof id : " + id_prof);
+                       
 //On recupere l'enseignement car maintenant on a les données du prof et de l'eleve et la matière qu'il veut noter
                         String sql_enseignement = "SELECT id FROM enseignement where classe_id = ? AND discipline_id = ? AND personne_id = ?";
                         PreparedStatement pst_enseignement = connect.prepareStatement(sql_enseignement);
@@ -82,7 +85,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                         ResultSet rs_enseignement = pst_enseignement.executeQuery();
                         if (rs_enseignement.next()) {
                             enseignement_id = rs_enseignement.getInt("id");
-                            System.out.println("enseignement id : " + enseignement_id);
+                        
                             //Si le sa matiere est deja dans le bulletin il ne faut pas la réajouter
 
                             try {
@@ -93,16 +96,16 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
                                 ResultSet rs_existe = pst_existe.executeQuery();
                                 if (rs_existe.next() == true) {
                                     rs_existe.next();
-                                    System.out.println("Une sous partie pour cette matière existe deja, les notes y seront ajoutés et la derniere appreciation sera celle prise en compte");
+                                    System.out.println("Une sous partie pour cette matière existe deja, les notes y seront ajoutées");
                                 } else {
 
                                     String sql = "INSERT INTO detailbulletin (bulletin_id,enseignement_id,appreciation) VALUES (?,?,?)";
                                     PreparedStatement pst = connect.prepareStatement(sql);
-                                    System.out.println("bulletin id : " + bulletin_id);
+                                   
                                     pst.setInt(1, bulletin_id);
-                                    System.out.println("enseignement id : " + enseignement_id);
+                                   
                                     pst.setInt(2, enseignement_id);
-                                    System.out.println("Appreciation ?");
+                                    System.out.println("Veuillez rentrer votre appreciation ?");
                                     sc.nextLine();
                                     String appreciation = sc.nextLine();
                                     pst.setString(3, appreciation);

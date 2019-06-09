@@ -217,10 +217,11 @@ public class BulletinDAO extends DAO<Bulletin> {
 
    public int create_bulletin(Bulletin obj, Personne eleve) {
         int id_inscription = 0;
-        System.out.println("eleve id " +eleve.getId());
+     
         int trimestre = 0;
         int bulletin_id = 0;
         String appreciation=null;
+         Scanner sc = new Scanner(System.in);
 
         ///il faut lier ce bulletin à l'inscription d'un élève
         try {
@@ -233,13 +234,13 @@ public class BulletinDAO extends DAO<Bulletin> {
                 rs.next();
 
                 id_inscription = rs.getInt("id");
-                System.out.println("inscription id" +id_inscription);
-
+               
+        do{
             System.out.println("Dans quel trimestre vous situez-vous ");
-            Scanner sc = new Scanner(System.in);
+           
 
             trimestre = sc.nextInt();
-
+        }while((trimestre>3)||(trimestre<0));
 // On checke si un bulletin au meme trimestre et au meme id inscription existe deja
             try {
 
@@ -291,7 +292,7 @@ else
             rs2.next();
 
             bulletin_id = rs2.getInt("id");
-            System.out.println("bulletin id : " + bulletin_id);
+           
         }
         catch (SQLException exception) {
             exception.printStackTrace();
