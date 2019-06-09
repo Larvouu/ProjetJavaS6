@@ -109,11 +109,11 @@ public class Main {
         jframe1.setVisible(true);
         
         
-        graph.setAlwaysOnTop(true);  // je suis là
+        //graph.setAlwaysOnTop(true);  // je suis là
         graph.pack();  
         graph.setSize(600, 400);  
         //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
-        graph.setVisible(true); // je suis là
+        //graph.setVisible(true); 
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -237,6 +237,7 @@ public class Main {
                         if("eleve".equals(pageConnexion.getButtonGroup().getSelection().getActionCommand()))
                         {
                             
+                            
                           personneDAO = new PersonneDAO(maConnexion.getConnection());
                             
                             JOptionPane.showMessageDialog(pageConnexion, "Bonjour "+statutUser+" "+prenomComparateur +" "+nomComparateur+".");
@@ -246,15 +247,35 @@ public class Main {
                             //On set les infos de l'élève qui vient de se connecter AVANT D'AFFICHER LA PAGE ELEVE
                             pageEleve.getJLabelNom().setText(nomUser);
                             pageEleve.getJLabelPrenom().setText(prenomUser);
-                            String requete2 = "SELECT classe_id FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
+                            //String requete2 = "SELECT classe_id FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
                                 
                             try 
                             {
-                                rs = maConnexion.getStmt().executeQuery(requete2);
+                                String sql_e = "SELECT * FROM personne where nom = '" + nomUser + "' AND prenom = '" + prenomUser + "' ";
+                                PreparedStatement pst_e = maConnexion.getConnection().prepareStatement(sql_e);
+                                ResultSet rs_e = pst_e.executeQuery();
+                                
+                                if(rs_e.next())
+                                {
+                                    String sql_e2 = "SELECT * FROM inscription WHERE personne_id = ?";
+                                    PreparedStatement pst_e2 = maConnexion.getConnection().prepareStatement(sql_e2);
+                                    pst_e2.setInt(1, rs_e.getInt("id"));
+                                    ResultSet rs_e2 = pst_e2.executeQuery();
+                                    
+                                    if(rs_e2.next())
+                                    {
+                                        String classeEleve = rs_e2.getString("classe_id");
+                                        pageEleve.getJLabelClasse().setText(classeEleve);
+                                    }
+                                    
+                                }
+                                
+                                
+                                /*rs = maConnexion.getStmt().executeQuery(requete2);
                                 while (rs.next()) {
                                     String classeEleve = rs.getString("classe_id");
                                     pageEleve.getJLabelClasse().setText(classeEleve);
-                                }
+                                }*/
                             } 
                             catch (SQLException ex) 
                             {
@@ -357,8 +378,8 @@ public class Main {
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                   
-
+                    graph.getDataset().addValue(50, graph.getSeries1(), "Note XXX");
+                    graph.setVisible(true); //je suis là
                 }
            });
 

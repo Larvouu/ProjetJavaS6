@@ -21,16 +21,20 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class JChartLine extends JFrame {
 
+    DefaultCategoryDataset dataset;
+    
+    String series1 ="";
     /**
      * Creates new form JChartLine
      */
     public JChartLine(String title) {
         super(title);  
     // Create dataset  
-    DefaultCategoryDataset dataset = createDataset();  
+     dataset = createDataset();  
     // Create chart  
     JFreeChart chart = ChartFactory.createLineChart(  
-        "Graphe notes de l'elève / moyennnes de sa classe", // Chart title  
+        //"Graphe notes de l'elève / moyennnes de sa classe", // Chart title  
+        "Graphe des notes de l'élève",
         "Numéro de la note", // X-Axis Label  
         "Valeur de la note", // Y-Axis Label  
         dataset  
@@ -66,8 +70,8 @@ public class JChartLine extends JFrame {
     // End of variables declaration//GEN-END:variables
 private DefaultCategoryDataset createDataset() {  
   
-    String series1 = "Notes de l'élève";  
-    String series2 = "Moyenne de sa classe";  
+    series1 = "Notes de l'élève";  
+    /*String series2 = "Moyenne de sa classe";  */
   
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
   
@@ -80,6 +84,7 @@ private DefaultCategoryDataset createDataset() {
     dataset.addValue(10, series1, "note 6");  
     dataset.addValue(13, series1, "note 7");  
   
+    /*
     //Moyennes de sa classe
     dataset.addValue(10, series2, "note 1");  
     dataset.addValue(11, series2, "note 2");  
@@ -88,18 +93,12 @@ private DefaultCategoryDataset createDataset() {
     dataset.addValue(9, series2, "note 5");  
     dataset.addValue(7, series2, "note 6");  
     dataset.addValue(12, series2, "note 7");  
+            */
   
     return dataset;  
   }  
-  
-  public static void main(String[] args) {  
-    SwingUtilities.invokeLater(() -> {  
-      JChartLine example = new JChartLine("Line Chart Example");  
-      example.setAlwaysOnTop(true);  
-      example.pack();  
-      example.setSize(600, 400);  
-      example.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
-      example.setVisible(true);  
-    });  
-  }  
+
+public DefaultCategoryDataset getDataset (){return dataset;}
+public String getSeries1(){return series1;}
+   
 }
