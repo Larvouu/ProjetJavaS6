@@ -424,18 +424,9 @@ public class PersonneDAO extends DAO<Personne>{
     }
     
     //rechercher un prof
-     public void rechercherProf()
+     public void rechercherProf(String nom, String prenom)
     {
-        String prenom;
-        String nom;
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.println("---------- RECHERCHER UN PROF ---------");
-        System.out.println("Entrer le prenom");
-        prenom = sc.next();
-        System.out.println("Entrer le nom");
-        nom = sc.next();
-        
+
         try{
             //Premiere requete
             String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";

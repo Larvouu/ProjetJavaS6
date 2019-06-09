@@ -32,7 +32,7 @@ public class JpanelRechercherEleve extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNomRecherche = new javax.swing.JTextField();
         jTextFieldPrenomRecherche = new javax.swing.JTextField();
-        jButtonRechercher = new javax.swing.JButton();
+        jButtonRechercherEleve = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -45,7 +45,7 @@ public class JpanelRechercherEleve extends javax.swing.JPanel {
 
         jLabel2.setText("Prénom : ");
 
-        jButtonRechercher.setText("Rechercher");
+        jButtonRechercherEleve.setText("Rechercher");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel3.setText("Rechercher une personne");
@@ -69,7 +69,7 @@ public class JpanelRechercherEleve extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(60, 60, 60)
-                                .addComponent(jButtonRechercher))
+                                .addComponent(jButtonRechercherEleve))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -100,7 +100,7 @@ public class JpanelRechercherEleve extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldPrenomRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButtonRechercher)
+                .addComponent(jButtonRechercherEleve)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -124,7 +124,7 @@ public class JpanelRechercherEleve extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonRechercher;
+    private javax.swing.JButton jButtonRechercherEleve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -143,9 +143,9 @@ public javax.swing.JTextField getjTextFieldPrenomRecherche()
     return jTextFieldPrenomRecherche;
 }
 
-public javax.swing.JButton getjButtonRechercher()
+public javax.swing.JButton getjButtonRechercherEleve()
 {
-    return jButtonRechercher;
+    return jButtonRechercherEleve;
 }
 
 }
