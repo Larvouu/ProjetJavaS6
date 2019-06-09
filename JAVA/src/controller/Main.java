@@ -317,6 +317,29 @@ public class Main {
                 }
            });
 
+        /**
+         * Bouton "Mon Bulletin" de la page Eleve
+         */
+        pageEleve.getjButtonBulletin().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                  
+
+                }
+           });
+        
+        /**
+         * Un eleve peut voir l'évolution de ses notes 
+         */
+        pageEleve.getjButtonEvolutionNotes().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                   
+
+                }
+           });
 
         /**
          * Methode AddActionListener du bouton "Supprimer un élève"
@@ -430,8 +453,6 @@ public class Main {
 
             }
         });
-
-
         
         //BOUTONS DE DECONNEXION QUI FAIIT RETOURNER A PAGE DE CONNEXION
         pageEleve.getButtonDeconnexion().addActionListener(new ActionListener() {
@@ -515,10 +536,17 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
-                
-//               jframe1.remove(pageEnseignant);
-//               jframe1.setContentPane(pageRechercherEleveParEnseignant);
-//               jframe1.setVisible(true);
+                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
+               String nom = pageRechercherEleveParEnseignant.getjTextFieldNom().getText();
+               String prenom = pageRechercherEleveParEnseignant.getjTextFieldPrenom().getText();
+               
+               if(personneDAO_admin.rechercherEleve(nom,prenom))
+               {
+                   jframe1.remove(pageRechercherEleveParEnseignant);
+                   jframe1.setContentPane(pageEnseignant);
+                   jframe1.setVisible(true);
+               }
+               
             }
         });
         
