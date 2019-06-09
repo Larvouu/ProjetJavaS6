@@ -502,7 +502,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 PersonneDAO personneDAO_cdjsp = new PersonneDAO(maConnexion.getConnection());
-                personneDAO_cdjsp.rechercherClassesDontJeSuisProf();
+                personneDAO_cdjsp.rechercherClassesDontJeSuisProf(personne);
                 
             }
         });

@@ -477,17 +477,17 @@ public class PersonneDAO extends DAO<Personne>{
         }
     }
      
-     public void rechercherClassesDontJeSuisProf()
+     public void rechercherClassesDontJeSuisProf(Personne personne)
      {
-         String prenom;
-        String nom;
+         String prenom = personne.getPrenom();
+        String nom = personne.getNom();
         
         Scanner sc = new Scanner(System.in);
-        System.out.println("---------- IDENTIFIEZ VOUS ---------");
+        /*System.out.println("---------- IDENTIFIEZ VOUS ---------");
         System.out.println("Prenom");
         prenom = sc.next();
         System.out.println("Nom");
-        nom = sc.next();
+        nom = sc.next();*/
         
         try{
             //Premiere requete
@@ -510,11 +510,14 @@ public class PersonneDAO extends DAO<Personne>{
                 pst2.setInt(1, rs_find.getInt("id"));
                 ResultSet rs_2=pst2.executeQuery();
                 
+                
+                System.out.println("------------ VOUS ENSEIGNEZ DANS LES CLASSES SUIVANTES ---------------");
                 //if j'ai un résultat de la requete deux
                 while(rs_2.next())
                 {
                     System.out.println("Classe : " + enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
                     System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
+                    System.out.println();
                 } 
             }
         }
