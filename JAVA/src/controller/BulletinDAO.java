@@ -33,9 +33,9 @@ public class BulletinDAO extends DAO<Bulletin> {
     }
 
 
-    public int create_bulletin(Bulletin obj, Personne eleve) {
+   public int create_bulletin(Bulletin obj, Personne eleve) {
         int id_inscription = 0;
-        System.out.println("eleve id" +eleve.getId());
+        System.out.println("eleve id " +eleve.getId());
         int trimestre = 0;
         int bulletin_id = 0;
 
@@ -57,19 +57,36 @@ public class BulletinDAO extends DAO<Bulletin> {
 
             trimestre = sc.nextInt();
 
-
-//On crée un bulletin relié a l'inscription de l'eleve
+// On checke si un bulletin au meme trimestre et au meme id inscription existe deja
             try {
-                String sql2 = "INSERT INTO bulletin (trimestre_id, inscription_id,appreciation) VALUES (?,?,?)";
-                PreparedStatement pst2 = connect.prepareStatement(sql2);
-                pst2.setInt(1, trimestre);
-                pst2.setInt(2, id_inscription);
-                pst2.setString(3, "");
-                pst2.executeUpdate();
-            } catch (SQLException exception) {
+
+                String sql_existe="SELECT id FROM bulletin where trimestre_id = ? AND inscription_id = ?";
+                PreparedStatement pst_existe = connect.prepareStatement(sql_existe);
+                pst_existe.setInt(1, trimestre);
+                pst_existe.setInt(2, id_inscription);
+                ResultSet  rs_existe=pst_existe.executeQuery();
+if (rs_existe.next()==true)
+{
+    rs_existe.next();
+    System.out.println("Un bulletin existe dejà pour cet élève");
+}
+else
+{
+
+    try {
+        String sql2 = "INSERT INTO bulletin (trimestre_id, inscription_id,appreciation) VALUES (?,?,?)";
+        PreparedStatement pst2 = connect.prepareStatement(sql2);
+        pst2.setInt(1, trimestre);
+        pst2.setInt(2, id_inscription);
+        pst2.setString(3, "");
+        pst2.executeUpdate();
+    } catch (SQLException exception) {
+        exception.printStackTrace();
+    }
+
+} } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-
 
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -93,12 +110,10 @@ public class BulletinDAO extends DAO<Bulletin> {
         catch (SQLException exception) {
             exception.printStackTrace();
         }
-        return bulletin_id;//l'id du bulletin;
-    }
-
-
+        return bulletin_id; //l'id du bulletin
 
     //Pas encore implémentée 
+   }
     public boolean delete(Bulletin obj)
     {
         return false;

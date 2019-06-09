@@ -44,6 +44,7 @@ public class EvaluationDAO extends DAO<Evaluation> {
         //On doit donc verifier qu'il n'a pas deja un bulletin et sinon lui en créer un
         DetailBulletinDAO detailBulletinDAO  = new DetailBulletinDAO(this.connect);
         DetailBulletin detailBulletin=new DetailBulletin();
+         String appreciation=null;
 
         int monid=0;
         Scanner sc = new Scanner(System.in);
@@ -100,11 +101,14 @@ public class EvaluationDAO extends DAO<Evaluation> {
             pst.setInt(1, detailbulletin_id );
             pst.setInt(2, note);
             System.out.println("Rentrer une appreciation");
-            String appreciation=sc.nextLine();
+            sc.nextLine();
+            appreciation=sc.nextLine();
             pst.setString(3,appreciation);
                 System.out.println("detail bulletin id"+detailbulletin_id);
                 System.out.println("note"+note);
-                System.out.println("appreciaiton"+appreciation);
+                System.out.println("appreciaiton");
+                System.out.println(appreciation);
+                System.out.println("bouuu");
                 pst.executeUpdate();
         }
 
