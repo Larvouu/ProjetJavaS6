@@ -30,6 +30,7 @@ import modele.*;
 import vue.JChartLine;
 import vue.JpanelAjouterEleveForm;
 import vue.JpanelRechercheProf;
+import vue.JpanelRechercherClasse;
 import vue.JpanelRechercherEleve;
 import vue.JpanelRechercherEleveParEnseignant;
 import vue.JpanelSupprEleveForm;
@@ -52,6 +53,7 @@ public class Main {
     private static JpanelRechercherEleve pageRechercherEleve;
     private static JpanelRechercheProf pageRechercherProf;
     private static JpanelRechercherEleveParEnseignant pageRechercherEleveParEnseignant;
+    private static JpanelRechercherClasse pageRechercherClasse;
     
     private static Connexion maConnexion;
     private static String name_bdd;
@@ -93,6 +95,7 @@ public class Main {
         pageRechercherEleve = new JpanelRechercherEleve();
         pageRechercherProf = new JpanelRechercheProf();
         pageRechercherEleveParEnseignant = new JpanelRechercherEleveParEnseignant();
+        pageRechercherClasse = new JpanelRechercherClasse();
         
         
         
@@ -536,7 +539,7 @@ public class Main {
         );
 
          /**
-          * Rechercher un élève depuiis la page Enseignant
+          * Rechercher un élève depuis la page Enseignant
           */
         pageEnseignant.getjButtonRechercherEleve().addActionListener(new ActionListener() {
 
@@ -567,12 +570,7 @@ public class Main {
                
             }
         });
-        
-        
-        
-        
-        
-        
+             
         pageEnseignant.getjButtonAfficherClasseDontJeSuisProf().addActionListener(new ActionListener() {
 
             @Override
@@ -712,13 +710,36 @@ public class Main {
             }
         });
         
+        /**
+         * Bouton "Rechercher une classe" à partir de la page Admin
+         */
         pageAdmin.getjButtonRechercherClasse().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                jframe1.remove(pageAdmin);
+                jframe1.setContentPane(pageRechercherClasse);
+                jframe1.setVisible(true);
+                
                ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
                classeDAO_recherche.rechercherClasse();
+            }
+        });
+        
+        pageRechercherClasse.getjButtonRechercherClasse().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                String nomClasse = pageRechercherClasse.getjTextFieldClasse().getText();
+                ClasseDAO classeDAO_recherche = new ClasseDAO(maConnexion.getConnection());
+                if(classeDAO_recherche.rechercherClasse(nomClasse))
+                {
+                    jframe1.remove(pageRechercherClasse);
+                    jframe1.setContentPane(pageAdmin);
+                    jframe1.setVisible(true);
+                }
             }
         });
         
