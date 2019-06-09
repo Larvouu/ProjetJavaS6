@@ -78,7 +78,6 @@ public class JpanelPageAccueil extends javax.swing.JPanel {
 
         textField5.setText("root");
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 102));
         jButton1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jButton1.setText("Connexion");
 
