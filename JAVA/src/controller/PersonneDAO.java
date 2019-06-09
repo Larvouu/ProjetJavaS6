@@ -152,26 +152,9 @@ public class PersonneDAO extends DAO<Personne>{
         boolean deleteOk = false;
         
         boolean b=true;
-
-        try
-        {
-            String sql = "DELETE FROM personne WHERE nom = ? AND prenom = ?";
-            PreparedStatement pst = connect.prepareStatement(sql);
-            pst.setString(1, nom);
-            pst.setString(2, prenom);
-            pst.executeUpdate();
-            
-            deleteOk = true;
-            
-        }
-        catch (SQLException exception)
-        {
-            exception.printStackTrace();
-            b= false;
-        }
         
-        if(deleteOk)
-        {
+        
+        
               int idPersonneASuppr=0;//pour sql1
                     String nom_classe_id=null; //pour sql2
                     int nbInscrits=0;
@@ -182,24 +165,23 @@ public class PersonneDAO extends DAO<Personne>{
                     
                     try 
                     {
-                    String sql1 = "SELECT id FROM personne WHERE nom='"+nom+"' AND prenom='"+prenom+"' ";
+                    String sql1 = "SELECT id FROM personne WHERE nom=? AND prenom=?";
                     String sql2 = "SELECT classe_id FROM inscription WHERE personne_id=?";
                     String sql3 = "SELECT nbInscrits FROM classe WHERE nom=?";
                     String sql4 = "UPDATE classe SET nbInscrits=? WHERE nom=?";
                         //SQL1
-                         //PreparedStatement pst1 = connect.prepareStatement(sql1);
-                        //pst1.setString(1, nom);
-                       // pst1.setString(2, prenom);
-                        //ResultSet rs1 = pst1.executeQuery();
-                    ResultSet rs1 = this.connect.prepareStatement(sql1).executeQuery();
-                        //System.out.println("Nom : "+nom);
-                        //System.out.println("Prenom : "+prenom);
+                         PreparedStatement pst1 = connect.prepareStatement(sql1);
+                        pst1.setString(1, nom);
+                        pst1.setString(2, prenom);
+                        ResultSet rs1 = pst1.executeQuery();
+                        System.out.println("Nom : "+nom);
+                        System.out.println("Prenom : "+prenom);
                         
-                        rs1.next();
-                        
+                        if(rs1.next())
+                        {
                             idPersonneASuppr = rs1.getInt("id");
                             System.out.println("id personne "+idPersonneASuppr);
-                        
+                        }
                         //System.out.println("id personne "+idPersonneASuppr);
                         
                         //SQL2
@@ -241,7 +223,26 @@ public class PersonneDAO extends DAO<Personne>{
                     } catch (SQLException ex) {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                     }
+        
+
+        try
+        {
+            String sql = "DELETE FROM personne WHERE nom = ? AND prenom = ?";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setString(1, nom);
+            pst.setString(2, prenom);
+            pst.executeUpdate();
+            
+            deleteOk = true;
+            
         }
+        catch (SQLException exception)
+        {
+            exception.printStackTrace();
+            b= false;
+        }
+        
+      
         
         
         
