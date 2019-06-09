@@ -178,7 +178,20 @@ public class BulletinDAO extends DAO<Bulletin> {
                }
                   
             }
-               } 
+               }
+               ///Appreciation generale
+               String appreciationG=null;
+                String sql_appG="SELECT appreciation FROM bulletin WHERE id = ?";
+                   PreparedStatement pst_appG=connect.prepareStatement(sql_appG);
+                   pst_appG.setInt(1, id_bulletin);
+                   ResultSet rs_appG=pst_appG.executeQuery();
+                   if(rs_appG.next())
+                   {
+                       appreciationG=rs_appG.getString("appreciation");
+                       System.out.println("Commentaire de l'ensemble de l'équipe pédagogique : " +appreciationG);
+                   }
+                       
+               
                
            
             }
