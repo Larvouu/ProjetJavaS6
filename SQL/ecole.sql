@@ -3,16 +3,24 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 09, 2019 at 09:13 PM
+-- Generation Time: Jun 09, 2019 at 10:30 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `ecole`
 --
+CREATE DATABASE IF NOT EXISTS `ecole` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `ecole`;
 
 -- --------------------------------------------------------
 
@@ -20,9 +28,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `anneescolaire`
 --
 
-CREATE TABLE `anneescolaire` (
-  `id` int(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `anneescolaire`;
+CREATE TABLE IF NOT EXISTS `anneescolaire` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2017 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `anneescolaire`
@@ -42,12 +52,16 @@ INSERT INTO `anneescolaire` (`id`) VALUES
 -- Table structure for table `bulletin`
 --
 
-CREATE TABLE `bulletin` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `bulletin`;
+CREATE TABLE IF NOT EXISTS `bulletin` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `trimestre_id` int(250) DEFAULT NULL,
   `inscription_id` int(250) DEFAULT NULL,
-  `appreciation` varchar(300) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `appreciation` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `trimestre_id` (`trimestre_id`),
+  KEY `inscription_id` (`inscription_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bulletin`
@@ -65,12 +79,17 @@ INSERT INTO `bulletin` (`id`, `trimestre_id`, `inscription_id`, `appreciation`) 
 -- Table structure for table `classe`
 --
 
-CREATE TABLE `classe` (
+DROP TABLE IF EXISTS `classe`;
+CREATE TABLE IF NOT EXISTS `classe` (
   `nom` varchar(250) NOT NULL,
   `ecole_id` varchar(250) DEFAULT NULL,
   `niveau_id` varchar(100) DEFAULT NULL,
   `anneescolaire_id` int(250) DEFAULT NULL,
-  `nbInscrits` int(250) DEFAULT NULL
+  `nbInscrits` int(250) DEFAULT NULL,
+  PRIMARY KEY (`nom`),
+  KEY `ecole_id` (`ecole_id`),
+  KEY `niveau_id` (`niveau_id`),
+  KEY `anneescolaire_id` (`anneescolaire_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -95,12 +114,16 @@ INSERT INTO `classe` (`nom`, `ecole_id`, `niveau_id`, `anneescolaire_id`, `nbIns
 -- Table structure for table `detailbulletin`
 --
 
-CREATE TABLE `detailbulletin` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `detailbulletin`;
+CREATE TABLE IF NOT EXISTS `detailbulletin` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `bulletin_id` int(250) DEFAULT NULL,
   `enseignement_id` int(250) DEFAULT NULL,
-  `appreciation` varchar(300) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `appreciation` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bulletin_id` (`bulletin_id`),
+  KEY `enseignement_id` (`enseignement_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `detailbulletin`
@@ -120,8 +143,10 @@ INSERT INTO `detailbulletin` (`id`, `bulletin_id`, `enseignement_id`, `appreciat
 -- Table structure for table `discipline`
 --
 
-CREATE TABLE `discipline` (
-  `nom` varchar(250) NOT NULL
+DROP TABLE IF EXISTS `discipline`;
+CREATE TABLE IF NOT EXISTS `discipline` (
+  `nom` varchar(250) NOT NULL,
+  PRIMARY KEY (`nom`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -143,8 +168,10 @@ INSERT INTO `discipline` (`nom`) VALUES
 -- Table structure for table `ecole`
 --
 
-CREATE TABLE `ecole` (
-  `nom` varchar(250) NOT NULL
+DROP TABLE IF EXISTS `ecole`;
+CREATE TABLE IF NOT EXISTS `ecole` (
+  `nom` varchar(250) NOT NULL,
+  PRIMARY KEY (`nom`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -160,12 +187,17 @@ INSERT INTO `ecole` (`nom`) VALUES
 -- Table structure for table `enseignement`
 --
 
-CREATE TABLE `enseignement` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `enseignement`;
+CREATE TABLE IF NOT EXISTS `enseignement` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `classe_id` varchar(250) DEFAULT NULL,
   `discipline_id` varchar(100) DEFAULT NULL,
-  `personne_id` int(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `personne_id` int(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `classe_id` (`classe_id`),
+  KEY `discipline_id` (`discipline_id`),
+  KEY `personne_id` (`personne_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enseignement`
@@ -186,12 +218,15 @@ INSERT INTO `enseignement` (`id`, `classe_id`, `discipline_id`, `personne_id`) V
 -- Table structure for table `evaluation`
 --
 
-CREATE TABLE `evaluation` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `evaluation`;
+CREATE TABLE IF NOT EXISTS `evaluation` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `detailBulletin_id` int(250) DEFAULT NULL,
   `note` double DEFAULT NULL,
-  `appreciation` varchar(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `appreciation` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `detailBulletin_id` (`detailBulletin_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `evaluation`
@@ -209,7 +244,19 @@ INSERT INTO `evaluation` (`id`, `detailBulletin_id`, `note`, `appreciation`) VAL
 (9, 5, 14, 'bien'),
 (10, 5, 12, 'Oui'),
 (11, 6, 20, 'bien'),
-(12, 6, 19, 'Tres bien');
+(12, 6, 19, 'Tres bien'),
+(13, 1, 14, 'bien'),
+(14, 1, 12, 'passable'),
+(15, 2, 13, 'passable'),
+(16, 2, 16, 'bien'),
+(17, 3, 17, 'Bien'),
+(18, 3, 20, 'Tres bien !'),
+(19, 4, 8, 'a retravailler'),
+(20, 4, 6, 'Dommage'),
+(21, 5, 10, 'insuffisant'),
+(22, 5, 17, 'TB'),
+(23, 7, 14, 'Bien'),
+(24, 7, 17, 'TB');
 
 -- --------------------------------------------------------
 
@@ -217,11 +264,15 @@ INSERT INTO `evaluation` (`id`, `detailBulletin_id`, `note`, `appreciation`) VAL
 -- Table structure for table `inscription`
 --
 
-CREATE TABLE `inscription` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `inscription`;
+CREATE TABLE IF NOT EXISTS `inscription` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `classe_id` varchar(250) DEFAULT NULL,
-  `personne_id` int(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `personne_id` int(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `classe_id` (`classe_id`),
+  KEY `personne_id` (`personne_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inscription`
@@ -229,7 +280,15 @@ CREATE TABLE `inscription` (
 
 INSERT INTO `inscription` (`id`, `classe_id`, `personne_id`) VALUES
 (1, 'CE1_A', 2),
-(2, 'CE2_B', 4);
+(2, 'CE2_B', 4),
+(3, 'CE1_A', 7),
+(4, 'CE2_B', 8),
+(5, 'CE1_A', 9),
+(6, 'CE2_B', 10),
+(7, 'CE1_A', 11),
+(8, 'CE2_B', 12),
+(9, 'CE1_A', 13),
+(10, 'CE2_B', 14);
 
 -- --------------------------------------------------------
 
@@ -237,8 +296,10 @@ INSERT INTO `inscription` (`id`, `classe_id`, `personne_id`) VALUES
 -- Table structure for table `niveau`
 --
 
-CREATE TABLE `niveau` (
-  `nom` varchar(250) NOT NULL
+DROP TABLE IF EXISTS `niveau`;
+CREATE TABLE IF NOT EXISTS `niveau` (
+  `nom` varchar(250) NOT NULL,
+  PRIMARY KEY (`nom`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -258,12 +319,14 @@ INSERT INTO `niveau` (`nom`) VALUES
 -- Table structure for table `personne`
 --
 
-CREATE TABLE `personne` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `personne`;
+CREATE TABLE IF NOT EXISTS `personne` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `nom` varchar(200) DEFAULT NULL,
   `prenom` varchar(200) DEFAULT NULL,
-  `type` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `personne`
@@ -275,7 +338,15 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`) VALUES
 (3, 'Seg', 'JP', 'prof'),
 (4, 'Le', 'Sarah', 'eleve'),
 (5, 'Id', 'Wal', 'prof'),
-(6, 'Si', 'Manon', 'prof');
+(6, 'Si', 'Manon', 'prof'),
+(7, 'Ndaw', 'Inna', 'eleve'),
+(8, 'Nelly', 'Pied', 'eleve'),
+(9, 'Bruno', 'Charlene', 'eleve'),
+(10, 'Romain', 'Gary', 'eleve'),
+(11, 'Ga', 'Paul', 'eleve'),
+(12, 'Mon', 'Ray', 'eleve'),
+(13, 'Sy', 'Omar', 'eleve'),
+(14, 'Ne', 'Jean', 'eleve');
 
 -- --------------------------------------------------------
 
@@ -283,152 +354,17 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`, `type`) VALUES
 -- Table structure for table `trimestre`
 --
 
-CREATE TABLE `trimestre` (
-  `id` int(250) NOT NULL,
+DROP TABLE IF EXISTS `trimestre`;
+CREATE TABLE IF NOT EXISTS `trimestre` (
+  `id` int(250) NOT NULL AUTO_INCREMENT,
   `numero` int(10) DEFAULT NULL,
   `debut` varchar(200) DEFAULT NULL,
   `fin` varchar(200) DEFAULT NULL,
-  `anneeScolaire_id` int(250) DEFAULT NULL
+  `anneeScolaire_id` int(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `anneeScolaire_id` (`anneeScolaire_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `anneescolaire`
---
-ALTER TABLE `anneescolaire`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `bulletin`
---
-ALTER TABLE `bulletin`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `trimestre_id` (`trimestre_id`),
-  ADD KEY `inscription_id` (`inscription_id`);
-
---
--- Indexes for table `classe`
---
-ALTER TABLE `classe`
-  ADD PRIMARY KEY (`nom`),
-  ADD KEY `ecole_id` (`ecole_id`),
-  ADD KEY `niveau_id` (`niveau_id`),
-  ADD KEY `anneescolaire_id` (`anneescolaire_id`);
-
---
--- Indexes for table `detailbulletin`
---
-ALTER TABLE `detailbulletin`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `bulletin_id` (`bulletin_id`),
-  ADD KEY `enseignement_id` (`enseignement_id`);
-
---
--- Indexes for table `discipline`
---
-ALTER TABLE `discipline`
-  ADD PRIMARY KEY (`nom`);
-
---
--- Indexes for table `ecole`
---
-ALTER TABLE `ecole`
-  ADD PRIMARY KEY (`nom`);
-
---
--- Indexes for table `enseignement`
---
-ALTER TABLE `enseignement`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `classe_id` (`classe_id`),
-  ADD KEY `discipline_id` (`discipline_id`),
-  ADD KEY `personne_id` (`personne_id`);
-
---
--- Indexes for table `evaluation`
---
-ALTER TABLE `evaluation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `detailBulletin_id` (`detailBulletin_id`);
-
---
--- Indexes for table `inscription`
---
-ALTER TABLE `inscription`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `classe_id` (`classe_id`),
-  ADD KEY `personne_id` (`personne_id`);
-
---
--- Indexes for table `niveau`
---
-ALTER TABLE `niveau`
-  ADD PRIMARY KEY (`nom`);
-
---
--- Indexes for table `personne`
---
-ALTER TABLE `personne`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `trimestre`
---
-ALTER TABLE `trimestre`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `anneeScolaire_id` (`anneeScolaire_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `anneescolaire`
---
-ALTER TABLE `anneescolaire`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2017;
-
---
--- AUTO_INCREMENT for table `bulletin`
---
-ALTER TABLE `bulletin`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `detailbulletin`
---
-ALTER TABLE `detailbulletin`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `enseignement`
---
-ALTER TABLE `enseignement`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `evaluation`
---
-ALTER TABLE `evaluation`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `inscription`
---
-ALTER TABLE `inscription`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `personne`
---
-ALTER TABLE `personne`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `trimestre`
---
-ALTER TABLE `trimestre`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
