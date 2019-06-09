@@ -507,6 +507,16 @@ public class Main {
             }
         });
         
+        //remplirBulletin
+        pageEnseignant.getjButtonRemplirBulletinEleve().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                System.out.println("");
+            }
+        });
+        
         ///Coucou Inna page enseignant
         pageEnseignant.getjButtonAjouterNoteEleve().addActionListener(new ActionListener() {
 
@@ -587,6 +597,28 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 System.out.println("3");
+            }
+        });
+        
+        pageAdmin.getjButtonSeDeconnecter().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               jframe1.remove(pageAdmin);
+               jframe1.setContentPane(pageConnexion);
+               jframe1.setVisible(true);
+            }
+        });
+        
+        pageAdmin.getjButtonDeconnexion().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+               jframe1.remove(pageAdmin);
+               jframe1.setContentPane(pageConnexion);
+               jframe1.setVisible(true);
             }
         });
         

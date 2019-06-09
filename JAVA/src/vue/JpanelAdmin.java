@@ -33,6 +33,7 @@ public class JpanelAdmin extends javax.swing.JPanel {
         jButtonRechercherProf = new javax.swing.JButton();
         jButtonRechercherClasse = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButtonDeconnexion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -90,6 +91,11 @@ public class JpanelAdmin extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         jLabel1.setText("Bonjour Admin, que voulez-vous rechercher ?");
 
+        jButtonDeconnexion.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonDeconnexion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButtonDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
+        jButtonDeconnexion.setText("Déconnexion");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -101,16 +107,20 @@ public class JpanelAdmin extends javax.swing.JPanel {
                 .addComponent(jButtonRechercherProf)
                 .addGap(40, 40, 40)
                 .addComponent(jButtonRechercherClasse)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(247, 247, 247))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addComponent(jButtonDeconnexion)
+                .addGap(76, 76, 76)
                 .addComponent(jLabel1)
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -437,7 +447,9 @@ public class JpanelAdmin extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Eleve", jPanel4);
 
-        jButtonSeDeconnecter.setText("jButton1");
+        jButtonSeDeconnecter.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonSeDeconnecter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
+        jButtonSeDeconnecter.setText("Déconnexion");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -445,19 +457,19 @@ public class JpanelAdmin extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSeDeconnecter)))
+                .addComponent(jTabbedPane2)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSeDeconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jButtonSeDeconnecter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2)
                 .addContainerGap())
         );
 
@@ -491,6 +503,7 @@ public class JpanelAdmin extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAjouterEleve;
     private javax.swing.JButton jButtonChangerEleveClasse;
+    private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonModifAppreciationDiscipline;
     private javax.swing.JButton jButtonModifBulletin;
     private javax.swing.JButton jButtonModifEnseignement;
@@ -620,7 +633,16 @@ public javax.swing.JButton getjButtonRechercherProf()
     }
     
      
-     
+      public javax.swing.JButton getjButtonSeDeconnecter()
+    {
+        return jButtonSeDeconnecter;
+    }
+      
+      public javax.swing.JButton getjButtonDeconnexion()
+    {
+        return jButtonDeconnexion;
+    }  
+    
      
      
 }

@@ -43,6 +43,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
         jButtonSupprEleve = new javax.swing.JButton();
         jButtonCreerEleve = new javax.swing.JButton();
         jButtonAjouterNoteEleve = new javax.swing.JButton();
+        jButtonRemplirBulletinEleve = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
 
@@ -120,6 +121,8 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
 
         jButtonAjouterNoteEleve.setText("Ajouter une note à un élève");
 
+        jButtonRemplirBulletinEleve.setText("Remplir le bulletin de l'élève");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -134,13 +137,16 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jButtonAjouterNoteEleve)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonSupprEleve))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jButtonRechercherEleve)))
+                                .addComponent(jButtonRechercherEleve))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonRemplirBulletinEleve, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jButtonAjouterNoteEleve)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonSupprEleve)))))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
@@ -155,7 +161,9 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
                     .addComponent(jButtonAjouterNoteEleve)
                     .addComponent(jButtonSupprEleve)
                     .addComponent(jButtonCreerEleve))
-                .addGap(64, 64, 64)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonRemplirBulletinEleve)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
                     .addComponent(jButtonRechercherEleve))
@@ -211,6 +219,7 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAjouterNoteEleve;
     private javax.swing.JButton jButtonCreerEleve;
     private javax.swing.JButton jButtonRechercherEleve;
+    private javax.swing.JButton jButtonRemplirBulletinEleve;
     private javax.swing.JButton jButtonSupprEleve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -254,5 +263,12 @@ public class JpanelPageEnseignant extends javax.swing.JPanel {
     {
         return jButtonAjouterNoteEleve;
     }
+    
+    public javax.swing.JButton getjButtonRemplirBulletinEleve()
+    {
+        return jButtonRemplirBulletinEleve;
+    }
+    
+    
     
 }
