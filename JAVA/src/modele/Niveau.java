@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Un niveau est défini par son id et son nom. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Niveau {

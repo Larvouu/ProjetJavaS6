@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * Une Evaluation est définie par un id, une note, une appréciation et un détailBulletin. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Evaluation {

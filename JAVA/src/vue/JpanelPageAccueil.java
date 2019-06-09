@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * La première page sur laquelle on arrive en ouvrant le projet. Fait office de page d'accueil.
  * @author Sarah
  */
 public class JpanelPageAccueil extends javax.swing.JPanel {

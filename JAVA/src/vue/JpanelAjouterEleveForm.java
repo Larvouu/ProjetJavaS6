@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Page pour ajouter un élève
  * @author Sarah
  */
 public class JpanelAjouterEleveForm extends javax.swing.JPanel {

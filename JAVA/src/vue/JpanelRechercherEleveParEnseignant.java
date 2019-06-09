@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Formulaire pour entrer les informations d'un élève à rechercher dans la base de données. (par un proffesseur)
  * @author Sarah
  */
 public class JpanelRechercherEleveParEnseignant extends javax.swing.JPanel {

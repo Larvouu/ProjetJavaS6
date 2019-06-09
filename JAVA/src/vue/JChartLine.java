@@ -16,7 +16,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;  
 import org.jfree.data.category.DefaultCategoryDataset;  
 /**
- *
+ * Cette classe est la classe qui permet d'afficher le graphe des notes d'un élève.
  * @author ghias
  */
 public class JChartLine extends JFrame {
@@ -69,7 +69,12 @@ public class JChartLine extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-private DefaultCategoryDataset createDataset() {  
+
+    /**
+     * Permet de définir un dataset en l'instanciant
+     * @return 
+     */
+    private DefaultCategoryDataset createDataset() {  
   
     series1 = "Notes de l'élève";  
     /*String series2 = "Moyenne de sa classe";  */

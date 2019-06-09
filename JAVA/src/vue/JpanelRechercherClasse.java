@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Formulaire pour entrer les informations d'une classe à rechercher dans la base de données. 
  * @author Sarah
  */
 public class JpanelRechercherClasse extends javax.swing.JPanel {

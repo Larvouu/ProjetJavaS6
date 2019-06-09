@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * Un Trimestre est défini par un id, un numéro, un début et une fin. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Trimestre {

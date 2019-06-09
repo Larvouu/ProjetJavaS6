@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * Un enseignement est défini par une classe, une discipline, et une personne. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Enseignement {

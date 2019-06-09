@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Une classe est constituée d'un nom, d'une année scolaire, d'un niveau, et d'une école. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Classe {
