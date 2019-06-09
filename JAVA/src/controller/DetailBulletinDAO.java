@@ -14,15 +14,23 @@ import java.util.Scanner;
 import modele.*;
 
 /**
- *
+ *Permet de gerer les sous parties du bulletin grace a la bdd
  * @author ghias
+ * @author Inna
  */
 public class DetailBulletinDAO extends DAO<DetailBulletin> {
 
     public DetailBulletinDAO(Connection conn) {
         super(conn);
     }
-
+ /**
+ * Create Detail Bulletin DAO 
+ * @param DetailBulletin obj 
+ * @param Personne eleve
+ * @param Personne prof
+ * @return int DetailBulletin_id
+ * 
+ */
     public int create_detailbulletin(DetailBulletin obj, Personne eleve, Personne prof) {
 
         int enseignement_id = 0;
@@ -165,7 +173,12 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
     public boolean update(DetailBulletin obj) {
         return false;
     }
-
+ /**
+ * Find DetailBulletin DAO 
+ * @param id  
+ * @return  DetailBulletin
+ * 
+ */
     public DetailBulletin find(int id) {
         DetailBulletin detailBulletin = new DetailBulletin();
 

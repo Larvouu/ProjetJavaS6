@@ -11,9 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.*;
 
+
 /**
- *
+ *Permet de gerer les Niveaux grace a la bdd
+ * 
  * @author ghias
+ *
  */
 public class NiveauDAO extends DAO<Niveau>{
     
@@ -42,7 +45,12 @@ public class NiveauDAO extends DAO<Niveau>{
         return false;
     }
     
-    
+    /**
+     * Methods pour trouver un niveau
+     *
+     * @param int
+     * @return Niveau 
+     */
     public Niveau find(int id)
     {
         Niveau niveau = new Niveau();

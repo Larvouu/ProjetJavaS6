@@ -12,8 +12,9 @@ import java.sql.SQLException;
 import modele.*;
 
 /**
- *
+ *Permet de gerer les matieres grace a la bdd
  * @author ghias
+ *
  */
 public class DisciplineDAO extends DAO<Discipline>{
     
@@ -41,7 +42,12 @@ public class DisciplineDAO extends DAO<Discipline>{
     {
         return false;
     }
-    
+     /**
+ * Find discipline DAO 
+ * @param id  
+ * @return  Discipline
+ * 
+ */
     public Discipline find(int id)
     {
      Discipline discipline = new Discipline();

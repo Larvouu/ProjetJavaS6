@@ -12,8 +12,9 @@ import java.sql.SQLException;
 import modele.*;
 
 /**
- *
+ *Permet de gerer les personnes grace a la bdd
  * @author ghias
+ *
  */
 public class TrimestreDAO extends DAO<Trimestre> {
     

@@ -12,8 +12,10 @@ import modele.*;
 import controller.*;
 
 /**
- *
+ *Permet de gerer les evaluations grace a la bdd
  * @author ghias
+ * @author Inna
+ *
  */
 public class EvaluationDAO extends DAO<Evaluation> {
 
@@ -31,8 +33,9 @@ public class EvaluationDAO extends DAO<Evaluation> {
      * Methods pour ajouter une note
      *
      * @param obj
-     * @param prof
-     * @return
+     * @param obj 
+     * @param  prof
+     * @return boolean 
      */
     public boolean create_eval(Evaluation obj, Personne prof) {
         ///Pour créer une note l'eleve doit d'abord avoir un detail bulletin (matiere)

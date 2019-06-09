@@ -18,8 +18,11 @@ import modele.Personne;
 import vue.JChartLine;
 
 /**
- *
+ *Permet de gerer les personnes grace a la bdd
+ * @author Inna
  * @author ghias
+ * @author Sarah
+ *
  */
 public class PersonneDAO extends DAO<Personne> {
 
@@ -81,6 +84,10 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Methode de Sarah : create avec 4 paramètres
+     * @param obj
+     * @param nomEleve
+     * @param prenomEleve
+     * @param niveauSelection
      */
     public boolean createEleveParEnseignant(Personne obj, String nomEleve, String prenomEleve, String niveauSelection) {
         String typeEleve = "eleve";
@@ -120,7 +127,6 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Méthode suppression
-     *
      * @param obj
      * @return boolean
      */
@@ -294,7 +300,12 @@ public class PersonneDAO extends DAO<Personne> {
         return b;
 
     }
-
+/**
+     * Methods pour trouver une Personne
+     *
+     * @param int
+     * @return Personne 
+     */
     public Personne find(int id) {
         Personne personne = new Personne();
 
@@ -316,7 +327,12 @@ public class PersonneDAO extends DAO<Personne> {
 
         return personne;
     }
-
+/**
+ *Permet de trouver un ELeve
+ * @param nom
+ * @param prenom
+ *
+ */
     //rechercher un eleve
     public boolean rechercherEleve(String nom, String prenom) {
         boolean b = true;
@@ -357,7 +373,13 @@ public class PersonneDAO extends DAO<Personne> {
         return b;
     }
 
-    //rechercher un prof
+/**
+ *rechercher un prof
+ * @param nom
+ * @param prenom
+ *
+ */
+   
     public boolean rechercherProf(String nom, String prenom) {
         boolean b = true;
         try {
@@ -397,7 +419,11 @@ public class PersonneDAO extends DAO<Personne> {
         }
         return b;
     }
-
+/**
+ *rechercher Classe dont je suis prof
+ * @param personne
+ *
+ */
     public void rechercherClassesDontJeSuisProf(Personne personne) {
         String prenom = personne.getPrenom();
         String nom = personne.getNom();
@@ -442,6 +468,11 @@ public class PersonneDAO extends DAO<Personne> {
         }
     }
 
+    /**
+ *Modifier prof depuis Admin
+ * @param choix
+ *
+ */
     public void modifierProfDepuisAdmin(String choix) {
         String nom = "";
         String prenom = "";
@@ -498,7 +529,12 @@ public class PersonneDAO extends DAO<Personne> {
                 break;
         }
     }
-
+/**
+ *Modifiier eleve depuis Admin
+ * @param choix
+ * 
+ *
+ */
     public void modifierEleveDepuisAdmin(String choix) {
         String nom = "";
         String prenom = "";
@@ -555,7 +591,11 @@ public class PersonneDAO extends DAO<Personne> {
                 break;
         }
     }
-
+/**
+ *Modifiier discipline Prof depuis Admin
+ * 
+ *
+ */
     public void modifierDisciplineProfDepuisAdmin() {
         String nom = "";
         String prenom = "";
@@ -627,7 +667,11 @@ public class PersonneDAO extends DAO<Personne> {
             System.out.println(exception);
         }
     }
-
+/**
+ *Modifiier Classe Eleve depuis Admin
+ * 
+ *
+ */
     public void modifierClasseEleveDepuisAdmin() {
         String nom = "";
         String prenom = "";
@@ -689,6 +733,13 @@ public class PersonneDAO extends DAO<Personne> {
         }
     }
 
+    /**
+ *Modifiier  Affichage graphe
+ * @param personne
+ * @param graph
+ * 
+ *
+ */
     public boolean afficherGraphe(Personne personne,JChartLine graph) {
         Scanner sc = new Scanner(System.in);
         //true par défaut, on passea à false si ca foire quelque part
