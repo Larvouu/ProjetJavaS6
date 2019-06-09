@@ -109,11 +109,11 @@ public class Main {
         jframe1.setVisible(true);
         
         
-        graph.setAlwaysOnTop(true);  // je suis là
+        //graph.setAlwaysOnTop(true);  // je suis là
         graph.pack();  
         graph.setSize(600, 400);  
         //graph.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
-        graph.setVisible(true); // je suis là
+        //graph.setVisible(true); 
 
         //Si appuie sur bouton Connexion à la bdd
         pageAccueil.getButtonConnexion().addActionListener(new ActionListener() {
@@ -378,8 +378,8 @@ public class Main {
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                   
-
+                    graph.getDataset().addValue(50, graph.getSeries1(), "Note XXX");
+                    graph.setVisible(true); //je suis là
                 }
            });
 
