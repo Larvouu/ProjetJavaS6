@@ -117,7 +117,7 @@ public class Main {
                     try 
                     {
                         //Connexion à la bdd
-                        maConnexion = new Connexion("ecole", "root", "root"); //inna
+                        maConnexion = new Connexion("ecole", "root", ""); //inna
                         JOptionPane.showMessageDialog(pageAccueil , "SUCCES : Connexion à la bdd");
                     } 
                     catch (SQLException | ClassNotFoundException ex) 
@@ -342,8 +342,16 @@ public class Main {
                 personne_a_supprimer.setNom(nomString);
                 personne_a_supprimer.setPrenom(prenomString);
               
-                //boolean decrementerNbInscrits = 
-                boolean delete = personneDAO.delete(personne_a_supprimer);
+                
+                
+                if(personneDAO.delete(personne_a_supprimer))
+                {
+                  
+                    JOptionPane.showMessageDialog(pageSupprEleveForm, "Succès de la supression.");
+                    jframe1.remove(pageSupprEleveForm);
+                    jframe1.setContentPane(pageEnseignant);
+                    jframe1.setVisible(true);
+                }
             }
 
         });

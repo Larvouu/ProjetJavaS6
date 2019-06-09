@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import modele.Inscription;
 import modele.Personne;
@@ -147,7 +149,7 @@ public class PersonneDAO extends DAO<Personne>{
 
         String nom = obj.getNom();
         String prenom = obj.getPrenom();
-      
+        boolean deleteOk = false;
         
         boolean b=true;
 
@@ -158,14 +160,96 @@ public class PersonneDAO extends DAO<Personne>{
             pst.setString(1, nom);
             pst.setString(2, prenom);
             pst.executeUpdate();
+            
+            deleteOk = true;
+            
         }
         catch (SQLException exception)
         {
             exception.printStackTrace();
             b= false;
         }
+        
+        if(deleteOk)
+        {
+              int idPersonneASuppr=0;//pour sql1
+                    String nom_classe_id=null; //pour sql2
+                    int nbInscrits=0;
+                    
+                    
+                    System.out.println("delete ok");
+                   
+                    
+                    try 
+                    {
+                    String sql1 = "SELECT id FROM personne WHERE nom='"+nom+"' AND prenom='"+prenom+"' ";
+                    String sql2 = "SELECT classe_id FROM inscription WHERE personne_id=?";
+                    String sql3 = "SELECT nbInscrits FROM classe WHERE nom=?";
+                    String sql4 = "UPDATE classe SET nbInscrits=? WHERE nom=?";
+                        //SQL1
+                         //PreparedStatement pst1 = connect.prepareStatement(sql1);
+                        //pst1.setString(1, nom);
+                       // pst1.setString(2, prenom);
+                        //ResultSet rs1 = pst1.executeQuery();
+                    ResultSet rs1 = this.connect.prepareStatement(sql1).executeQuery();
+                        //System.out.println("Nom : "+nom);
+                        //System.out.println("Prenom : "+prenom);
+                        
+                        rs1.next();
+                        
+                            idPersonneASuppr = rs1.getInt("id");
+                            System.out.println("id personne "+idPersonneASuppr);
+                        
+                        //System.out.println("id personne "+idPersonneASuppr);
+                        
+                        //SQL2
+                        PreparedStatement pst2 = connect.prepareStatement(sql2);
+                        pst2.setInt(1, idPersonneASuppr);
+                        ResultSet rs2 = pst2.executeQuery();
+                        
+                        if(rs2.next())
+                        {
+                            nom_classe_id = rs2.getString("classe_id");
+                            System.out.println("nomclasse "+nom_classe_id);
+                        }
+                        System.out.println("nomclasse "+nom_classe_id);
+                        
+                        //SQL3
+                        PreparedStatement pst3 = connect.prepareStatement(sql3);
+                        pst3.setString(1, nom_classe_id);
+                        ResultSet rs3= pst3.executeQuery();
+                        
+                        if(rs3.next())
+                        {
+                            nbInscrits = rs3.getInt("nbInscrits");
+                            System.out.println("nbinscrits "+nbInscrits);
+                        }
+                        System.out.println("nbinscrits "+nbInscrits);
+                        
+                        if (nbInscrits>0)
+                        {
+                            nbInscrits--;
+                        }
+                        
+                        //SQL4
+                        PreparedStatement pst4 = connect.prepareStatement(sql4);
+                        pst4.setInt(1, nbInscrits);
+                        pst4.setString(2, nom_classe_id);
+                        pst4.executeUpdate();
+                       
+                        
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        }
+        
+        
+        
+        
         return b;
     }
+   
+   
 
     /**
      * Méthode update
