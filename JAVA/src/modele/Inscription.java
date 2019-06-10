@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Une Inscription est définie par un id, une classe, et une personne. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Inscription {

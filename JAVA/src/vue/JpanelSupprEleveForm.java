@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Formulaire pour entrer les informations d'un élève à supprimer dans la base de données. 
  * @author Sarah
  */
 public class JpanelSupprEleveForm extends javax.swing.JPanel {

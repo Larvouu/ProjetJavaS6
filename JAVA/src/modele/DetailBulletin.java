@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * Un DetailBulletin est constitué d'un id, d'une appréciation, d'un bulletin, et d'un enseignement. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class DetailBulletin {

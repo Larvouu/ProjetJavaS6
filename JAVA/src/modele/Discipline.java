@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Une discipline n'est constituée que d'un nom : le nom de la matière. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Discipline {

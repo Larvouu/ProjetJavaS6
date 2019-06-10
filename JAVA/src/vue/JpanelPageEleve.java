@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * La page personnelle de l'élève
  * @author Sarah
  */
 public class JpanelPageEleve extends javax.swing.JPanel {

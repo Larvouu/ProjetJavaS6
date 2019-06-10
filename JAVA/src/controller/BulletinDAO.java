@@ -15,16 +15,26 @@ import modele.Bulletin;
 import controller.DAO;
 import modele.*;
 /**
- *
- * @author ghias
+ * Bulletin DAO est la classe qui permet de lier la BDD et la classe Bulletin
+ * @author ghias 
+ * @author Inna
+ * @version 6.0
  */
 public class BulletinDAO extends DAO<Bulletin> {
     
+ /**
+ * Constructeur Bulletin DAO
+ * 
+ */   
     public BulletinDAO(Connection conn) 
     {
         super(conn);
     }
-    
+    /**
+ * Afficher Bulletin DAO affiche un  bulletin
+ * @param eleve eleve
+ * 
+ */
     public void Afficher_bulletinDAO(Personne eleve)
     {
         double nb_g=0;
@@ -215,7 +225,12 @@ public class BulletinDAO extends DAO<Bulletin> {
             
     
     
-    
+        /**
+ * Create Bulletin DAO 
+ * @param obj bulletin
+ * @return false
+ * 
+ */
      //Pas encore implémentée
     public boolean create(Bulletin obj)
     {
@@ -223,7 +238,13 @@ public class BulletinDAO extends DAO<Bulletin> {
         return false;
     }
 
-
+        /**
+ * Create Bulletin DAO 
+ * @param obj bulletin 
+ * @param eleve personne
+ * @return int Bulletin_id
+ * 
+ */
    public int create_bulletin(Bulletin obj, Personne eleve) {
         int id_inscription = 0;
      
@@ -321,7 +342,12 @@ else
         return false;
     }
     
-    
+ /**
+ * Find Bulletin DAO 
+ * @param id int
+ * @return Bulletin Bulletin_id
+ * 
+ */
     public Bulletin find(int id)
     {
         Bulletin bulletin = new Bulletin();

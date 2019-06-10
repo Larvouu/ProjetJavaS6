@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Un bulletin est constitué d'un id, d'une appréciation, d'un trimestre, et d'une inscription. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Bulletin {

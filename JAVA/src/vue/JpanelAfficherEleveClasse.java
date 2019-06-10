@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * 
  * @author Sarah
  */
 public class JpanelAfficherEleveClasse extends javax.swing.JPanel {

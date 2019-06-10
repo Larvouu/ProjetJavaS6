@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Une Personne est définie par son id, son nom, son prénom, et son type. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class Personne {
@@ -29,13 +29,6 @@ public class Personne {
         this.nom = nom;
         this.prenom = prenom;
         this.type = type;
-        
-//        if(this.type == )
-//            ...
-//        else if(this.type == )
-//            ...
-//        else 
-//            exception
     }
         
     //////////////////////////////////

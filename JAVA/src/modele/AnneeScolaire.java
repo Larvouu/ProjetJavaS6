@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * Une année scolaire est composée d'un seul attribut : la valeur de l'année. Cette classe n'a pas de méthode propre à elle.
  * @author ghias
  */
 public class AnneeScolaire {

@@ -22,8 +22,11 @@ import vue.JChartLine;
 import vue.JpanelAfficherEleveClasse;
 
 /**
- *
+ *Permet de gerer les personnes grace a la bdd
+ * @author Inna
  * @author ghias
+ * @author Sarah
+ *
  */
 public class PersonneDAO extends DAO<Personne> {
 
@@ -34,7 +37,7 @@ public class PersonneDAO extends DAO<Personne> {
     /**
      * Méthode de création
      *
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     public boolean create(Personne obj) {
@@ -85,6 +88,11 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Methode de Sarah : create avec 4 paramètres
+     * @param obj Personne
+     * @param nomEleve String 
+     * @param prenomEleve String 
+     * @param niveauSelection String
+     * @return boolean
      */
     public boolean createEleveParEnseignant(Personne obj, String nomEleve, String prenomEleve, String niveauSelection) {
         String typeEleve = "eleve";
@@ -124,8 +132,7 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Méthode suppression
-     *
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     @Override
@@ -224,7 +231,7 @@ public class PersonneDAO extends DAO<Personne> {
     /**
      * Méthode update
      *
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     public boolean update(Personne obj) {
@@ -298,7 +305,12 @@ public class PersonneDAO extends DAO<Personne> {
         return b;
 
     }
-
+/**
+     * Methods pour trouver une Personne
+     *
+     * @param id int
+     * @return Personne 
+     */
     public Personne find(int id) {
         Personne personne = new Personne();
 
@@ -320,7 +332,12 @@ public class PersonneDAO extends DAO<Personne> {
 
         return personne;
     }
-
+/**
+ *Permet de trouver un ELeve
+ * @param nom String
+ * @param prenom String
+ *
+ */
     //rechercher un eleve
     public boolean rechercherEleve(String nom, String prenom, JpanelAfficherEleveClasse page) 
     {
@@ -397,6 +414,7 @@ public class PersonneDAO extends DAO<Personne> {
     public boolean rechercherProf(String nom, String prenom, JpanelAfficherEleveClasse page) 
     {
         page.setLayout(null);
+
         boolean b = true;
         try {
             //Premiere requete
@@ -482,6 +500,7 @@ public class PersonneDAO extends DAO<Personne> {
 
     public boolean rechercherClassesDontJeSuisProf(Personne personne, JpanelAfficherEleveClasse page) {
         boolean b = true;
+
         String prenom = personne.getPrenom();
         String nom = personne.getNom();
         page.setLayout(null);
@@ -555,6 +574,11 @@ public class PersonneDAO extends DAO<Personne> {
         return b;
     }
 
+    /**
+ *Modifier prof depuis Admin
+ * @param choix String
+ *
+ */
     public void modifierProfDepuisAdmin(String choix) {
         String nom = "";
         String prenom = "";
@@ -611,7 +635,12 @@ public class PersonneDAO extends DAO<Personne> {
                 break;
         }
     }
-
+/**
+ *Modifiier eleve depuis Admin
+ * @param choix String
+ * 
+ *
+ */
     public void modifierEleveDepuisAdmin(String choix) {
         String nom = "";
         String prenom = "";
@@ -668,7 +697,11 @@ public class PersonneDAO extends DAO<Personne> {
                 break;
         }
     }
-
+/**
+ *Modifiier discipline Prof depuis Admin
+ * 
+ *
+ */
     public void modifierDisciplineProfDepuisAdmin() {
         String nom = "";
         String prenom = "";
@@ -740,7 +773,11 @@ public class PersonneDAO extends DAO<Personne> {
             System.out.println(exception);
         }
     }
-
+/**
+ *Modifiier Classe Eleve depuis Admin
+ * 
+ *
+ */
     public void modifierClasseEleveDepuisAdmin() {
         String nom = "";
         String prenom = "";
@@ -802,6 +839,13 @@ public class PersonneDAO extends DAO<Personne> {
         }
     }
 
+    /**
+ *Modifiier  Affichage graphe
+ * @param personne Personne
+ * @param graph pour l'affichage du graphe
+ * 
+ *
+ */
     public boolean afficherGraphe(Personne personne,JChartLine graph) {
         Scanner sc = new Scanner(System.in);
         //true par défaut, on passea à false si ca foire quelque part

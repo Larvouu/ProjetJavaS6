@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Page de l'administrateur.
  * @author Sarah
  */
 public class JpanelAdmin extends javax.swing.JPanel {

@@ -17,8 +17,10 @@ import modele.Niveau;
 import modele.Personne;
 
 /**
- *
+ *Permet de gerer les Inscriptions grace a la bdd
+ * @author Inna
  * @author ghias
+ *
  */
 public class InscriptionDAO extends DAO<Inscription>
 {
@@ -35,7 +37,15 @@ public class InscriptionDAO extends DAO<Inscription>
     }
 
     public boolean create (Inscription obj) {return false;}
-
+/**
+     * Methods pour creer une inscription  une note
+     *
+     * @param obj Inscription
+     * @param  personne Personne
+     * @param classe Classe
+     * @param niveauSelection String
+     * @return boolean 
+     */
     //Pas encore implémentée
     public boolean create_inscription(Inscription obj,Personne personne, Classe classe, String niveauSelection)
     {
@@ -402,7 +412,12 @@ public class InscriptionDAO extends DAO<Inscription>
         return false;
     }
     
-    
+    /**
+     * Methods pour trouver une inscription
+     *
+     * @param id int
+     * @return Inscription 
+     */
     public Inscription find(int id)
     {
         Inscription inscription = new Inscription();

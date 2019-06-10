@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * Page de connexion (élève, prof, ou admin)
  * @author Sarah
  */
 public class JpanelPageConnexion extends javax.swing.JPanel {

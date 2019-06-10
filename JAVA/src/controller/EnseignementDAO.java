@@ -12,8 +12,9 @@ import java.sql.SQLException;
 import modele.*;
 
 /**
- *
+ *Permet de gerer les ecole grace a la bdd
  * @author ghias
+ *
  */
 public class EnseignementDAO extends DAO<Enseignement> {
     
@@ -40,7 +41,12 @@ public class EnseignementDAO extends DAO<Enseignement> {
     {
         return false;
     }
-    
+   /**
+ * Find Enseignement DAO 
+ * @param id  int
+ * @return  Enseignement
+ * 
+ */  
     
     public Enseignement find(int id)
     {

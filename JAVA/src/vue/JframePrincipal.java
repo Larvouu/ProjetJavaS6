@@ -6,7 +6,7 @@
 package vue;
 
 /**
- *
+ * La fenetre JFrame principale du projet. C'est elle qui gère tous les Panels qui s'affichent successivement.
  * @author Sarah
  */
 public class JframePrincipal extends javax.swing.JFrame {
