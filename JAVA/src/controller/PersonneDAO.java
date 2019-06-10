@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,10 +13,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import modele.Inscription;
 import modele.Personne;
 import vue.JChartLine;
+import vue.JpanelAfficherEleveClasse;
 
 /**
  *
@@ -318,8 +322,10 @@ public class PersonneDAO extends DAO<Personne> {
     }
 
     //rechercher un eleve
-    public boolean rechercherEleve(String nom, String prenom) {
+    public boolean rechercherEleve(String nom, String prenom, JpanelAfficherEleveClasse page) 
+    {
         boolean b = true;
+        page.setLayout(null);
         try {
             //Premiere requete
             String sql = "SELECT * FROM personne WHERE prenom = ? AND nom = ? AND type = ?";
@@ -328,6 +334,17 @@ public class PersonneDAO extends DAO<Personne> {
             pst.setString(2, nom);
             pst.setString(3, "eleve");
             ResultSet rs_find = pst.executeQuery();
+            //////////////////////////////////////////////
+            JLabel l = new JLabel("infos");
+            page.add(l);
+            l.setText("Informations de l'élève recherché : ");
+            Dimension s = l.getPreferredSize();
+            l.setBounds(70, 70,s.width, s.height);
+
+            
+
+           
+            ////////////////////////////////////////////
 
             //if j'ai un résultat
             if (rs_find.next()) {
@@ -337,6 +354,18 @@ public class PersonneDAO extends DAO<Personne> {
                 System.out.println("Prenom : " + rs_find.getString("prenom"));
                 System.out.println("Nom : " + rs_find.getString("nom"));
                 InscriptionDAO inscriptionDAO = new InscriptionDAO(this.connect);
+                
+                JLabel l2 = new JLabel("infos");
+                page.add(l2);
+                l2.setText("Nom  : "+ rs_find.getString("nom"));
+                Dimension sl2 = l2.getPreferredSize();
+                l2.setBounds(100, 30+60,sl2.width, sl2.height);
+                
+                JLabel l3 = new JLabel("infos");
+                page.add(l3);
+                l3.setText("Prénom : "+ rs_find.getString("prenom"));
+                Dimension sl3 = l3.getPreferredSize();
+                l3.setBounds(100, 50+60,sl3.width, sl3.height);
 
                 // Deuxieme requete
                 String sql2 = "SELECT * FROM inscription WHERE personne_id = ?";
@@ -345,11 +374,18 @@ public class PersonneDAO extends DAO<Personne> {
                 ResultSet rs_2 = pst2.executeQuery();
 
                 //if j'ai un résultat de la requete deux
-                if (rs_2.next()) {
+                if (rs_2.next()) 
+                {
                     System.out.println("Classe : " + inscriptionDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                    JLabel l4 = new JLabel("infos");
+                    page.add(l4);
+                    l4.setText("Classe : "+inscriptionDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                    Dimension sl4 = l4.getPreferredSize();
+                    l4.setBounds(100, 70+60,sl4.width, sl4.height);
                 }
             } else {
                 b = false;
+                JOptionPane.showMessageDialog(null, "Cet élève n'existe pas.");
             }
         } catch (SQLException exception) {
             System.out.println(exception);
@@ -358,7 +394,9 @@ public class PersonneDAO extends DAO<Personne> {
     }
 
     //rechercher un prof
-    public boolean rechercherProf(String nom, String prenom) {
+    public boolean rechercherProf(String nom, String prenom, JpanelAfficherEleveClasse page) 
+    {
+        page.setLayout(null);
         boolean b = true;
         try {
             //Premiere requete
@@ -377,20 +415,64 @@ public class PersonneDAO extends DAO<Personne> {
                 System.out.println("Prenom : " + rs_find.getString("prenom"));
                 System.out.println("Nom : " + rs_find.getString("nom"));
                 EnseignementDAO enseignementDAO = new EnseignementDAO(this.connect);
+                
+                ///////////////////////////////////////////////////////
+                JLabel l = new JLabel("infos");
+                page.add(l);
+                l.setText("Informations de l'enseignant recherché : ");
+                Dimension s = l.getPreferredSize();
+                l.setBounds(70, 70,s.width, s.height);
+                
+                JLabel l2 = new JLabel("infos");
+                page.add(l2);
+                l2.setText("Nom  : "+ rs_find.getString("nom"));
+                Dimension sl2 = l2.getPreferredSize();
+                l2.setBounds(100, 30+60,sl2.width, sl2.height);
+                
+                JLabel l3 = new JLabel("infos");
+                page.add(l3);
+                l3.setText("Prénom : "+ rs_find.getString("prenom"));
+                Dimension sl3 = l3.getPreferredSize();
+                l3.setBounds(100, 50+60,sl3.width, sl3.height);
+                
+                 JLabel l4 = new JLabel("infos");
+                page.add(l4);
+                l4.setText("Classes dans lesquelles le professeur enseigne : ");
+                Dimension sl4 = l4.getPreferredSize();
+                l4.setBounds(70, 70+60,sl4.width, sl4.height);
+                //////////////////////////////////////////////////////
 
                 // Deuxieme requete
                 String sql2 = "SELECT * FROM enseignement WHERE personne_id = ?";
                 PreparedStatement pst2 = connect.prepareStatement(sql2);
                 pst2.setInt(1, rs_find.getInt("id"));
                 ResultSet rs_2 = pst2.executeQuery();
+                int i = 0;
+                int cpt =0;
 
                 //if j'ai un résultat de la requete deux
-                while (rs_2.next()) {
+                while (rs_2.next()) 
+                {
+                    i++;
+                    cpt++;
                     System.out.println("Classe : " + enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
                     System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
+                    JLabel l5 = new JLabel("eleveClasse"); 
+                    page.add(l5);
+                    l5.setText("Classe #"+cpt+" : "+enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                    Dimension s5 = l5.getPreferredSize();
+                    l5.setBounds(100, (i*20)+70+60, s5.width, s5.height);
+
+                    JLabel l6 = new JLabel("eleveClassek"); 
+                    page.add(l6);
+                    l6.setText("Discipline: "+enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
+                    Dimension size6 = l6.getPreferredSize();
+                    l6.setBounds(100, (i*20)+90+60, size6.width, size6.height);
+                    i++;
                 }
             } else {
                 b = false;
+                JOptionPane.showMessageDialog(null, "Cet enseignant n'existe pas.");
             }
         } catch (SQLException exception) {
             System.out.println(exception);
@@ -398,10 +480,12 @@ public class PersonneDAO extends DAO<Personne> {
         return b;
     }
 
-    public void rechercherClassesDontJeSuisProf(Personne personne) {
+    public boolean rechercherClassesDontJeSuisProf(Personne personne, JpanelAfficherEleveClasse page) {
+        boolean b = true;
         String prenom = personne.getPrenom();
         String nom = personne.getNom();
-
+        page.setLayout(null);
+        
         Scanner sc = new Scanner(System.in);
         /*System.out.println("---------- IDENTIFIEZ VOUS ---------");
          System.out.println("Prenom");
@@ -430,16 +514,45 @@ public class PersonneDAO extends DAO<Personne> {
                 ResultSet rs_2 = pst2.executeQuery();
 
                 System.out.println("------------ VOUS ENSEIGNEZ DANS LES CLASSES SUIVANTES ---------------");
+                JLabel l4 = new JLabel("infos");
+                page.add(l4);
+                l4.setText("Vous enseignez dans les classes suivantes : ");
+                Dimension sl4 = l4.getPreferredSize();
+                l4.setBounds(70, 70,sl4.width, sl4.height);
                 //if j'ai un résultat de la requete deux
-                while (rs_2.next()) {
+                int i = 0;
+                int cpt =0;
+                while (rs_2.next()) 
+                {
+                    i++;
+                    cpt++;
                     System.out.println("Classe : " + enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
                     System.out.println("Discipline  : " + enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
                     System.out.println();
+                    //////////////////////////////////////////////////
+                    JLabel l5 = new JLabel("eleveClasse"); 
+                    page.add(l5);
+                    l5.setText("Classe #"+cpt+" : "+enseignementDAO.find(rs_2.getInt("id")).getClasse().getNom());
+                    Dimension s5 = l5.getPreferredSize();
+                    l5.setBounds(100, (i*20)+70, s5.width, s5.height);
+
+                    JLabel l6 = new JLabel("eleveClassek"); 
+                    page.add(l6);
+                    l6.setText("Discipline: "+enseignementDAO.find(rs_2.getInt("id")).getDiscipline().getNom());
+                    Dimension size6 = l6.getPreferredSize();
+                    l6.setBounds(100, (i*20)+90, size6.width, size6.height);
+                    ////////////////////////////////////////////////////
+                    i++;
                 }
+            }
+            else{
+                b = false ; 
+                System.out.println("Pas rentré dans le if");
             }
         } catch (SQLException exception) {
             System.out.println(exception);
         }
+        return b;
     }
 
     public void modifierProfDepuisAdmin(String choix) {

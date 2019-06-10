@@ -621,15 +621,24 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                 /////////////////////////////
+                JFrame frame = new JFrame();
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
+                ////////////////////////////
                 PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
                String nom = pageRechercherEleveParEnseignant.getjTextFieldNom().getText();
                String prenom = pageRechercherEleveParEnseignant.getjTextFieldPrenom().getText();
                
-               if(personneDAO_admin.rechercherEleve(nom,prenom))
+               if(personneDAO_admin.rechercherEleve(nom,prenom,pageAfficherEleveClasse))
                {
                    jframe1.remove(pageRechercherEleveParEnseignant);
                    jframe1.setContentPane(pageEnseignant);
                    jframe1.setVisible(true);
+                   frame.remove(pageRechercherProf);
+                    frame.setContentPane(pageAfficherEleveClasse);
+                    frame.setSize(500, 400);
+                    frame.setVisible(true);
                }
                
             }
@@ -640,8 +649,19 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                /////////////////////////////
+                JFrame frame = new JFrame();
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
+                ////////////////////////////
                 PersonneDAO personneDAO_cdjsp = new PersonneDAO(maConnexion.getConnection());
-                personneDAO_cdjsp.rechercherClassesDontJeSuisProf(personne);
+                if(personneDAO_cdjsp.rechercherClassesDontJeSuisProf(personne,pageAfficherEleveClasse))
+                {
+                    frame.remove(pageRechercherProf);
+                    frame.setContentPane(pageAfficherEleveClasse);
+                    frame.setSize(500, 400);
+                    frame.setVisible(true);
+                }
                 
             }
         });
@@ -687,13 +707,21 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                /////////////////////////////
+                JFrame frame = new JFrame();
                
+                JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
+                ////////////////////////////
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
                String nom = pageRechercherEleve.getjTextFieldNomRecherche().getText();
                String prenom = pageRechercherEleve.getjTextFieldPrenomRecherche().getText();
-               if(personneDAO_admin.rechercherEleve(nom,prenom))
+               if(personneDAO_admin.rechercherEleve(nom,prenom,pageAfficherEleveClasse))
                {
-                   
+                    
+                   frame.remove(pageRechercherEleve);
+                    frame.setContentPane(pageAfficherEleveClasse);
+                    frame.setSize(500, 400);
+                    frame.setVisible(true);
                    
                }
             }
@@ -731,10 +759,21 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
+                /////////////////////////////
+                JFrame frame = new JFrame();
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
+                ////////////////////////////
                String nom = pageRechercherProf.getjTextFieldNom().getText();
                String prenom = pageRechercherProf.getjTextFieldPrenom().getText();
                PersonneDAO personneDAO_admin = new PersonneDAO(maConnexion.getConnection());
-               personneDAO_admin.rechercherProf(nom, prenom);
+               if(personneDAO_admin.rechercherProf(nom, prenom,pageAfficherEleveClasse))
+               {
+                   frame.remove(pageRechercherProf);
+                    frame.setContentPane(pageAfficherEleveClasse);
+                    frame.setSize(500, 400);
+                    frame.setVisible(true);
+               }
                
             }
         });
@@ -773,7 +812,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) 
             {
                 JFrame frame = new JFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 JpanelAfficherEleveClasse pageAfficherEleveClasse = new JpanelAfficherEleveClasse();
 
                 //Utile pour récupérer ce que le user a selectionné
@@ -805,10 +844,7 @@ public class Main {
                     frame.setContentPane(pageAfficherEleveClasse);
                     frame.setSize(500, 700);
                     frame.setVisible(true);
-                    
-                    
-                    
-                    
+
                 }
             }
         });
