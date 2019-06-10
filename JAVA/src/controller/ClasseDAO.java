@@ -159,6 +159,7 @@ public class ClasseDAO extends DAO<Classe>{
                         System.out.println("Nom: "+rs3.getString("nom"));
                         System.out.println("Prenom : "+ rs3.getString("prenom"));
                        
+                        
                         System.out.println("");
                         
                         JLabel lab1 = new JLabel("eleveClasse"); 
