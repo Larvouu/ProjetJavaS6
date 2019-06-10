@@ -32,7 +32,7 @@ public class BulletinDAO extends DAO<Bulletin> {
     }
     /**
  * Afficher Bulletin DAO affiche un  bulletin
- * @param eleve
+ * @param eleve eleve
  * 
  */
     public void Afficher_bulletinDAO(Personne eleve)
@@ -227,7 +227,7 @@ public class BulletinDAO extends DAO<Bulletin> {
     
         /**
  * Create Bulletin DAO 
- * @param Bulletin obj
+ * @param obj bulletin
  * @return false
  * 
  */
@@ -240,8 +240,8 @@ public class BulletinDAO extends DAO<Bulletin> {
 
         /**
  * Create Bulletin DAO 
- * @param Bulletin obj 
- * @param Personne eleve
+ * @param obj bulletin 
+ * @param eleve personne
  * @return int Bulletin_id
  * 
  */
@@ -344,7 +344,7 @@ else
     
  /**
  * Find Bulletin DAO 
- * @param int obj 
+ * @param id int
  * @return Bulletin Bulletin_id
  * 
  */

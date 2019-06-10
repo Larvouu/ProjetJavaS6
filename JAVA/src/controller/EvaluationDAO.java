@@ -32,9 +32,8 @@ public class EvaluationDAO extends DAO<Evaluation> {
     /**
      * Methods pour ajouter une note
      *
-     * @param obj
-     * @param obj 
-     * @param  prof
+     * @param obj Evaluation
+     * @param  prof Personne
      * @return boolean 
      */
     public boolean create_eval(Evaluation obj, Personne prof) {

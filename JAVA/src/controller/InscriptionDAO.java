@@ -40,11 +40,10 @@ public class InscriptionDAO extends DAO<Inscription>
 /**
      * Methods pour creer une inscription  une note
      *
-     * @param obj
-     * @param obj 
-     * @param  personne
-     * @param classe
-     * @param niveauSelection
+     * @param obj Inscription
+     * @param  personne Personne
+     * @param classe Classe
+     * @param niveauSelection String
      * @return boolean 
      */
     //Pas encore implémentée
@@ -416,7 +415,7 @@ public class InscriptionDAO extends DAO<Inscription>
     /**
      * Methods pour trouver une inscription
      *
-     * @param int
+     * @param id int
      * @return Inscription 
      */
     public Inscription find(int id)

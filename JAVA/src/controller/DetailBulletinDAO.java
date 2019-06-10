@@ -25,9 +25,9 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
     }
  /**
  * Create Detail Bulletin DAO 
- * @param DetailBulletin obj 
- * @param Personne eleve
- * @param Personne prof
+ * @param obj DetailBulletin
+ * @param  eleve Personne
+ * @param  prof Personne
  * @return int DetailBulletin_id
  * 
  */
@@ -175,7 +175,7 @@ public class DetailBulletinDAO extends DAO<DetailBulletin> {
     }
  /**
  * Find DetailBulletin DAO 
- * @param id  
+ * @param id  int
  * @return  DetailBulletin
  * 
  */

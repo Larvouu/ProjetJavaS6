@@ -43,7 +43,7 @@ public class EnseignementDAO extends DAO<Enseignement> {
     }
    /**
  * Find Enseignement DAO 
- * @param id  
+ * @param id  int
  * @return  Enseignement
  * 
  */  

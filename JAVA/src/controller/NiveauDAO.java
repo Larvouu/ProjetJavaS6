@@ -48,7 +48,7 @@ public class NiveauDAO extends DAO<Niveau>{
     /**
      * Methods pour trouver un niveau
      *
-     * @param int
+     * @param id int
      * @return Niveau 
      */
     public Niveau find(int id)

@@ -44,7 +44,7 @@ public class DisciplineDAO extends DAO<Discipline>{
     }
      /**
  * Find discipline DAO 
- * @param id  
+ * @param id  int
  * @return  Discipline
  * 
  */

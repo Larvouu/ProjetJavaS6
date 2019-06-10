@@ -33,7 +33,7 @@ public class PersonneDAO extends DAO<Personne> {
     /**
      * Méthode de création
      *
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     public boolean create(Personne obj) {
@@ -84,10 +84,11 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Methode de Sarah : create avec 4 paramètres
-     * @param obj
-     * @param nomEleve
-     * @param prenomEleve
-     * @param niveauSelection
+     * @param obj Personne
+     * @param nomEleve String 
+     * @param prenomEleve String 
+     * @param niveauSelection String
+     * @return boolean
      */
     public boolean createEleveParEnseignant(Personne obj, String nomEleve, String prenomEleve, String niveauSelection) {
         String typeEleve = "eleve";
@@ -127,7 +128,7 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
      * Méthode suppression
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     @Override
@@ -226,7 +227,7 @@ public class PersonneDAO extends DAO<Personne> {
     /**
      * Méthode update
      *
-     * @param obj
+     * @param obj Personne
      * @return boolean
      */
     public boolean update(Personne obj) {
@@ -303,7 +304,7 @@ public class PersonneDAO extends DAO<Personne> {
 /**
      * Methods pour trouver une Personne
      *
-     * @param int
+     * @param id int
      * @return Personne 
      */
     public Personne find(int id) {
@@ -329,8 +330,8 @@ public class PersonneDAO extends DAO<Personne> {
     }
 /**
  *Permet de trouver un ELeve
- * @param nom
- * @param prenom
+ * @param nom String
+ * @param prenom String
  *
  */
     //rechercher un eleve
@@ -375,8 +376,8 @@ public class PersonneDAO extends DAO<Personne> {
 
 /**
  *rechercher un prof
- * @param nom
- * @param prenom
+ * @param nom String
+ * @param prenom String
  *
  */
    
@@ -421,7 +422,7 @@ public class PersonneDAO extends DAO<Personne> {
     }
 /**
  *rechercher Classe dont je suis prof
- * @param personne
+ * @param personne Personne
  *
  */
     public void rechercherClassesDontJeSuisProf(Personne personne) {
@@ -470,7 +471,7 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
  *Modifier prof depuis Admin
- * @param choix
+ * @param choix String
  *
  */
     public void modifierProfDepuisAdmin(String choix) {
@@ -531,7 +532,7 @@ public class PersonneDAO extends DAO<Personne> {
     }
 /**
  *Modifiier eleve depuis Admin
- * @param choix
+ * @param choix String
  * 
  *
  */
@@ -735,8 +736,8 @@ public class PersonneDAO extends DAO<Personne> {
 
     /**
  *Modifiier  Affichage graphe
- * @param personne
- * @param graph
+ * @param personne Personne
+ * @param graph pour l'affichage du graphe
  * 
  *
  */

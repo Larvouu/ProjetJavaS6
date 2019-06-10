@@ -27,6 +27,7 @@ public class JChartLine extends JFrame {
     JFreeChart chart;
     /**
      * Creates new form JChartLine
+     * @param title 
      */
     public JChartLine(String title) {
         super(title);  
